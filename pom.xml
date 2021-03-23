@@ -9,7 +9,7 @@
     <packaging>pom</packaging>
     <url>https://github.com/github-xixiwan/xxw-platform</url>
     <name>xxw-platform</name>
-    <description>xxw-platform project for Spring Boot2</description>
+    <description>xxw-platform</description>
 
     <licenses>
         <license>
@@ -38,8 +38,10 @@
     </developers>
 
     <modules>
-        <!-- module -->
+        <!-- modules -->
         <module>xxw-platform-dependencies</module>
+        <module>xxw-platform-applications</module>
+        <module>xxw-platform-starters</module>
     </modules>
 
     <properties>

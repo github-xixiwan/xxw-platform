@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false">
+	<property name="LOG_HOME" value="logs" />
+	<property name="APP_NAME" value="xixiwan-platform-monitor" />
+	<include resource="logback-base.xml" />
+</configuration>
