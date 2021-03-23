@@ -2,7 +2,11 @@ server:
   port: 9999
 spring:
   application:
-    name: monitor
+    name: admin
+  security:
+    user:
+      name: admin
+      password: 123456
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8

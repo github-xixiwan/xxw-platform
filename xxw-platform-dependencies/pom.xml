@@ -21,7 +21,7 @@
         <!-- Module Plugin Versions -->
         <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
         <spring-cloud-alibaba.version>2.2.2.RELEASE</spring-cloud-alibaba.version>
-        <spring-boot-admin.version>2.4.0</spring-boot-admin.version>
+        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
 
         <!-- Maven Plugin Versions -->
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
