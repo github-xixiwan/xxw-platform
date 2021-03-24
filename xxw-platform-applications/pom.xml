@@ -15,5 +15,6 @@
 
     <modules>
         <module>xxw-platform-admin</module>
+        <module>xxw-platform-order</module>
     </modules>
 </project>

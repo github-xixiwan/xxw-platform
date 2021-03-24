@@ -4,8 +4,8 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-admin</artifactId>
-    <name>xxw-platform-admin</name>
+    <artifactId>xxw-platform-order</artifactId>
+    <name>xxw-platform-order</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -28,8 +28,12 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+        <dependency>
             <groupId>de.codecentric</groupId>
-            <artifactId>spring-boot-admin-starter-server</artifactId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -69,7 +73,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.AdminApplication</mainClass>
+                    <mainClass>com.xxw.platform.OrderApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>
@@ -96,6 +100,7 @@
                 <directory>src/main/resources/config</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <include>bootstrap.yml</include>
                     <include>application.yml</include>
                     <include>application.properties</include>
                 </includes>
@@ -104,6 +109,7 @@
                 <directory>src/main/resources/config/${profileActive}</directory>
                 <filtering>true</filtering>
                 <includes>
+                    <include>bootstrap-${profileActive}.yml</include>
                     <include>application-${profileActive}.yml</include>
                     <include>application-${profileActive}.properties</include>
                 </includes>
