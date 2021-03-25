@@ -41,6 +41,10 @@
             <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-order-api</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-pay-api</artifactId>
+        </dependency>
     </dependencies>
 
     <profiles>
