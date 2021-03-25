@@ -1,8 +1,8 @@
 package com.xxw.platform.util.http;
 
+import com.xxw.platform.util.json.JsonUtil;
 import com.xxw.platform.util.collection.ListUtil;
 import com.xxw.platform.util.exception.UtilException;
-import com.xxw.platform.util.json.JsonUtil;
 import com.xxw.platform.util.map.MapUtil;
 import com.xxw.platform.util.result.Result;
 import com.xxw.platform.util.string.StringUtil;

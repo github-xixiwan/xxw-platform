@@ -1,4 +1,4 @@
-package com.xxw.platform;
+package com.xxw.platform.order;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

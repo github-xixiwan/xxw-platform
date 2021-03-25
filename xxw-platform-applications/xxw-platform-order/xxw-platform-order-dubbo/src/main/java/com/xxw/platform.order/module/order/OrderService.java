@@ -1,4 +1,4 @@
-package com.xxw.platform.module.order;
+package com.xxw.platform.order.module.order;
 
 import com.xxw.platform.util.result.Result;
 import org.springframework.beans.factory.annotation.Value;

@@ -1,4 +1,4 @@
-package com.xxw.platform;
+package com.xxw.platform.admin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

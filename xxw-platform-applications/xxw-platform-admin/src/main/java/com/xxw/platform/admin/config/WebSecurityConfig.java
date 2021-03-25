@@ -1,4 +1,4 @@
-package com.xxw.platform.config;
+package com.xxw.platform.admin.config;
 
 import de.codecentric.boot.admin.server.config.AdminServerProperties;
 import de.codecentric.boot.admin.server.config.EnableAdminServer;

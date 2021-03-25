@@ -1,6 +1,6 @@
-package com.xxw.platform.controller.order;
+package com.xxw.platform.order.controller.order;
 
-import com.xxw.platform.module.order.OrderService;
+import com.xxw.platform.order.module.order.OrderService;
 import com.xxw.platform.util.result.Result;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
