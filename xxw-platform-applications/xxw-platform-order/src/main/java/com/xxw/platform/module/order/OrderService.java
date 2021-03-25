@@ -1,15 +1,19 @@
 package com.xxw.platform.module.order;
 
 import com.xxw.platform.util.result.Result;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
 
 @Service
-@Validated
+@RefreshScope
 public class OrderService {
 
+    @Value("${name:word}")
+    private String name;
+
     public Result<String> hello() {
-        return Result.success("word");
+        return Result.success(name);
     }
 
 }
