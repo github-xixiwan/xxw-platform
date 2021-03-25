@@ -4,3 +4,9 @@ spring:
       discovery:
         server-addr: 106.14.132.211:8848
         namespace: xxw-platform
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999
+        username: admin
+        password: 123456
