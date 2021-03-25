@@ -68,6 +68,11 @@
                 <artifactId>xxw-platform-order-api</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-pay-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.google.guava</groupId>

@@ -1,8 +1,8 @@
-package com.xxw.platform.order.api;
+package com.xxw.platform.pay.api;
 
 import com.xxw.platform.util.result.Result;
 
-public interface OrderApi {
+public interface PayApi {
 
     Result<String> hello();
 

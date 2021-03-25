@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 106.14.132.211:8848
+        namespace: xxw-platform
+        group: xxw-platform-pay
+        file-extension: properties
