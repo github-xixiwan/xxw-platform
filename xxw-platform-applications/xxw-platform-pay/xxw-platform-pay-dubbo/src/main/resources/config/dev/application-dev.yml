@@ -4,6 +4,23 @@ spring:
       discovery:
         server-addr: 106.14.132.211:8848
         namespace: xxw-platform
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      datasource:
+        ds:
+          nacos:
+            ### nacos连接地址
+            server-addr: 106.14.132.211:8848
+            ## nacos连接的分组
+            group-id: xxw-platform-pay
+            ### 读取配置文件的 data-id
+            data-id: ${spring.application.name}-@profileActive@-sentinel
+            namespace: xxw-platform
+            ###路由存储规则
+            rule-type: flow
+            ###  读取培训文件类型为json
+            data-type: json
   boot:
     admin:
       client:

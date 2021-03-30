@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8081
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -22,3 +22,4 @@ dubbo:
     name: dubbo
     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
     port: -1
+
