@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 8082
 spring:
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
@@ -16,11 +16,10 @@ management:
 dubbo:
   scan:
     # dubbo 服务扫描基准包
-    base-packages: com.xxw.platform.order.module
+    base-packages: com.xxw.platform.waybill.module
   protocol:
     # dubbo 协议
     name: dubbo
     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
     port: -1
-  cloud:
-    subscribed-services: pay,waybill
+

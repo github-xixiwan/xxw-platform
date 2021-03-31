@@ -4,12 +4,12 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-order-dubbo</artifactId>
-    <name>xxw-platform-order-dubbo</name>
+    <artifactId>xxw-platform-waybill-dubbo</artifactId>
+    <name>xxw-platform-waybill-dubbo</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
-        <artifactId>xxw-platform-order</artifactId>
+        <artifactId>xxw-platform-waybill</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -51,14 +51,6 @@
 
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-order-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-pay-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-waybill-api</artifactId>
         </dependency>
     </dependencies>
@@ -94,7 +86,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.order.OrderApplication</mainClass>
+                    <mainClass>com.xxw.platform.waybill.WaybillApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>

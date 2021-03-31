@@ -2,21 +2,19 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-applications</artifactId>
-    <name>xxw-platform-applications</name>
+    <artifactId>xxw-platform-waybill</artifactId>
+    <name>xxw-platform-waybill</name>
     <packaging>pom</packaging>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
-        <artifactId>xxw-platform</artifactId>
+        <artifactId>xxw-platform-applications</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <modules>
-        <module>xxw-platform-admin</module>
-        <module>xxw-platform-order</module>
-        <module>xxw-platform-waybill</module>
-        <module>xxw-platform-pay</module>
+        <module>xxw-platform-waybill-api</module>
+        <module>xxw-platform-waybill-dubbo</module>
     </modules>
 </project>
