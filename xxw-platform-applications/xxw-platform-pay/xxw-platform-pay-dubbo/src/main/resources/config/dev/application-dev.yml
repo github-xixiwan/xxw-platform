@@ -2,8 +2,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 106.14.132.211:8848
-        namespace: xxw-platform
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
     sentinel:
       transport:
         dashboard: 127.0.0.1:8080
@@ -11,12 +11,12 @@ spring:
         ds:
           nacos:
             ### nacos连接地址
-            server-addr: 106.14.132.211:8848
+            server-addr: ${spring.cloud.nacos.config.server-addr}
             ## nacos连接的分组
-            group-id: xxw-platform-pay
+            group-id: ${spring.cloud.nacos.config.group}
             ### 读取配置文件的 data-id
             data-id: ${spring.application.name}-@profileActive@-sentinel
-            namespace: xxw-platform
+            namespace: ${spring.cloud.nacos.config.namespace}
             ###路由存储规则
             rule-type: flow
             ###  读取培训文件类型为json
