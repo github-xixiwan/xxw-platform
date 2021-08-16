@@ -4,6 +4,7 @@ spring:
       discovery:
         server-addr: 106.14.132.211:8848
         namespace: xxw-platform
+        group: dev
   security:
     user:
       name: admin
