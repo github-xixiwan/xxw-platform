@@ -7,6 +7,9 @@ spring:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     default-property-inclusion: NON_NULL
+  thymeleaf:
+    check-template: false
+    check-template-location: false
   profiles:
     active: @profileActive@
 management:

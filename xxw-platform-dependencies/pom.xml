@@ -19,9 +19,9 @@
         <project.reporting.outputEncoding>${encoding.version}</project.reporting.outputEncoding>
 
         <!-- Maven Spring Versions -->
-        <spring-boot.version>2.3.2.RELEASE</spring-boot.version>
-        <spring-cloud-alibaba.version>2.2.5.RELEASE</spring-cloud-alibaba.version>
-        <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
+        <spring-boot.version>2.4.3</spring-boot.version>
+        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
+        <spring-boot-admin.version>2.4.3</spring-boot-admin.version>
 
         <!-- Maven Plugin Versions -->
         <maven-source-plugin.version>2.2.1</maven-source-plugin.version>
