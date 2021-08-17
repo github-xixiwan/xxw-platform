@@ -7,7 +7,7 @@ spring:
         group: ${spring.cloud.nacos.config.group}
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        dashboard: 127.0.0.1:8888
       datasource:
         ds:
           nacos:
