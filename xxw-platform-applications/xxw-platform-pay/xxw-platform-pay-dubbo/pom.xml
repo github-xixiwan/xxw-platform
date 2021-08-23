@@ -21,10 +21,6 @@
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-pay-api</artifactId>
         </dependency>
         <dependency>

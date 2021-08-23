@@ -6,7 +6,7 @@ package com.xxw.platform.util.exception;
  * @author ethan
  * @since 2019/11/18
  */
-public class BusinessException extends BaseException  {
+public class BusinessException extends BaseException {
 
     public BusinessException(Integer code, String message) {
         super(code, message);

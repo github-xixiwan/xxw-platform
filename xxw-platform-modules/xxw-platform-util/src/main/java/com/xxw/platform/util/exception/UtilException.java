@@ -6,7 +6,7 @@ package com.xxw.platform.util.exception;
  * @author ethan
  * @since 2019/11/18
  */
-public class UtilException  extends BaseException {
+public class UtilException extends BaseException {
     public UtilException(Throwable cause) {
         super(cause);
     }

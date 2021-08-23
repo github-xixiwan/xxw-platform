@@ -2,7 +2,7 @@ package com.xxw.platform.order.module.order;
 
 import com.xxw.platform.order.api.OrderApi;
 import com.xxw.platform.pay.api.PayApi;
-import com.xxw.platform.util.result.Result;
+import com.xxw.platform.util.rest.Result;
 import com.xxw.platform.waybill.api.WaybillApi;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;

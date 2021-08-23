@@ -1,7 +1,7 @@
 package com.xxw.platform.waybill.controller.waybill;
 
+import com.xxw.platform.util.rest.Result;
 import com.xxw.platform.waybill.module.waybill.WaybillService;
-import com.xxw.platform.util.result.Result;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

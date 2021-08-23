@@ -2,7 +2,7 @@ package com.xxw.platform.order.controller.order;
 
 import com.xxw.platform.order.module.order.OrderService;
 import com.xxw.platform.order.module.order.stream.produce.OrderProduce;
-import com.xxw.platform.util.result.Result;
+import com.xxw.platform.util.rest.Result;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

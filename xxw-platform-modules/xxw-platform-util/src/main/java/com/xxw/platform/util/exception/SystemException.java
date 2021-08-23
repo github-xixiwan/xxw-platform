@@ -6,7 +6,7 @@ package com.xxw.platform.util.exception;
  * @author ethan
  * @since 2019/11/18
  */
-public class SystemException  extends BaseException {
+public class SystemException extends BaseException {
     public SystemException(Integer code, String message) {
         super(code, message);
     }

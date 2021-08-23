@@ -1,4 +1,4 @@
-package com.xxw.platform.util.result;
+package com.xxw.platform.util.rest;
 
 import com.xxw.platform.util.exception.BaseException;
 import com.xxw.platform.util.exception.ErrorEnumInterface;

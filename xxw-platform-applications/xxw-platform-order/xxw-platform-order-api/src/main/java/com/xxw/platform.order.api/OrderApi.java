@@ -1,6 +1,6 @@
 package com.xxw.platform.order.api;
 
-import com.xxw.platform.util.result.Result;
+import com.xxw.platform.util.rest.Result;
 
 public interface OrderApi {
 

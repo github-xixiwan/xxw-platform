@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<included>
+    <include
+            resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include
+            resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <appender name="FILE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME:-logs}/${APP_NAME}/info/${APP_NAME}.log</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${LOG_HOME:-logs}/${APP_NAME}/info/%d{yyyy-MM-dd}.%i.log.zip
+            </FileNamePattern>
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>100GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="GATE"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME:-logs}/${APP_NAME}/gate/${APP_NAME}.log</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${LOG_HOME:-logs}/${APP_NAME}/gate/%d{yyyy-MM-dd}.%i.log.zip
+            </FileNamePattern>
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>100GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="EX"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_HOME:-logs}/${APP_NAME}/ex/${APP_NAME}.log</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>
+                ${LOG_HOME:-logs}/${APP_NAME}/ex/%d{yyyy-MM-dd}.%i.log.zip
+            </FileNamePattern>
+            <maxFileSize>500MB</maxFileSize>
+            <maxHistory>15</maxHistory>
+            <totalSizeCap>100GB</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="exLog" level="INFO" additivity="false">
+        <springProfile name="dev">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <appender-ref ref="EX"/>
+    </logger>
+
+    <logger name="gateLog" level="INFO" additivity="false">
+        <springProfile name="dev">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <appender-ref ref="GATE"/>
+    </logger>
+
+    <springProfile name="dev">
+        <logger name="com.xxw" level="DEBUG" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="test,pro">
+        <logger name="com.xxw" level="INFO" additivity="false">
+            <appender-ref ref="FILE"/>
+        </logger>
+    </springProfile>
+
+    <logger name="org.springframework" level="INFO"/>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="FILE"/>
+    </root>
+</included>

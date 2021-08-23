@@ -10,12 +10,14 @@ public interface ErrorEnumInterface {
 
     /**
      * 获取code
+     *
      * @return 错误code
      */
     Integer getCode();
 
     /**
      * 获取msg
+     *
      * @return 错误msg
      */
     String getMessage();
