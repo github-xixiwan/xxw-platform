@@ -22,6 +22,21 @@ spring:
             rule-type: flow
             ###  读取培训文件类型为json
             data-type: json
+    stream:
+      rocketmq:
+        binder:
+          name-server: 106.14.132.211:9876
+          group: xxw-platform
+      bindings:
+        addOrder-out-0:
+          destination: addOrder
+          content-type: application/json
+        addOrder-in-0:
+          destination: addOrder
+          content-type: application/json
+          group: add-order-group
+      function:
+        definition: addOrder
   boot:
     admin:
       client:
