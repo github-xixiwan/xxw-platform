@@ -6,3 +6,27 @@ spring:
         namespace: xxw-platform
         group: dev
         file-extension: properties
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8888
+    stream:
+      rocketmq:
+        binder:
+          name-server: 106.14.132.211:9876
+          group: xxw-platform
+      bindings:
+        addOrder-out-0:
+          destination: add-order
+          content-type: application/json
+        addOrder-in-0:
+          destination: add-order
+          content-type: application/json
+          group: add-order-group
+      function:
+        definition: addOrder
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999
+        username: admin
+        password: 123456

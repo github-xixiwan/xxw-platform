@@ -5,9 +5,6 @@ spring:
         server-addr: ${spring.cloud.nacos.config.server-addr}
         namespace: ${spring.cloud.nacos.config.namespace}
         group: ${spring.cloud.nacos.config.group}
-    sentinel:
-      transport:
-        dashboard: 127.0.0.1:8888
       datasource:
         ds:
           nacos:
@@ -22,9 +19,3 @@ spring:
             rule-type: flow
             ###  读取培训文件类型为json
             data-type: json
-  boot:
-    admin:
-      client:
-        url: http://127.0.0.1:9999
-        username: admin
-        password: 123456

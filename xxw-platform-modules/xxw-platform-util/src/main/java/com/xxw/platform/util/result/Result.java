@@ -2,35 +2,28 @@ package com.xxw.platform.util.result;
 
 import com.xxw.platform.util.exception.BaseException;
 import com.xxw.platform.util.exception.ErrorEnumInterface;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 import java.io.Serializable;
 
-/**
- * 申通Http返回的result
- *
- * @author ethan
- * @since 2019/11/14
- */
-@ApiModel("响应对象")
 public class Result<T> implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @ApiModelProperty("请求是否成功响应")
     private Boolean success;
 
-    @ApiModelProperty("错误码")
     private Integer errorCode;
 
-    @ApiModelProperty("错误信息")
     private String errorMsg;
 
-    @ApiModelProperty("实际响应数据")
     private T data;
 
     private Result() {
+    }
+
+    public static <T> Result<T> success() {
+        Result<T> resp = new Result<>();
+        resp.setSuccess(true);
+        return resp;
     }
 
     public static <T> Result<T> success(T data) {
