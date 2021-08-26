@@ -1,9 +1,8 @@
 package com.xxw.platform.order.module.order.service;
 
-import com.xxw.platform.order.module.order.dubbo.OrderApi;
-import com.xxw.platform.order.module.order.dubbo.PayApi;
-import com.xxw.platform.order.module.order.dubbo.WaybillApi;
-import com.xxw.platform.web.rest.Result;
+import com.xxw.platform.dubbo.api.OrderApi;
+import com.xxw.platform.dubbo.api.PayApi;
+import com.xxw.platform.util.rest.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,12 +18,9 @@ public class OrderService implements OrderApi {
     @DubboReference
     private PayApi payApi;
 
-    @DubboReference
-    private WaybillApi waybillApi;
-
     @Override
     public Result<String> hello() {
-        return Result.success(name + ":" + payApi.hello().getData() + ":" + waybillApi.hello().getData());
+        return Result.success(name + ":" + payApi.hello().getData());
     }
 
 }

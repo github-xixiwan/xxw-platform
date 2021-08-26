@@ -2,7 +2,7 @@ package com.xxw.platform.web.handler;
 
 import com.xxw.platform.util.exception.BusinessException;
 import com.xxw.platform.util.exception.SystemException;
-import com.xxw.platform.web.rest.Result;
+import com.xxw.platform.util.rest.Result;
 import com.xxw.platform.web.constant.CustomBusinessError;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.slf4j.Logger;

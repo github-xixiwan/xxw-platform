@@ -16,7 +16,6 @@
     <modules>
         <module>xxw-platform-admin</module>
         <module>xxw-platform-order</module>
-        <module>xxw-platform-waybill</module>
         <module>xxw-platform-pay</module>
     </modules>
 </project>

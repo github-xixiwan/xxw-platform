@@ -1,7 +1,7 @@
 package com.xxw.platform.pay.controller.pay;
 
 import com.xxw.platform.pay.module.pay.service.PayService;
-import com.xxw.platform.web.rest.Result;
+import com.xxw.platform.util.rest.Result;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;

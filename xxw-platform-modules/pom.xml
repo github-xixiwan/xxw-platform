@@ -14,7 +14,8 @@
     </parent>
 
     <modules>
-        <module>xxw-platform-web</module>
         <module>xxw-platform-util</module>
+        <module>xxw-platform-dubbo</module>
+        <module>xxw-platform-web</module>
     </modules>
 </project>
