@@ -28,7 +28,6 @@
         <guava.version>30.1.1-jre</guava.version>
         <knife4j.version>3.0.3</knife4j.version>
         <jsr311.version>1.1.1</jsr311.version>
-        <hibernate.version>7.0.1.Final</hibernate.version>
         <io.version>2.11.0</io.version>
     </properties>
 
@@ -88,11 +87,6 @@
                 <groupId>javax.ws.rs</groupId>
                 <artifactId>jsr311-api</artifactId>
                 <version>${jsr311.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.hibernate</groupId>
-                <artifactId>hibernate-validator</artifactId>
-                <version>${hibernate.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>
