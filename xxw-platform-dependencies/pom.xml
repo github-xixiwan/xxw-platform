@@ -70,7 +70,7 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-dubbo</artifactId>
+                <artifactId>xxw-platform-api</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>

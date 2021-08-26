@@ -15,7 +15,7 @@
 
     <modules>
         <module>xxw-platform-util</module>
-        <module>xxw-platform-dubbo</module>
+        <module>xxw-platform-api</module>
         <module>xxw-platform-web</module>
     </modules>
 </project>

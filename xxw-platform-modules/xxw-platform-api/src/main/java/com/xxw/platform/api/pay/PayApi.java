@@ -1,8 +1,8 @@
-package com.xxw.platform.dubbo.api;
+package com.xxw.platform.api.pay;
 
 import com.xxw.platform.util.rest.Result;
 
-public interface OrderApi {
+public interface PayApi {
 
     Result<String> hello();
 

@@ -1,7 +1,7 @@
 package com.xxw.platform.order.module.order.service;
 
-import com.xxw.platform.dubbo.api.OrderApi;
-import com.xxw.platform.dubbo.api.PayApi;
+import com.xxw.platform.api.order.OrderApi;
+import com.xxw.platform.api.pay.PayApi;
 import com.xxw.platform.util.rest.Result;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;

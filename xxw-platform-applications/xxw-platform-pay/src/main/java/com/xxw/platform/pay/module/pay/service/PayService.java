@@ -1,6 +1,6 @@
 package com.xxw.platform.pay.module.pay.service;
 
-import com.xxw.platform.dubbo.api.PayApi;
+import com.xxw.platform.api.pay.PayApi;
 import com.xxw.platform.util.rest.Result;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Value;
