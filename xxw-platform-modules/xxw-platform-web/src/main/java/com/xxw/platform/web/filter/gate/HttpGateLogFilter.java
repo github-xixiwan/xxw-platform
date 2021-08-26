@@ -1,4 +1,4 @@
-package com.xxw.platform.web.filter;
+package com.xxw.platform.web.filter.gate;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.parser.Feature;

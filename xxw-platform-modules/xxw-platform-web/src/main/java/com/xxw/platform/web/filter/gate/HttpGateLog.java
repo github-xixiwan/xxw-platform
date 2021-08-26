@@ -1,4 +1,4 @@
-package com.xxw.platform.web.filter;
+package com.xxw.platform.web.filter.gate;
 
 import com.alibaba.fastjson.annotation.JSONField;
 import com.fasterxml.jackson.annotation.JsonFormat;
