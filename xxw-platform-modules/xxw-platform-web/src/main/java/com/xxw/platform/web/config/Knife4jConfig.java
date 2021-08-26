@@ -10,7 +10,7 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 @Configuration
-public class Knife4jConfiguration {
+public class Knife4jConfig {
 
     @Bean
     public Docket restfulApis() {

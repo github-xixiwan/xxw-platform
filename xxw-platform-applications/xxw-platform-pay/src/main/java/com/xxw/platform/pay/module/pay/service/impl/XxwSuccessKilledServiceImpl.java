@@ -1,8 +1,8 @@
 package com.xxw.platform.pay.module.pay.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.xxw.platform.pay.module.pay.entity.XxwSuccessKilled;
 import com.xxw.platform.pay.module.pay.mapper.XxwSuccessKilledMapper;
+import com.xxw.platform.pay.module.pay.model.entity.XxwSuccessKilled;
 import com.xxw.platform.pay.module.pay.service.IXxwSuccessKilledService;
 import org.springframework.stereotype.Service;
 

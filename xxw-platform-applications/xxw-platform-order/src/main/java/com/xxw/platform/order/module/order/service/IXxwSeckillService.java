@@ -1,7 +1,7 @@
-package com.xxw.platform.pay.module.pay.service;
+package com.xxw.platform.order.module.order.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.pay.module.pay.entity.XxwSeckill;
+import com.xxw.platform.order.module.order.model.entity.XxwSeckill;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.xxw.platform.pay.module.pay.entity.XxwSeckill;
  * </p>
  *
  * @author xxw
- * @since 2021-08-26
+ * @since 2021-08-27
  */
 public interface IXxwSeckillService extends IService<XxwSeckill> {
 

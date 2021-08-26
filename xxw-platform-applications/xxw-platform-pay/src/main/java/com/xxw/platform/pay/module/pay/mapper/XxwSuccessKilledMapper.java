@@ -1,7 +1,7 @@
 package com.xxw.platform.pay.module.pay.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.pay.module.pay.entity.XxwSuccessKilled;
+import com.xxw.platform.pay.module.pay.model.entity.XxwSuccessKilled;
 
 /**
  * <p>

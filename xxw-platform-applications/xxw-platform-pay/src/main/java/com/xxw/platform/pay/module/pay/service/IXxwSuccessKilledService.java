@@ -1,7 +1,7 @@
 package com.xxw.platform.pay.module.pay.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.pay.module.pay.entity.XxwSuccessKilled;
+import com.xxw.platform.pay.module.pay.model.entity.XxwSuccessKilled;
 
 /**
  * <p>

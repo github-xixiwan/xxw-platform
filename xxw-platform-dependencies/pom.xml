@@ -30,6 +30,7 @@
         <knife4j.version>3.0.3</knife4j.version>
         <jsr311.version>1.1.1</jsr311.version>
         <io.version>2.11.0</io.version>
+        <orika.version>1.5.4</orika.version>
     </properties>
 
     <dependencyManagement>
@@ -113,6 +114,11 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ma.glasnost.orika</groupId>
+                <artifactId>orika-core</artifactId>
+                <version>${orika.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

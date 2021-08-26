@@ -1,7 +1,7 @@
-package com.xxw.platform.pay.module.pay.mapper;
+package com.xxw.platform.order.module.order.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.pay.module.pay.entity.XxwSeckill;
+import com.xxw.platform.order.module.order.model.entity.XxwSeckill;
 
 /**
  * <p>
@@ -9,7 +9,7 @@ import com.xxw.platform.pay.module.pay.entity.XxwSeckill;
  * </p>
  *
  * @author xxw
- * @since 2021-08-26
+ * @since 2021-08-27
  */
 public interface XxwSeckillMapper extends BaseMapper<XxwSeckill> {
 
