@@ -8,6 +8,7 @@ import com.xxw.platform.order.module.order.model.entity.XxwSeckill;
 import com.xxw.platform.order.module.order.stream.produce.OrderProduce;
 import com.xxw.platform.util.json.JsonUtil;
 import com.xxw.platform.util.rest.Result;
+import io.seata.spring.annotation.GlobalTransactional;
 import ma.glasnost.orika.MapperFacade;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
@@ -42,6 +43,7 @@ public class OrderService implements OrderApi {
     }
 
     @Override
+    @GlobalTransactional
     public Result<String> addSeckill(SeckillDTO dto) {
         XxwSeckill seckill = mapperFacade.map(dto, XxwSeckill.class);
         seckill.setNumber(1);

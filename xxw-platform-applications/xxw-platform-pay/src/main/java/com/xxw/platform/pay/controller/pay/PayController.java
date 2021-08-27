@@ -1,7 +1,6 @@
 package com.xxw.platform.pay.controller.pay;
 
-import com.xxw.platform.pay.module.pay.entity.XxwSeckill;
-import com.xxw.platform.pay.module.pay.service.IXxwSeckillService;
+import com.xxw.platform.api.pay.model.vo.SuccessKilledVO;
 import com.xxw.platform.pay.module.pay.service.PayService;
 import com.xxw.platform.util.rest.Result;
 import io.swagger.annotations.Api;
@@ -22,16 +21,13 @@ public class PayController {
     @Resource
     private PayService payService;
 
-    @Resource
-    private IXxwSeckillService seckillService;
-
     @GetMapping("/hello")
     public Result<String> hello() {
         return payService.hello();
     }
 
     @GetMapping("/getById")
-    public Result<XxwSeckill> getById(@RequestParam("id") Long id) {
-        return Result.success(seckillService.getById(id));
+    public Result<SuccessKilledVO> getById(@RequestParam("id") Long id) {
+        return payService.getById(id);
     }
 }

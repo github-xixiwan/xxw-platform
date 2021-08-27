@@ -40,6 +40,7 @@ public class PayService implements PayApi {
     public Result<String> addSuccessKilled(SuccessKilledDTO dto) {
         XxwSuccessKilled successKilled = mapperFacade.map(dto, XxwSuccessKilled.class);
         successKilledService.save(successKilled);
+        System.out.println(1/0);
         return Result.success();
     }
 
