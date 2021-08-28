@@ -1,0 +1,4 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.xxw.platform.starter.redisson.config.RedisConfig,\
+com.xxw.platform.starter.redisson.config.DistributedLockAutoConfig,\
+com.xxw.platform.starter.redisson.config.IdempotentAutoConfig

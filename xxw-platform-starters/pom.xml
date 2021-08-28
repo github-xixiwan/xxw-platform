@@ -14,5 +14,6 @@
     </parent>
 
     <modules>
+        <module>xxw-platform-starter-redisson</module>
     </modules>
 </project>

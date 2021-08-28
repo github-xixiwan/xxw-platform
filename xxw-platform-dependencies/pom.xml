@@ -31,6 +31,7 @@
         <jsr311.version>1.1.1</jsr311.version>
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
+        <redisson.version>3.16.1</redisson.version>
     </properties>
 
     <dependencyManagement>
@@ -81,6 +82,12 @@
             </dependency>
 
             <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-starter-redisson</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
                 <version>${mybatis-plus.version}</version>
@@ -119,6 +126,11 @@
                 <groupId>ma.glasnost.orika</groupId>
                 <artifactId>orika-core</artifactId>
                 <version>${orika.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>${redisson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

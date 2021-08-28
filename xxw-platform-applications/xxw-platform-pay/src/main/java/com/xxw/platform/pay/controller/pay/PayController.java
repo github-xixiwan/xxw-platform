@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Slf4j
 @Api(tags = "支付相关业务")
@@ -26,8 +27,8 @@ public class PayController {
         return payService.hello();
     }
 
-    @GetMapping("/getById")
-    public Result<SuccessKilledVO> getById(@RequestParam("id") Long id) {
-        return payService.getById(id);
+    @GetMapping("/getListBySeckillId")
+    public Result<List<SuccessKilledVO>> getListBySeckillId(@RequestParam("seckillId") Long seckillId) {
+        return payService.getListBySeckillId(seckillId);
     }
 }

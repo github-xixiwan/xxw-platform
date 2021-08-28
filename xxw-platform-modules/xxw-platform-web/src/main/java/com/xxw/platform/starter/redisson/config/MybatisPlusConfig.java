@@ -1,4 +1,4 @@
-package com.xxw.platform.web.config;
+package com.xxw.platform.starter.redisson.config;
 
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.OptimisticLockerInnerInterceptor;
