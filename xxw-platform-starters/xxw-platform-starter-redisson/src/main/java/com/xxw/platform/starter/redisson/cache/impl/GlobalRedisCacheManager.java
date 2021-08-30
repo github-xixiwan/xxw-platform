@@ -1,6 +1,6 @@
 package com.xxw.platform.starter.redisson.cache.impl;
 
-import com.xxw.platform.starter.redisson.cache.IGlobalCache;
+import com.xxw.platform.starter.redisson.cache.IGlobalRedisCache;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
 
 @Getter
 @AllArgsConstructor
-public class AppRedisCacheManager implements IGlobalCache {
+public class GlobalRedisCacheManager implements IGlobalRedisCache {
 
     private RedisTemplate<String, Object> redisTemplate;
 

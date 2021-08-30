@@ -49,7 +49,7 @@ spring:
     port: 6379
     password: xxw
     timeout: 1000
-    jedis:
+    lettuce:
       pool:
         max-active: 8
         max-wait: -1

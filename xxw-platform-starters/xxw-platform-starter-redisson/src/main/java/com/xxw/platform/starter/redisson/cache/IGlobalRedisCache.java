@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-public interface IGlobalCache {
+public interface IGlobalRedisCache {
 
     /**
      * 指定缓存失效时间
