@@ -32,6 +32,7 @@
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
         <redisson.version>3.16.1</redisson.version>
+        <elasticsearch.version>6.8.1</elasticsearch.version>
     </properties>
 
     <dependencyManagement>
@@ -86,6 +87,11 @@
                 <artifactId>xxw-platform-starter-redisson</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-starter-elasticsearch</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -131,6 +137,11 @@
                 <groupId>org.redisson</groupId>
                 <artifactId>redisson-spring-boot-starter</artifactId>
                 <version>${redisson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
