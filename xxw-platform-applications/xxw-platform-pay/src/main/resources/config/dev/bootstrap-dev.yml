@@ -55,6 +55,9 @@ spring:
         max-wait: -1
         max-idle: 8
         min-idle: 0
+  es:
+    hostAddress: host:port,host:port,host:port
+    schema: http
 seata:
   application-id: ${spring.application.name} # seata 应用编号，默认为 ${spring.application.name}
   tx-service-group: xxw # seata 事务组编号，用于 TC 集群名

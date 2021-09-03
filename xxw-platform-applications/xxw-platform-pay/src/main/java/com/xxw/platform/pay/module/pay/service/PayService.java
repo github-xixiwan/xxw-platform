@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.google.common.collect.Lists;
 import com.xxw.platform.api.pay.PayApi;
 import com.xxw.platform.api.pay.model.dto.SuccessKilledDTO;
+import com.xxw.platform.api.pay.model.vo.ElasticsearchVO;
 import com.xxw.platform.api.pay.model.vo.SuccessKilledVO;
 import com.xxw.platform.pay.module.pay.model.entity.XxwSuccessKilled;
+import com.xxw.platform.starter.elasticsearch.client.ElasticsearchRestHighLevelClient;
 import com.xxw.platform.starter.redisson.cache.IGlobalRedisCache;
 import com.xxw.platform.util.json.JsonUtil;
 import com.xxw.platform.util.rest.Result;
@@ -13,6 +15,10 @@ import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.dubbo.config.annotation.DubboService;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Value;
@@ -20,6 +26,7 @@ import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.util.CollectionUtils;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -39,6 +46,9 @@ public class PayService implements PayApi {
 
     @Resource
     private RedissonClient redissonClient;
+
+    @Resource
+    private ElasticsearchRestHighLevelClient elasticsearchRestHighLevelClient;
 
     @Resource
     private IXxwSuccessKilledService successKilledService;
@@ -92,6 +102,21 @@ public class PayService implements PayApi {
             }
         }
         return Result.success(Lists.newArrayList());
+    }
+
+    @Override
+    public Result<List<ElasticsearchVO>> getElasticsearchByTraceId(String index, Long traceId) {
+        List<ElasticsearchVO> list = Lists.newArrayList();
+        SearchRequest searchRequest = new SearchRequest();
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        searchSourceBuilder.query(QueryBuilders.matchQuery("traceId", traceId));
+        searchRequest.source(searchSourceBuilder);
+        try {
+            list = elasticsearchRestHighLevelClient.search(searchRequest, ElasticsearchVO.class, RequestOptions.DEFAULT);
+        } catch (IOException e) {
+            log.error("elasticsearch search Exception:{}", ExceptionUtils.getStackTrace(e));
+        }
+        return Result.success(list);
     }
 
     @Override

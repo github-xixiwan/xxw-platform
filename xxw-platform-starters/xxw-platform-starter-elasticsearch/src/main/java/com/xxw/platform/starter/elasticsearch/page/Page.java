@@ -1,7 +1,5 @@
 package com.xxw.platform.starter.elasticsearch.page;
 
-import org.apache.lucene.search.TotalHits;
-
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.List;
@@ -64,11 +62,11 @@ public class Page<E> implements Serializable {
         this.currentPage = start2Page(start, limit);
     }
 
-    public Page(int start, int limit, List<E> list, TotalHits totalRecords) {
+    public Page(int start, int limit, List<E> list, long totalRecords) {
         this.start = start;
         this.limit = limit;
         this.list = list;
-        this.totalRecords = totalRecords.value;
+        this.totalRecords = totalRecords;
         this.currentPage = start2Page(start, limit);
         if (this.limit == 0) {
             this.totalPages = 0;

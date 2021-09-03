@@ -2,7 +2,6 @@ package com.xxw.platform.starter.elasticsearch.client;
 
 import com.xxw.platform.starter.elasticsearch.page.Page;
 import com.xxw.platform.util.json.JsonUtil;
-import org.apache.lucene.search.TotalHits;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequest;
@@ -44,26 +43,26 @@ public class ElasticsearchRestHighLevelClient {
         return this.doUpdate(updateRequest, options);
     }
 
-    public <T> UpdateResponse update(String index, String id, T entity) throws IOException {
-        UpdateRequest updateRequest = new UpdateRequest(index, id);
+    public <T> UpdateResponse update(String index, String type, String id, T entity) throws IOException {
+        UpdateRequest updateRequest = new UpdateRequest(index, type, id);
         updateRequest.doc(JsonUtil.toJson(entity), XContentType.JSON);
         return update(updateRequest, RequestOptions.DEFAULT);
     }
 
-    public <T> UpdateResponse update(String index, String id, T entity, RequestOptions options) throws IOException {
-        UpdateRequest updateRequest = new UpdateRequest(index, id);
+    public <T> UpdateResponse update(String index, String type, String id, T entity, RequestOptions options) throws IOException {
+        UpdateRequest updateRequest = new UpdateRequest(index, type, id);
         updateRequest.doc(JsonUtil.toJson(entity), XContentType.JSON);
         return update(updateRequest, options);
     }
 
-    public UpdateResponse update(String index, String id, Map<String, Object> document) throws IOException {
-        UpdateRequest updateRequest = new UpdateRequest(index, id);
+    public UpdateResponse update(String index, String type, String id, Map<String, Object> document) throws IOException {
+        UpdateRequest updateRequest = new UpdateRequest(index, type, id);
         updateRequest.doc(JsonUtil.toJson(document), XContentType.JSON);
         return update(updateRequest, RequestOptions.DEFAULT);
     }
 
-    public UpdateResponse update(String index, String id, Map<String, Object> document, RequestOptions options) throws IOException {
-        UpdateRequest updateRequest = new UpdateRequest(index, id);
+    public UpdateResponse update(String index, String type, String id, Map<String, Object> document, RequestOptions options) throws IOException {
+        UpdateRequest updateRequest = new UpdateRequest(index, type, id);
         updateRequest.doc(JsonUtil.toJson(document), XContentType.JSON);
         return update(updateRequest, options);
     }
@@ -123,7 +122,7 @@ public class ElasticsearchRestHighLevelClient {
 
     public <T> Page<T> searchByPage(SearchRequest searchRequest, Class<T> entityClass, RequestOptions options) throws IOException {
         SearchResponse searchResponse = restHighLevelClient.search(searchRequest, options);
-        TotalHits totalHits = searchResponse.getHits().getTotalHits();
+        long totalHits = searchResponse.getHits().getTotalHits();
         List<T> datas = buildSearchResult(searchResponse, entityClass);
         SearchSourceBuilder searchSourceBuilder = searchRequest.source();
         return new Page(searchSourceBuilder.from(), searchSourceBuilder.size(), datas, totalHits);

@@ -1,5 +1,6 @@
 package com.xxw.platform.pay.controller.pay;
 
+import com.xxw.platform.api.pay.model.vo.ElasticsearchVO;
 import com.xxw.platform.api.pay.model.vo.SuccessKilledVO;
 import com.xxw.platform.pay.module.pay.service.PayService;
 import com.xxw.platform.util.rest.Result;
@@ -30,5 +31,10 @@ public class PayController {
     @GetMapping("/getListBySeckillId")
     public Result<List<SuccessKilledVO>> getListBySeckillId(@RequestParam("seckillId") Long seckillId) {
         return payService.getListBySeckillId(seckillId);
+    }
+
+    @GetMapping("/getElasticsearchByTraceId")
+    public Result<List<ElasticsearchVO>> getElasticsearchByTraceId(@RequestParam("index") String index, @RequestParam("traceId") Long traceId) {
+        return payService.getElasticsearchByTraceId(index, traceId);
     }
 }

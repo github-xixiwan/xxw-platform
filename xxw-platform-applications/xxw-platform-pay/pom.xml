@@ -24,6 +24,10 @@
             <artifactId>xxw-platform-starter-redisson</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-starter-elasticsearch</artifactId>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
