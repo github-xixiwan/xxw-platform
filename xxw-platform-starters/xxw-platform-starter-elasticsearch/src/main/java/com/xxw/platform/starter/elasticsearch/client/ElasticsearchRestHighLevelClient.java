@@ -22,8 +22,8 @@ import org.elasticsearch.index.reindex.UpdateByQueryRequest;
 import org.elasticsearch.script.Script;
 import org.elasticsearch.search.SearchHit;
 import org.elasticsearch.search.builder.SearchSourceBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +32,7 @@ import java.util.Set;
 
 public class ElasticsearchRestHighLevelClient {
 
-    @Autowired
+    @Resource
     private RestHighLevelClient restHighLevelClient;
 
     public UpdateResponse update(UpdateRequest updateRequest) throws IOException {
