@@ -20,6 +20,10 @@
             <artifactId>xxw-platform-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-shardingsphere</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
         </dependency>

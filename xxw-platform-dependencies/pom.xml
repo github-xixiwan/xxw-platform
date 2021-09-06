@@ -33,6 +33,7 @@
         <orika.version>1.5.4</orika.version>
         <redisson.version>3.16.1</redisson.version>
         <elasticsearch.version>6.8.1</elasticsearch.version>
+        <shardingsphere.version>5.0.0-beta</shardingsphere.version>
     </properties>
 
     <dependencyManagement>
@@ -79,6 +80,16 @@
             <dependency>
                 <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-web</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-dynamic</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-shardingsphere</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -152,6 +163,11 @@
                 <groupId>org.elasticsearch</groupId>
                 <artifactId>elasticsearch</artifactId>
                 <version>${elasticsearch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.shardingsphere</groupId>
+                <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
+                <version>${shardingsphere.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

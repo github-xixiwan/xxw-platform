@@ -17,5 +17,7 @@
         <module>xxw-platform-util</module>
         <module>xxw-platform-api</module>
         <module>xxw-platform-web</module>
+        <module>xxw-platform-dynamic</module>
+        <module>xxw-platform-shardingsphere</module>
     </modules>
 </project>

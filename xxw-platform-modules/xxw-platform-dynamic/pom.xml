@@ -4,8 +4,8 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-api</artifactId>
-    <name>xxw-platform-api</name>
+    <artifactId>xxw-platform-dynamic</artifactId>
+    <name>xxw-platform-dynamic</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -16,12 +16,8 @@
 
     <dependencies>
         <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
         </dependency>
     </dependencies>
 </project>
