@@ -1,4 +1,4 @@
-package com.xxw.platform.starter.redisson.config;
+package com.xxw.platform.web.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

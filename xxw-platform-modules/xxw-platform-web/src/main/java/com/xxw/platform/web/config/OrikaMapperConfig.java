@@ -1,4 +1,4 @@
-package com.xxw.platform.starter.redisson.config;
+package com.xxw.platform.web.config;
 
 import ma.glasnost.orika.Converter;
 import ma.glasnost.orika.Mapper;
