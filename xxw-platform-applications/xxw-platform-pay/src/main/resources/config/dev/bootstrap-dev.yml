@@ -56,7 +56,7 @@ spring:
         max-idle: 8
         min-idle: 0
   es:
-    hostAddress: host:port,host:port,host:port
+    hostAddress: 192.168.12.201:9200,192.168.12.202:9200,192.168.12.203:9200
     schema: http
 seata:
   application-id: ${spring.application.name} # seata 应用编号，默认为 ${spring.application.name}

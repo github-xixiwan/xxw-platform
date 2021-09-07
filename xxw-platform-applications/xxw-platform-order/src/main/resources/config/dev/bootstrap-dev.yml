@@ -58,17 +58,17 @@ spring:
                 sharding-algorithm-name: database-inline-order
             table-strategy:
               standard:
-                sharding-column: id
+                sharding-column: user_id
                 sharding-algorithm-name: table-inline-order
         sharding-algorithms:
           database-inline-order:
             type: INLINE
             props:
-              algorithm-expression: ds_$->{user_id % 2}
+              algorithm-expression: ds$->{user_id % 2}
           table-inline-order:
             type: INLINE
             props:
-              algorithm-expression: xxw_order_$->{id % 2}
+              algorithm-expression: xxw_order_$->{user_id % 2}
   main:
     allow-bean-definition-overriding: true
 seata:
