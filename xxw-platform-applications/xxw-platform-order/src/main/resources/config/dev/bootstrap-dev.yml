@@ -51,7 +51,7 @@ spring:
       sharding:
         tables:
           xxw_order:
-            actual-data-nodes: ds$->{0..1}.xxw_order_$->{0..1}
+            actual-data-nodes: ds$->{0..1}.xxw_order_$->{0..3}
             database-strategy:
               standard:
                 sharding-column: user_id
@@ -68,7 +68,7 @@ spring:
           table-inline-order:
             type: INLINE
             props:
-              algorithm-expression: xxw_order_$->{user_id % 2}
+              algorithm-expression: xxw_order_$->{user_id % 4}
   main:
     allow-bean-definition-overriding: true
 seata:

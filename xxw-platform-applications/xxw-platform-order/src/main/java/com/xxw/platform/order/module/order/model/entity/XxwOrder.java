@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author xxw
@@ -19,14 +19,14 @@ import java.time.LocalDateTime;
  */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value="XxwOrder对象", description="")
+@ApiModel(value = "XxwOrder对象", description = "")
 public class XxwOrder implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String orderSn;
 
-    private Integer userId;
+    private Long userId;
 
     private Integer orderStatus;
 
