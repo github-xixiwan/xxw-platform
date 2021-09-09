@@ -86,10 +86,9 @@
         <resources>
             <resource>
                 <directory>src/main/resources</directory>
-                <filtering>false</filtering>
+                <filtering>true</filtering>
                 <excludes>
                     <exclude>config/**</exclude>
-                    <exclude>README.md</exclude>
                 </excludes>
             </resource>
             <resource>
