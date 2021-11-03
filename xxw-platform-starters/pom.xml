@@ -16,5 +16,6 @@
     <modules>
         <module>xxw-platform-starter-redisson</module>
         <module>xxw-platform-starter-elasticsearch</module>
+        <module>xxw-platform-starter-mqtt</module>
     </modules>
 </project>

@@ -69,7 +69,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.pay.PayApplication</mainClass>
+                    <mainClass>com.xxw.platform.PayApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>

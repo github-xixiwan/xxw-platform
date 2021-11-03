@@ -65,7 +65,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.order.OrderApplication</mainClass>
+                    <mainClass>com.xxw.platform.OrderApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>

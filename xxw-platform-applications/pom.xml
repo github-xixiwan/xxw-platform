@@ -17,5 +17,6 @@
         <module>xxw-platform-admin</module>
         <module>xxw-platform-order</module>
         <module>xxw-platform-pay</module>
+        <module>xxw-platform-mqtt</module>
     </modules>
 </project>

@@ -34,6 +34,7 @@
         <redisson.version>3.16.1</redisson.version>
         <elasticsearch.version>6.8.1</elasticsearch.version>
         <shardingsphere.version>5.0.0-beta</shardingsphere.version>
+        <integration.version>5.5.5</integration.version>
     </properties>
 
     <dependencyManagement>
@@ -103,6 +104,11 @@
                 <artifactId>xxw-platform-starter-elasticsearch</artifactId>
                 <version>${revision}</version>
             </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-starter-mqtt</artifactId>
+                <version>${revision}</version>
+            </dependency>
 
             <dependency>
                 <groupId>com.baomidou</groupId>
@@ -168,6 +174,16 @@
                 <groupId>org.apache.shardingsphere</groupId>
                 <artifactId>shardingsphere-jdbc-core-spring-boot-starter</artifactId>
                 <version>${shardingsphere.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.integration</groupId>
+                <artifactId>spring-integration-stream</artifactId>
+                <version>${integration.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.integration</groupId>
+                <artifactId>spring-integration-mqtt</artifactId>
+                <version>${integration.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
