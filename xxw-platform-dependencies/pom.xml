@@ -106,7 +106,12 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-starter-mqtt</artifactId>
+                <artifactId>xxw-platform-starter-mqtt-publish</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-starter-mqtt-subscribe</artifactId>
                 <version>${revision}</version>
             </dependency>
 

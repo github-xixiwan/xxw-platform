@@ -1,11 +1,10 @@
-<?xml version="1.0"?>
-<project
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>xxw-platform-mqtt</artifactId>
     <name>xxw-platform-mqtt</name>
+    <packaging>pom</packaging>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -14,97 +13,8 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <dependencies>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-dynamic</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-starter-mqtt</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <properties>
-                <profileActive>dev</profileActive>
-            </properties>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-        </profile>
-        <profile>
-            <id>test</id>
-            <properties>
-                <profileActive>test</profileActive>
-            </properties>
-        </profile>
-        <profile>
-            <id>pro</id>
-            <properties>
-                <profileActive>pro</profileActive>
-            </properties>
-        </profile>
-    </profiles>
-
-    <build>
-        <finalName>${project.artifactId}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <configuration>
-                    <mainClass>com.xxw.platform.mqtt.MqttApplication</mainClass>
-                    <fork>true</fork>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>build-info</goal>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
-
-        <resources>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>true</filtering>
-                <excludes>
-                    <exclude>config/**</exclude>
-                </excludes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/config</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>bootstrap.yml</include>
-                    <include>application.yml</include>
-                    <include>application.properties</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>src/main/resources/config/${profileActive}</directory>
-                <filtering>true</filtering>
-                <includes>
-                    <include>bootstrap-${profileActive}.yml</include>
-                    <include>application-${profileActive}.yml</include>
-                    <include>application-${profileActive}.properties</include>
-                </includes>
-            </resource>
-        </resources>
-    </build>
+    <modules>
+        <module>xxw-platform-mqtt-publish</module>
+        <module>xxw-platform-mqtt-subscribe</module>
+    </modules>
 </project>

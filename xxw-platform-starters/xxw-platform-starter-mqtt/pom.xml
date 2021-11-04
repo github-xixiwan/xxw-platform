@@ -1,11 +1,10 @@
-<?xml version="1.0"?>
-<project
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-        xmlns="http://maven.apache.org/POM/4.0.0"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>xxw-platform-starter-mqtt</artifactId>
     <name>xxw-platform-starter-mqtt</name>
+    <packaging>pom</packaging>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -14,15 +13,12 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <modules>
+        <module>xxw-platform-starter-mqtt-publish</module>
+        <module>xxw-platform-starter-mqtt-subscribe</module>
+    </modules>
+
     <dependencies>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-autoconfigure</artifactId>
-        </dependency>
         <dependency>
             <groupId>org.springframework.integration</groupId>
             <artifactId>spring-integration-stream</artifactId>
