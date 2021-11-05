@@ -48,5 +48,5 @@ spring:
       hostAddress: tcp://10.66.70.118:1883
       userName: admin
       password: 123qwe$%^
-      defaultTopic: mqttTopic
+      defaultTopic: $queue/mqttTopic
       clientId: mqtt-publish

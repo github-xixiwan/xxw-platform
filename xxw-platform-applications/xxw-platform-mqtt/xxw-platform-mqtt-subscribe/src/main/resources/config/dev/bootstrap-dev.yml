@@ -50,7 +50,7 @@ spring:
       password: 123qwe$%^
       connectionTimeout: 30
       keepAliveInterval: 60
-      defaultTopic: mqttTopic
+      defaultTopic: $queue/mqttTopic
       clientId: mqtt-subscribe1
       cleanSession: false
       automaticReconnect: true
