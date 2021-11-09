@@ -51,7 +51,7 @@ spring:
       connectionTimeout: 30
       keepAliveInterval: 60
       defaultTopic: $queue/mqttTopic
-      clientId: mqtt-subscribe1
+      clientId: ${spring.application.name}-${server.port}
       cleanSession: false
       automaticReconnect: true
       maxReconnectDelay: 12000
