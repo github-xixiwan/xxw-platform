@@ -33,7 +33,7 @@
         <orika.version>1.5.4</orika.version>
         <redisson.version>3.16.1</redisson.version>
         <elasticsearch.version>6.8.1</elasticsearch.version>
-        <shardingsphere.version>5.0.0-beta</shardingsphere.version>
+        <shardingsphere.version>5.0.0</shardingsphere.version>
         <integration.version>5.5.5</integration.version>
     </properties>
 

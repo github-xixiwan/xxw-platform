@@ -1,5 +1,6 @@
 package com.xxw.platform.starter.mqtt.config;
 
+import com.xxw.platform.util.string.IdUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.paho.client.mqttv3.MqttClient;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
@@ -79,7 +80,7 @@ public class MqttConfig {
         Assert.state(StringUtils.isNotBlank(mqttProperties.getSubscribe().getHostAddress()), "hostAddress cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttProperties.getSubscribe().getClientId()), "clientId cannot be empty");
         // MemoryPersistence设置clientId的保存形式，默认为以内存保存
-        MqttClient client = new MqttClient(mqttProperties.getSubscribe().getHostAddress(), mqttProperties.getSubscribe().getClientId(), new MemoryPersistence());
+        MqttClient client = new MqttClient(mqttProperties.getSubscribe().getHostAddress(), mqttProperties.getSubscribe().getClientId() + "-" + IdUtil.uuid(), new MemoryPersistence());
         //判断拦截状态，这里注意一下，如果没有这个判断，是非常坑的
         if (client.isConnected()) {
             client.disconnect();

@@ -49,4 +49,4 @@ spring:
       userName: admin
       password: 123qwe$%^
       defaultTopic: $queue/mqttTopic
-      clientId: ${spring.application.name}-${server.port}
+      clientId: ${spring.application.name}

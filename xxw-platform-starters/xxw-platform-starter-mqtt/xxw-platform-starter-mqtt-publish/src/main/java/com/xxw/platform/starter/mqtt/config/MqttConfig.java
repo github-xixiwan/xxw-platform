@@ -1,5 +1,6 @@
 package com.xxw.platform.starter.mqtt.config;
 
+import com.xxw.platform.util.string.IdUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -90,7 +91,7 @@ public class MqttConfig {
     public MessageHandler mqttOutbound() {
         Assert.state(StringUtils.isNotBlank(mqttProperties.getPublish().getClientId()), "clientId cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttProperties.getPublish().getDefaultTopic()), "defaultTopic cannot be empty");
-        MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler(mqttProperties.getPublish().getClientId(), getPublishMqttPahoClientFactory());
+        MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler(mqttProperties.getPublish().getClientId() + "-" + IdUtil.uuid(), getPublishMqttPahoClientFactory());
         messageHandler.setAsync(true);
         messageHandler.setDefaultTopic(mqttProperties.getPublish().getDefaultTopic());
         return messageHandler;
