@@ -6,7 +6,7 @@ spring:
 dubbo:
   scan:
     # dubbo 服务扫描基准包
-    base-packages: com.xxw.platform.order.module
+    base-packages: com.xxw.platform.module.order
   protocol:
     # dubbo 协议
     name: dubbo
