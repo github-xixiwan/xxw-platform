@@ -71,27 +71,37 @@
 
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-util</artifactId>
+                <artifactId>xxw-platform-module-util</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-api</artifactId>
+                <artifactId>xxw-platform-module-api</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-web</artifactId>
+                <artifactId>xxw-platform-module-web</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-dynamic</artifactId>
+                <artifactId>xxw-platform-module-nacos</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-shardingsphere</artifactId>
+                <artifactId>xxw-platform-module-mybatisplus</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-module-dynamic</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-module-shardingsphere</artifactId>
                 <version>${revision}</version>
             </dependency>
 

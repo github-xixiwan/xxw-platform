@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: shardingsphere
+  profiles:
+    active: @profileActive@
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: com.xxw.platform.module.shardingsphere
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
+    port: -1
+  cloud:
+    subscribed-services:

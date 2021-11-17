@@ -14,10 +14,12 @@
     </parent>
 
     <modules>
-        <module>xxw-platform-util</module>
-        <module>xxw-platform-api</module>
-        <module>xxw-platform-web</module>
-        <module>xxw-platform-dynamic</module>
-        <module>xxw-platform-shardingsphere</module>
+        <module>xxw-platform-module-util</module>
+        <module>xxw-platform-module-api</module>
+        <module>xxw-platform-module-web</module>
+        <module>xxw-platform-module-nacos</module>
+        <module>xxw-platform-module-mybatisplus</module>
+        <module>xxw-platform-module-dynamic</module>
+        <module>xxw-platform-module-shardingsphere</module>
     </modules>
 </project>

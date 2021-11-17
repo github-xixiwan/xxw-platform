@@ -1,7 +1,7 @@
 package com.xxw.platform.starter.elasticsearch.client;
 
 import com.xxw.platform.starter.elasticsearch.page.Page;
-import com.xxw.platform.util.json.JsonUtil;
+import com.xxw.platform.module.util.json.JsonUtil;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;
 import org.elasticsearch.action.get.GetRequest;

@@ -15,8 +15,10 @@
 
     <modules>
         <module>xxw-platform-admin</module>
-        <module>xxw-platform-order</module>
-        <module>xxw-platform-pay</module>
+        <module>xxw-platform-access</module>
+        <module>xxw-platform-single</module>
+        <module>xxw-platform-dynamic</module>
+        <module>xxw-platform-shardingsphere</module>
         <module>xxw-platform-mqtt</module>
     </modules>
 </project>

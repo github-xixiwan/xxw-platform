@@ -1,0 +1,57 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 106.14.132.211:8848
+        namespace: xxw-platform
+        group: dev
+        file-extension: properties
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8888
+    stream:
+      rocketmq:
+        binder:
+          name-server: 106.14.132.211:9876
+      bindings:
+        addOrder-in-0:
+          destination: add-order
+          content-type: application/json
+          group: add-order-group
+        addOrders-in-0:
+          destination: add-orders
+          content-type: application/json
+          group: add-orders-group
+      function:
+        definition: addOrder;addOrders
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999
+        username: admin
+        password: 123456
+        instance:
+          service-base-url: http://127.0.0.1:9999
+  datasource: # 数据源的相关配置
+    type: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.132.211:3306/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: order-0
+    password: order-0
+    # Hikari 连接池配置
+    # 最小空闲连接数量
+    hikari:
+      minimum-idle: 5
+      # 空闲连接存活最大时间，默认600000（10分钟）
+      idle-timeout: 180000
+      # 连接池最大连接数，默认是10
+      maximum-pool-size: 10
+      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
+      auto-commit: true
+      # 连接池名称
+      pool-name: MyHikariCP
+      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
+      max-lifetime: 1800000
+      # 数据库连接超时时间,默认30秒，即30000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
