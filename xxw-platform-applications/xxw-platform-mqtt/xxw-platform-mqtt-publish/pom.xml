@@ -21,6 +21,10 @@
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-module-nacos</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-starter-mqtt-publish</artifactId>
         </dependency>
         <dependency>

@@ -5,6 +5,7 @@ import com.xxw.platform.module.access.stream.produce.RocketmqSend;
 import com.xxw.platform.module.api.order.OrderApi;
 import com.xxw.platform.module.api.order.model.dto.OrderDTO;
 import com.xxw.platform.module.util.rest.Result;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
@@ -44,6 +45,7 @@ public class AccessController {
     }
 
     @PostMapping("/orderDubbo")
+    @GlobalTransactional
     public Result<String> order(@RequestBody OrderDTO dto) {
         orderApi.addOrder(dto);
         return Result.success(name);
