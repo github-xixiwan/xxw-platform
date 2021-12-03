@@ -1,11 +1,9 @@
 package com.xxw.platform.module.util.string;
 
 import com.xxw.platform.module.util.date.DateFormat;
-import com.xxw.platform.module.util.exception.UtilException;
 import com.xxw.platform.module.util.math.NumberUtil;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.UnsupportedEncodingException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -19,7 +17,7 @@ import static java.util.regex.Pattern.compile;
 /**
  * 字符串功能类
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class StringUtil {
@@ -28,8 +26,8 @@ public class StringUtil {
     /**
      * 字符串是否为空（或者空字符串或者空白符）
      *
-     * @param data    待判定的字符串
-     * @return        空字符串 true 非空字符串 false
+     * @param data 待判定的字符串
+     * @return 空字符串 true 非空字符串 false
      */
     public static boolean isBlank(String data) {
         return StringUtils.isBlank(data);
@@ -38,8 +36,8 @@ public class StringUtil {
     /**
      * 字符串是否不为空（和空字符串和空白符）
      *
-     * @param data    待判定的字符串
-     * @return        空字符串 false 非空字符串 true
+     * @param data 待判定的字符串
+     * @return 空字符串 false 非空字符串 true
      */
     public static boolean isNotBlank(String data) {
         return !StringUtils.isBlank(data);
@@ -79,29 +77,18 @@ public class StringUtil {
      * @return
      */
     public static List<String> stringToSList(String data, String split) {
-        if (isEmpty(data) || isEmpty(split)) { return null; }
-        return new ArrayList<>(Arrays.asList(data.split(split)));
-    }
-
-    /**
-     * 计算字符串的字节长度(字母数字计1，汉字及标点计3)
-     * @param str  需要计算的字符串
-     * @return     字符串长度
-     */
-    public static int byteLength(String str) {
-        try {
-            return str == null ? 0 : str.getBytes("UTF-8").length;
-        } catch (UnsupportedEncodingException e) {
-            throw new UtilException("以UTF-8字符集获取指定字符串长度出错!str=" + str);
+        if (isEmpty(data) || isEmpty(split)) {
+            return null;
         }
+        return new ArrayList<>(Arrays.asList(data.split(split)));
     }
 
     /**
      * 字符串参数替换
      *
-     * @param msg     原字符串
-     * @param param   需要替换的键值对map
-     * @return        替换后的字符串
+     * @param msg   原字符串
+     * @param param 需要替换的键值对map
+     * @return 替换后的字符串
      */
     public static String replacePlaceHolderWithMapValue(String msg, Map<String, Object> param) {
         Pattern placeHolderPattern = compile("\\$\\{(\\w+)\\}");
@@ -113,7 +100,7 @@ public class StringUtil {
             Object value = param.get(key);
             if (value != null) {
                 if (value instanceof String[]) {
-                    replaceValue = Arrays.asList((String[])value).toString();
+                    replaceValue = Arrays.asList((String[]) value).toString();
                 } else {
                     replaceValue = value.toString();
                 }
@@ -128,7 +115,7 @@ public class StringUtil {
     /**
      * 首字母大写
      *
-     * @param str  原字符串
+     * @param str 原字符串
      * @return
      */
     public static String upperCaseFirst(String str) {
@@ -138,9 +125,9 @@ public class StringUtil {
     /**
      * 字符串拼接
      *
-     * @param elements  需要拼接的对象
-     * @param <T>       泛型
-     * @return          拼装好的字符串
+     * @param elements 需要拼接的对象
+     * @param <T>      泛型
+     * @return 拼装好的字符串
      */
     public static <T> String join(T... elements) {
         return StringUtils.join(elements);
@@ -156,14 +143,14 @@ public class StringUtil {
         int max = 99999999;
         StringBuilder sb = new StringBuilder();
         sb.append(DateFormat.getNowDateString("yyyyMMddHHmmssSSS"));
-        sb.append(NumberUtil.getRandom(min,max));
+        sb.append(NumberUtil.getRandom(min, max));
         return sb.toString();
     }
 
     /**
      * 生成随机字符串
      *
-     * @param length   字符串长度
+     * @param length 字符串长度
      * @return
      */
     public static String getRandomString(int length) {

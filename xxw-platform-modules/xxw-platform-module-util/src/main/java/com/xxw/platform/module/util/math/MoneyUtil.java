@@ -7,7 +7,7 @@ import java.text.DecimalFormat;
 /**
  * 财务相关资金工具类
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class MoneyUtil {

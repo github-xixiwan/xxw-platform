@@ -3,7 +3,7 @@ package com.xxw.platform.module.util.exception;
 /**
  * 业务层面的错误基类,可直接使用
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class BusinessException extends BaseException {

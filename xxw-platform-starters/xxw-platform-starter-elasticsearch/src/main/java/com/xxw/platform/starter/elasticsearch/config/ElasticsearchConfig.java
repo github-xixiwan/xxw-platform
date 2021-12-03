@@ -1,7 +1,5 @@
 package com.xxw.platform.starter.elasticsearch.config;
 
-import com.google.common.collect.Lists;
-import com.xxw.platform.starter.elasticsearch.client.ElasticsearchRestHighLevelClient;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
@@ -11,12 +9,14 @@ import org.apache.http.impl.client.BasicCredentialsProvider;
 import org.elasticsearch.client.RestClient;
 import org.elasticsearch.client.RestClientBuilder;
 import org.elasticsearch.client.RestHighLevelClient;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.List;
 
 @Configuration
@@ -26,40 +26,59 @@ public class ElasticsearchConfig {
     @Resource
     private ElasticsearchProperties elasticsearchProperties;
 
-    @Bean
-    public RestHighLevelClient client() {
-        Assert.state(StringUtils.isNotBlank(elasticsearchProperties.getHostAddress()), "hostAddress cannot be empty");
-        List<HttpHost> hostList = Lists.newArrayList();
-        String[] hostAddress = elasticsearchProperties.getHostAddress().split(",");
-        for (String address : hostAddress) {
-            Assert.state(address.split(":").length == 2, "Must be defined as 'host:port'");
-            hostList.add(new HttpHost(address.split(":")[0], Integer.parseInt(address.split(":")[1]), elasticsearchProperties.getSchema()));
-        }
+    private List<HttpHost> httpHosts = new ArrayList<>();
 
-        RestClientBuilder builder = RestClient.builder(hostList.toArray(new HttpHost[0]));
-        // 异步httpclient连接延时配置
+    @Bean
+    @ConditionalOnMissingBean
+    public RestHighLevelClient restHighLevelClient() {
+
+        List<String> clusterNodes = elasticsearchProperties.getClusterNodes();
+        clusterNodes.forEach(node -> {
+            try {
+                String[] parts = StringUtils.split(node, ":");
+                Assert.notNull(parts, "Must defined");
+                Assert.state(parts.length == 2, "Must be defined as 'host:port'");
+                httpHosts.add(new HttpHost(parts[0], Integer.parseInt(parts[1]), elasticsearchProperties.getSchema()));
+            } catch (Exception e) {
+                throw new IllegalStateException("Invalid ES nodes " + "property '" + node + "'", e);
+            }
+        });
+        RestClientBuilder builder = RestClient.builder(httpHosts.toArray(new HttpHost[0]));
+
+        return getRestHighLevelClient(builder, elasticsearchProperties);
+    }
+
+
+    /**
+     * get restHistLevelClient
+     *
+     * @param builder                 RestClientBuilder
+     * @param elasticsearchProperties elasticsearch default properties
+     * @return {@link org.elasticsearch.client.RestHighLevelClient}
+     * @author xxw
+     */
+    private static RestHighLevelClient getRestHighLevelClient(RestClientBuilder builder, ElasticsearchProperties elasticsearchProperties) {
+        // Callback used the default {@link RequestConfig} being set to the {@link CloseableHttpClient}
         builder.setRequestConfigCallback(requestConfigBuilder -> {
             requestConfigBuilder.setConnectTimeout(elasticsearchProperties.getConnectTimeout());
             requestConfigBuilder.setSocketTimeout(elasticsearchProperties.getSocketTimeout());
+            requestConfigBuilder.setConnectionRequestTimeout(elasticsearchProperties.getConnectionRequestTimeout());
             return requestConfigBuilder;
         });
-        // 异步httpclient连接数配置
+
+        // Callback used to customize the {@link CloseableHttpClient} instance used by a {@link RestClient} instance.
         builder.setHttpClientConfigCallback(httpClientBuilder -> {
-            if (StringUtils.isNotBlank(elasticsearchProperties.getUsername()) && StringUtils.isNotBlank(elasticsearchProperties.getPassword())) {
-                CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
-                credentialsProvider.setCredentials(AuthScope.ANY,
-                        new UsernamePasswordCredentials(elasticsearchProperties.getUsername(), elasticsearchProperties.getPassword()));
-                httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
-            }
-            httpClientBuilder.setMaxConnTotal(elasticsearchProperties.getMaxConnTotal());
-            httpClientBuilder.setMaxConnPerRoute(elasticsearchProperties.getMaxConnPerRoute());
+            httpClientBuilder.setMaxConnTotal(elasticsearchProperties.getMaxConnectTotal());
+            httpClientBuilder.setMaxConnPerRoute(elasticsearchProperties.getMaxConnectPerRoute());
             return httpClientBuilder;
         });
-        return new RestHighLevelClient(builder);
-    }
 
-    @Bean
-    public ElasticsearchRestHighLevelClient elasticsearchRestHighLevelClient() {
-        return new ElasticsearchRestHighLevelClient();
+        // Callback used the basic credential auth
+        ElasticsearchProperties.Account account = elasticsearchProperties.getAccount();
+        if (StringUtils.isNotBlank(account.getUsername()) && StringUtils.isNotBlank(account.getPassword())) {
+            final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
+            credentialsProvider.setCredentials(AuthScope.ANY, new UsernamePasswordCredentials(account.getUsername(), account.getPassword()));
+        }
+        return new RestHighLevelClient(builder);
     }
 }

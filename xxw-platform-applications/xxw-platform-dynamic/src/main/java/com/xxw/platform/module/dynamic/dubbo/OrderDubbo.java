@@ -10,17 +10,11 @@ import com.xxw.platform.module.dynamic.service.IXxwOrder0Service;
 import com.xxw.platform.module.dynamic.service.IXxwOrder1Service;
 import com.xxw.platform.module.util.json.JsonUtil;
 import com.xxw.platform.module.util.rest.Result;
-import com.xxw.platform.starter.elasticsearch.client.ElasticsearchRestHighLevelClient;
 import com.xxw.platform.starter.redisson.cache.IGlobalRedisCache;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.dubbo.config.annotation.DubboService;
-import org.elasticsearch.action.search.SearchRequest;
-import org.elasticsearch.action.update.UpdateRequest;
-import org.elasticsearch.client.RequestOptions;
-import org.elasticsearch.index.query.QueryBuilders;
-import org.elasticsearch.search.builder.SearchSourceBuilder;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.util.CollectionUtils;
@@ -43,9 +37,6 @@ public class OrderDubbo implements OrderApi {
     private RedissonClient redissonClient;
 
     @Resource
-    private ElasticsearchRestHighLevelClient elasticsearchRestHighLevelClient;
-
-    @Resource
     private IXxwOrder0Service xxwOrder0Service;
 
     @Resource
@@ -60,6 +51,7 @@ public class OrderDubbo implements OrderApi {
 
     @Override
     public Result<List<OrderVO>> getOrder(OrderDTO dto) {
+        String index = "order";
         String name = "getOrder";
         long waitTime = 5;
         TimeUnit unit = TimeUnit.SECONDS;
@@ -71,27 +63,14 @@ public class OrderDubbo implements OrderApi {
                 String key = "getOrder_" + dto.getOrderSn();
                 Object o = globalRedisCache.get(key);
                 if (o == null) {
-                    //缓存不存在查es
-                    List<OrderVO> list = Lists.newArrayList();
-                    SearchRequest searchRequest = new SearchRequest();
-                    SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
-                    searchSourceBuilder.query(QueryBuilders.matchQuery("orderSn", dto.getOrderSn()));
-                    searchRequest.source(searchSourceBuilder);
-                    list = elasticsearchRestHighLevelClient.search(searchRequest, OrderVO.class, RequestOptions.DEFAULT);
-                    if (CollectionUtils.isEmpty(list)) {
-                        //查数据库
-                        LambdaQueryWrapper<XxwOrder> wrapper = new LambdaQueryWrapper<XxwOrder>()
-                                .eq(XxwOrder::getOrderSn, dto.getOrderSn());
-                        List<XxwOrder> orderList = xxwOrder0Service.list(wrapper);
-                        if (!CollectionUtils.isEmpty(list)) {
-                            //放入redis
-                            globalRedisCache.set(key, JsonUtil.toJson(list), 60);
-                            //放入es
-                            UpdateRequest updateRequest = new UpdateRequest();
-                            return Result.success(mapperFacade.mapAsList(list, OrderVO.class));
-                        }
+                    //缓存不存在查数据库
+                    LambdaQueryWrapper<XxwOrder> wrapper = new LambdaQueryWrapper<XxwOrder>().eq(XxwOrder::getOrderSn, dto.getOrderSn());
+                    List<XxwOrder> list = xxwOrder0Service.list(wrapper);
+                    if (!CollectionUtils.isEmpty(list)) {
+                        //放入redis
+                        globalRedisCache.set(key, JsonUtil.toJson(list), 60);
+                        return Result.success(mapperFacade.mapAsList(list, OrderVO.class));
                     }
-                    return Result.success(list);
                 }
                 return Result.success(JsonUtil.fromJsonAsArray(String.valueOf(o), OrderVO.class));
             } else {

@@ -13,7 +13,7 @@ import java.util.*;
 /**
  * bean之间的转换类
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class BeanConvert {

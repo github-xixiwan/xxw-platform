@@ -3,7 +3,7 @@ package com.xxw.platform.module.util.exception;
 /**
  * UTIL这个包里面的抛错
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class UtilException extends BaseException {

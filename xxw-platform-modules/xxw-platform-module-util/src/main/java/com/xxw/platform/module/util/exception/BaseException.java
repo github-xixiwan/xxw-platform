@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * 异常基础类
  *
- * @author ethan
+ * @author xxw
  */
 public class BaseException extends RuntimeException {
 

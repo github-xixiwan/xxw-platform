@@ -1,51 +1,98 @@
 package com.xxw.platform.starter.elasticsearch.config;
 
 import lombok.Data;
-import org.elasticsearch.client.RestClientBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Data
-@ConfigurationProperties(prefix = "spring.es")
+@ConfigurationProperties(prefix = "spring.elasticsearch")
 public class ElasticsearchProperties {
 
     /**
-     * host:port 多个用,隔开
+     * 请求协议
      */
-    private String hostAddress;
+    private String schema = "http";
 
     /**
-     * 协议
+     * 集群名称
      */
-    private String schema;
+    private String clusterName = "elasticsearch";
 
     /**
-     * 用户名
+     * 集群节点
      */
-    private String username;
+    private List<String> clusterNodes = new ArrayList<>();
 
     /**
-     * 密码
+     * 连接超时时间(毫秒)
      */
-    private String password;
+    private Integer connectTimeout = 1000;
 
     /**
-     * 建立连接超时时间 默认1000ms
+     * socket 超时时间
      */
-    private int connectTimeout = RestClientBuilder.DEFAULT_CONNECT_TIMEOUT_MILLIS;
+    private Integer socketTimeout = 30000;
 
     /**
-     * 数据传输超时时间 默认30000ms
+     * 连接请求超时时间
      */
-    private int socketTimeout = RestClientBuilder.DEFAULT_SOCKET_TIMEOUT_MILLIS;
+    private Integer connectionRequestTimeout = 500;
 
     /**
-     * 最大路由连接数 默认10
+     * 每个路由的最大连接数量
      */
-    private int maxConnPerRoute = RestClientBuilder.DEFAULT_MAX_CONN_PER_ROUTE;
+    private Integer maxConnectPerRoute = 10;
 
     /**
-     * 最大连接数 默认30
+     * 最大连接总数量
      */
-    private int maxConnTotal = RestClientBuilder.DEFAULT_MAX_CONN_TOTAL;
-    ;
+    private Integer maxConnectTotal = 30;
+
+    /**
+     * 索引配置信息
+     */
+    private Index index = new Index();
+
+    /**
+     * 认证账户
+     */
+    private Account account = new Account();
+
+    /**
+     * 索引配置信息
+     */
+    @Data
+    public static class Index {
+
+        /**
+         * 分片数量
+         */
+        private Integer numberOfShards = 3;
+
+        /**
+         * 副本数量
+         */
+        private Integer numberOfReplicas = 2;
+
+    }
+
+    /**
+     * 认证账户
+     */
+    @Data
+    public static class Account {
+
+        /**
+         * 认证用户
+         */
+        private String username;
+
+        /**
+         * 认证密码
+         */
+        private String password;
+
+    }
 }

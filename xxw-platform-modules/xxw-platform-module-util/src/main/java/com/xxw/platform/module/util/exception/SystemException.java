@@ -3,7 +3,7 @@ package com.xxw.platform.module.util.exception;
 /**
  * 系统级错误,该错误不可最终进行抛出,不可对外展示
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class SystemException extends BaseException {

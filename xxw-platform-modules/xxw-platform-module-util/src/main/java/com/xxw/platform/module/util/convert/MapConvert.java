@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * MAP转换为其他类
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class MapConvert {

@@ -3,7 +3,7 @@ package com.xxw.platform.module.util.exception;
 /**
  * 错误枚举类定义
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/14
  */
 public interface ErrorEnumInterface {

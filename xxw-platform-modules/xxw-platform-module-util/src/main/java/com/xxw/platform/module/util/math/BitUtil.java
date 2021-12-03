@@ -3,7 +3,7 @@ package com.xxw.platform.module.util.math;
 /**
  * 位运算相关工具类
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class BitUtil {

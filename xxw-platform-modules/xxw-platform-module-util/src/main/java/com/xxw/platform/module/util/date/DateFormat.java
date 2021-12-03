@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * 日期格式化
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class DateFormat {

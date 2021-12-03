@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * 参数命名转换
  *
- * @author ethan
+ * @author xxw
  * @since 2019/11/18
  */
 public class NameConvert {

@@ -32,10 +32,12 @@
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
         <redisson.version>3.16.1</redisson.version>
-        <elasticsearch.version>6.8.1</elasticsearch.version>
+        <elasticsearch.version>7.15.2</elasticsearch.version>
         <shardingsphere.version>5.0.0</shardingsphere.version>
         <integration.version>5.5.5</integration.version>
+        <userAgent.version>1.21</userAgent.version>
         <easyexcel.version>3.0.5</easyexcel.version>
+        <hutool.version>5.7.16</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -202,9 +204,19 @@
                 <version>${integration.version}</version>
             </dependency>
             <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>${userAgent.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>easyexcel</artifactId>
                 <version>${easyexcel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
