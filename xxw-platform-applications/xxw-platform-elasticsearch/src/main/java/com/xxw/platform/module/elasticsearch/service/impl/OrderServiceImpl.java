@@ -1,10 +1,12 @@
 package com.xxw.platform.module.elasticsearch.service.impl;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
 import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
 import com.xxw.platform.module.elasticsearch.service.OrderService;
 import com.xxw.platform.starter.elasticsearch.service.BaseElasticsearchService;
+import org.apache.lucene.search.TotalHits;
 import org.elasticsearch.action.get.GetRequest;
 import org.elasticsearch.action.get.GetResponse;
 import org.elasticsearch.action.index.IndexRequest;
@@ -160,5 +162,42 @@ public class OrderServiceImpl extends BaseElasticsearchService implements OrderS
             });
         }
         return list;
+    }
+
+    @Override
+    public Page<XxwOrder> page(String index, String consignee) {
+        SearchRequest searchRequest = new SearchRequest(index);
+        TermQueryBuilder queryBuilder = QueryBuilders.termQuery("consignee.keyword", consignee);
+        //构件搜索条件
+        SearchSourceBuilder searchSourceBuilder = new SearchSourceBuilder();
+        //分页 size:每页几条(默认10) from从第几条开始查
+        searchSourceBuilder.size(20);
+        searchSourceBuilder.from(0);
+        searchSourceBuilder.trackTotalHits(true);
+        searchSourceBuilder.query(queryBuilder);
+        //设置查询超时时间
+        searchSourceBuilder.timeout(new TimeValue(60, TimeUnit.SECONDS));
+        searchRequest.source(searchSourceBuilder);
+        SearchResponse searchResponse = null;
+        Page<XxwOrder> page = new Page<>(0, 20);
+        try {
+            searchResponse = client.search(searchRequest, COMMON_OPTIONS);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        if (searchResponse != null) {
+            TotalHits totalHits = searchResponse.getHits().getTotalHits();
+            int total = (int) totalHits.value;
+            page.setTotal(total);
+            List<XxwOrder> list = Lists.newArrayList();
+            //遍历输出
+            SearchHit[] hits = searchResponse.getHits().getHits();
+            Arrays.stream(hits).forEach(documentFields -> {
+                XxwOrder order = BeanUtil.toBean(documentFields.getSourceAsMap(), XxwOrder.class);
+                list.add(order);
+            });
+            page.setRecords(list);
+        }
+        return page;
     }
 }

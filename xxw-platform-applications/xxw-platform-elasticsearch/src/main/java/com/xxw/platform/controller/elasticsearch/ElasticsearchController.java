@@ -1,5 +1,7 @@
 package com.xxw.platform.controller.elasticsearch;
 
+import cn.hutool.db.PageResult;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
 import com.xxw.platform.module.elasticsearch.service.OrderService;
 import com.xxw.platform.module.util.rest.Result;
@@ -62,5 +64,10 @@ public class ElasticsearchController {
     @GetMapping("/fuzzyList")
     public Result<List<XxwOrder>> fuzzyList(@RequestParam("consignee") String consignee) {
         return Result.success(orderService.fuzzyList("xxw-order", consignee));
+    }
+
+    @GetMapping("/page")
+    public Result<Page<XxwOrder>> page(@RequestParam("consignee") String consignee) {
+        return Result.success(orderService.page("xxw-order", consignee));
     }
 }

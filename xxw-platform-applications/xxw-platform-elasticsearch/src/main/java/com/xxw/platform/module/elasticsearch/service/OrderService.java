@@ -1,5 +1,6 @@
 package com.xxw.platform.module.elasticsearch.service;
 
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
 
 import java.util.List;
@@ -64,5 +65,7 @@ public interface OrderService {
 
     //模糊搜索
     List<XxwOrder> fuzzyList(String index, String consignee);
+
+    Page<XxwOrder> page(String index, String consignee);
 
 }
