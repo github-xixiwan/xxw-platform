@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: feign-service
+  profiles:
+    active: @profileActive@

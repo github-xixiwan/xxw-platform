@@ -13,4 +13,4 @@ dubbo:
     # dubbo 协议端口（ -1 表示自增端口，从 20880 开始）
     port: -1
   cloud:
-    subscribed-services: dynamic
+    subscribed-services: dubbo-service

@@ -18,6 +18,8 @@
         <module>xxw-platform-access</module>
         <module>xxw-platform-single</module>
         <module>xxw-platform-dynamic</module>
+        <module>xxw-platform-dubbo</module>
+        <module>xxw-platform-feign</module>
         <module>xxw-platform-shardingsphere</module>
         <module>xxw-platform-elasticsearch</module>
         <module>xxw-platform-mqtt</module>

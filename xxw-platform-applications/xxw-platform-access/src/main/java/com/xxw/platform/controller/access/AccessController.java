@@ -1,11 +1,13 @@
 package com.xxw.platform.controller.access;
 
+import com.xxw.platform.dubbo.api.order.OrderDubboApi;
+import com.xxw.platform.dubbo.api.order.model.dto.OrderDubboDTO;
+import com.xxw.platform.dubbo.api.order.model.vo.OrderDubboVO;
+import com.xxw.platform.feign.api.order.OrderFeignApi;
+import com.xxw.platform.feign.api.order.model.dto.OrderFeignDTO;
 import com.xxw.platform.module.access.model.entity.XxwOrder;
 import com.xxw.platform.module.access.stream.produce.RocketmqSend;
-import com.xxw.platform.module.api.order.OrderApi;
-import com.xxw.platform.module.api.order.model.dto.OrderDTO;
 import com.xxw.platform.module.util.rest.Result;
-import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Slf4j
 @Api(tags = "接入")
@@ -36,18 +39,33 @@ public class AccessController {
     private RocketmqSend rocketmqSend;
 
     @DubboReference
-    private OrderApi orderApi;
+    private OrderDubboApi orderDubboApi;
+
+    @Resource
+    private OrderFeignApi orderFeignApi;
 
     @PostMapping("/orderMq")
-    public Result<String> orderMq(@RequestBody OrderDTO dto) {
+    public Result<String> orderMq(@RequestBody OrderDubboDTO dto) {
         rocketmqSend.sendOrder(mapperFacade.map(dto, XxwOrder.class));
         return Result.success(name);
     }
 
     @PostMapping("/orderDubbo")
-    @GlobalTransactional
-    public Result<String> order(@RequestBody OrderDTO dto) {
-        orderApi.addOrder(dto);
+//    @GlobalTransactional
+    public Result<String> orderDubbo(@RequestBody OrderDubboDTO dto) {
+        orderDubboApi.addOrder(dto);
         return Result.success(name);
+    }
+
+    @PostMapping("/orderFeign")
+//    @GlobalTransactional
+    public Result<String> orderFeign(@RequestBody OrderFeignDTO dto) {
+        orderFeignApi.order(dto);
+        return Result.success(name);
+    }
+
+    @PostMapping("/getOrder")
+    public Result<List<OrderDubboVO>> getOrder(@RequestBody OrderDubboDTO dto) {
+        return orderDubboApi.getOrder(dto);
     }
 }

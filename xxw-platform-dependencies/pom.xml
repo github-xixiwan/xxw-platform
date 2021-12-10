@@ -78,11 +78,6 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-api</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-module-web</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -104,6 +99,17 @@
             <dependency>
                 <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-module-shardingsphere</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-dubbo-api</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-feign-api</artifactId>
                 <version>${revision}</version>
             </dependency>
 
