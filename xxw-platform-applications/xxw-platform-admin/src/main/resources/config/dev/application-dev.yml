@@ -3,8 +3,8 @@ spring:
     nacos:
       discovery:
         server-addr: 106.14.132.211:8848
-        namespace: xxw-platform
-        group: dev
+        namespace: dev
+        group: xxw-platform
   security:
     user:
       name: admin
