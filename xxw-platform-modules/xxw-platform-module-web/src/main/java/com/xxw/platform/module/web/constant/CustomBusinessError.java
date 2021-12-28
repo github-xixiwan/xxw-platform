@@ -15,7 +15,12 @@ public enum CustomBusinessError implements ErrorEnumInterface {
     MISSING_SERVLET_REQUEST_PARAMETER_EXCEPTION(6, "请求参数异常"),
     REST_CLIENT_EXCEPTION(7, "业务接口异常"),
     HTTP_MEDIA_TYPE_NOT_SUPPORTED_EXCEPTION(8, "不支持http媒体类型"),
-    Http_Message_Not_Readable_Exception(9, "Http消息不可读异常");
+    HTTP_MESSAGE_NOT_READABLE_EXCEPTION(9, "Http消息不可读异常"),
+    SENTINEL_FLOW_EXCEPTION(91, "流控规则被触发"),
+    SENTINEL_DEGRADE_EXCEPTION(92, "熔断规则被触发"),
+    SENTINEL_PARAM_FLOW_EXCEPTION(93, "热点规则被触发"),
+    SENTINEL_SYSTEM_BLOCK_EXCEPTION(94, "系统规则被触发"),
+    SENTINEL_AUTHORITY_EXCEPTION(95, "授权规则被触发");
 
     private Integer code;
 

@@ -89,6 +89,6 @@ public class DefaultExceptionHandler {
 
     private Result<Void> handelException(HttpMessageNotReadableException ex) {
         log.warn("HttpMessageNotReadableException:{}", ExceptionUtils.getStackTrace(ex));
-        return Result.failure(CustomBusinessError.Http_Message_Not_Readable_Exception);
+        return Result.failure(CustomBusinessError.HTTP_MESSAGE_NOT_READABLE_EXCEPTION);
     }
 }
