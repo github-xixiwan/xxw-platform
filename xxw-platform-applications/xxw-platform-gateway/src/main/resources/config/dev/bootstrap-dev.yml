@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 106.14.132.211:8848
+        namespace: dev
+        group: xxw-platform
+        file-extension: properties
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8888
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:9999
+        username: admin
+        password: 123456
+        instance:
+          service-base-url: http://127.0.0.1:9999

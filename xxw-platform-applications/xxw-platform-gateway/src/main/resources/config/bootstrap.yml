@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #开启自动发现
+          lower-case-service-id: true #转小写
+  profiles:
+    active: @profileActive@

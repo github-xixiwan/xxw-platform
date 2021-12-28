@@ -15,6 +15,7 @@
 
     <modules>
         <module>xxw-platform-admin</module>
+        <module>xxw-platform-gateway</module>
         <module>xxw-platform-access</module>
         <module>xxw-platform-single</module>
         <module>xxw-platform-dynamic</module>

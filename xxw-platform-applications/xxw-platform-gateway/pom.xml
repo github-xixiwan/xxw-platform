@@ -4,8 +4,8 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-access</artifactId>
-    <name>xxw-platform-access</name>
+    <artifactId>xxw-platform-gateway</artifactId>
+    <name>xxw-platform-gateway</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -17,27 +17,23 @@
     <dependencies>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-module-nacos</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-dubbo-api</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-feign-api</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-alibaba-seata</artifactId>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

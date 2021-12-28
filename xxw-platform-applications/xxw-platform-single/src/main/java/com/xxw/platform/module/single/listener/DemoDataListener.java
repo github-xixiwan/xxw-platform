@@ -6,7 +6,6 @@ import com.alibaba.excel.util.ListUtils;
 import com.alibaba.fastjson.JSON;
 import com.xxw.platform.module.single.model.entity.DemoData;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -67,28 +66,12 @@ public class DemoDataListener implements ReadListener<DemoData> {
             fr = new FileWriter("C:\\Users\\liaoxiting\\Desktop\\txt\\1.txt");
             bw = new BufferedWriter(fr);
             for (DemoData l : cachedDataList) {
-                String waybillNo = l.getWaybillNo();
-                String firstDispatchCode = "";
-                String secondDispatchCode = "";
-                String thirdlyDispatchCode = "";
-                String terminalDispatchCode = l.getTerminalDispatchCode();
-                if (StringUtils.isNotBlank(terminalDispatchCode)) {
-                    String[] split = terminalDispatchCode.split(",");
-                    if (split.length == 1) {
-                        firstDispatchCode = split[0];
-                    }
-                    if (split.length == 2) {
-                        firstDispatchCode = split[0];
-                        secondDispatchCode = split[1];
-                    }
-                    if (split.length == 3) {
-                        firstDispatchCode = split[0];
-                        secondDispatchCode = split[1];
-                        thirdlyDispatchCode = split[2];
-                    }
-                }
-                String sql = "insert into t_ass_sorting_segmented (code, waybill_no, terminal_dispatch_code, first_dispatch_code, second_dispatch_code, thirdly_dispatch_code, customer_code, interceptor, order_type) " +
-                        "values ('457101','" + waybillNo + "','" + terminalDispatchCode + "','" + firstDispatchCode + "','" + secondDispatchCode + "','" + thirdlyDispatchCode + "','',2,1);";
+                String field1=l.getField1();
+                String field2=l.getField2();
+                String field3=l.getField3();
+                String field4=l.getField4();
+                String field5=l.getField5();
+                String sql = "update YL_LMDM_SYS_SECOND_CODE set PICK_NETWORK_CODE = '"+field4+"', PICK_NETWORK_NAME = '"+field5+"' where PROVINCE = '"+field1+"' and CITY = '"+field2+"' and AREA = '"+field3+"';";
                 bw.write(sql);
                 bw.newLine();  //换行用
             }
