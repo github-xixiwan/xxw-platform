@@ -6,6 +6,7 @@ import com.xxw.platform.module.dynamic.service.IXxwOrder1Service;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import javax.annotation.Resource;
 
 @Api(tags = "多个数据库")
 @RequestMapping("/dynamic")
+@RefreshScope
 @RestController
 public class DynamicController {
 

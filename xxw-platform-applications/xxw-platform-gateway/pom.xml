@@ -17,6 +17,10 @@
     <dependencies>
         <dependency>
             <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-module-util</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.xxw.platform</groupId>
             <artifactId>xxw-platform-module-nacos</artifactId>
         </dependency>
         <dependency>
