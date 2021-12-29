@@ -27,8 +27,6 @@ public class AuthGlobalFilter implements GlobalFilter {
     private String whiteList;
 
     private boolean isWhiteList(String path) {
-        System.out.println(path);
-        System.out.println(whiteList);
         if (StringUtils.isNotBlank(whiteList)) {
             AntPathMatcher antPathMatcher = new AntPathMatcher();
             String[] split = whiteList.split(",");

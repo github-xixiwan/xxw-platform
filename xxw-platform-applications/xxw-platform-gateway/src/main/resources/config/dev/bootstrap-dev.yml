@@ -9,6 +9,15 @@ spring:
     sentinel:
       transport:
         dashboard: 127.0.0.1:8888
+      scg:
+        fallback:
+          ## 两种模式，一种是response返回文字提示信息，
+          ## 一种是redirect，重定向跳转，需要同时配置redirect(跳转的uri)
+          mode: response
+          ## 响应的状态
+          response-status: 200
+          ## 响应体
+          response-body: '{"success": false,"errorCode": 9999,"errorMsg": "服务降级"}'
   boot:
     admin:
       client:

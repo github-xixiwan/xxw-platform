@@ -7,16 +7,29 @@ spring:
         group: ${spring.cloud.nacos.config.group}
     sentinel:
       datasource:
-        ds:
+        ds0:
           nacos:
             ### nacos连接地址
             server-addr: ${spring.cloud.nacos.config.server-addr}
             ## nacos连接的分组
             group-id: ${spring.cloud.nacos.config.group}
             ### 读取配置文件的 data-id
-            data-id: ${spring.application.name}-@profileActive@-sentinel
+            data-id: ${spring.application.name}-@profileActive@-sentinel-gw-flow
             namespace: ${spring.cloud.nacos.config.namespace}
             ###路由存储规则
-            rule-type: flow
+            rule-type: gw-flow
+            ###  读取培训文件类型为json
+            data-type: json
+        ds1:
+          nacos:
+            ### nacos连接地址
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            ## nacos连接的分组
+            group-id: ${spring.cloud.nacos.config.group}
+            ### 读取配置文件的 data-id
+            data-id: ${spring.application.name}-@profileActive@-sentinel-gw-api-group
+            namespace: ${spring.cloud.nacos.config.namespace}
+            ###路由存储规则
+            rule-type: gw-api-group
             ###  读取培训文件类型为json
             data-type: json
