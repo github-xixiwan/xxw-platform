@@ -83,6 +83,11 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-module-web-exception</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-module-nacos</artifactId>
                 <version>${revision}</version>
             </dependency>

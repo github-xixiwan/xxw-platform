@@ -36,8 +36,10 @@ public class FeignController {
 
     @PostMapping("/order")
     public Result<String> order(@RequestBody OrderFeignDTO dto) {
-        xxwOrder0Service.save(mapperFacade.map(dto, XxwOrder.class));
-        xxwOrder1Service.save(mapperFacade.map(dto, XxwOrder.class));
+        XxwOrder order = mapperFacade.map(dto, XxwOrder.class);
+        order.setOrderSn(order.getOrderSn() + "1");
+        xxwOrder0Service.save(order);
+//        System.out.println(1 / 0);
         return Result.success(name);
     }
 }

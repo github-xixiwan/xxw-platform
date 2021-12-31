@@ -30,12 +30,12 @@ import java.util.Objects;
 @Component
 @Slf4j(topic = "gateLog")
 public class GateLog {
+
     /**
-     * 切入点
+     * 拦截所有controller包下的方法
      */
     @Pointcut("execution(public * com.xxw.platform.controller..*.*(..))")
-    public void log() {
-
+    private void controllerMethod() {
     }
 
     /**
@@ -45,7 +45,7 @@ public class GateLog {
      * @return 原方法返回值
      * @throws Throwable 异常信息
      */
-    @Around("log()")
+    @Around("controllerMethod()")
     public Object aroundLog(ProceedingJoinPoint point) throws Throwable {
         // 开始打印请求日志
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();

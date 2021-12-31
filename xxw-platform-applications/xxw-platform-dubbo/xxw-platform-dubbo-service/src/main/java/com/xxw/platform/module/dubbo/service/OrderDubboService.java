@@ -37,13 +37,9 @@ public class OrderDubboService implements OrderDubboApi {
     @Resource
     private IXxwOrder0Service xxwOrder0Service;
 
-    @Resource
-    private IXxwOrder1Service xxwOrder1Service;
-
     @Override
     public Result<Void> addOrder(OrderDubboDTO dto) {
         xxwOrder0Service.save(mapperFacade.map(dto, XxwOrder.class));
-        xxwOrder1Service.save(mapperFacade.map(dto, XxwOrder.class));
         return Result.success();
     }
 

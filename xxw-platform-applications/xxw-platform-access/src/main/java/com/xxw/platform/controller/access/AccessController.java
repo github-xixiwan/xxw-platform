@@ -5,9 +5,11 @@ import com.xxw.platform.dubbo.api.order.model.dto.OrderDubboDTO;
 import com.xxw.platform.dubbo.api.order.model.vo.OrderDubboVO;
 import com.xxw.platform.feign.api.order.OrderFeignApi;
 import com.xxw.platform.feign.api.order.model.dto.OrderFeignDTO;
+import com.xxw.platform.module.access.model.dto.OrderDTO;
 import com.xxw.platform.module.access.model.entity.XxwOrder;
 import com.xxw.platform.module.access.stream.produce.RocketmqSend;
 import com.xxw.platform.module.util.rest.Result;
+import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
@@ -51,16 +53,23 @@ public class AccessController {
     }
 
     @PostMapping("/orderDubbo")
-//    @GlobalTransactional
     public Result<String> orderDubbo(@RequestBody OrderDubboDTO dto) {
         orderDubboApi.addOrder(dto);
         return Result.success(name);
     }
 
     @PostMapping("/orderFeign")
-//    @GlobalTransactional
     public Result<String> orderFeign(@RequestBody OrderFeignDTO dto) {
         orderFeignApi.order(dto);
+        return Result.success(name);
+    }
+
+    @PostMapping("/orderSeata")
+    @GlobalTransactional
+    public Result<String> orderSeata(@RequestBody OrderDTO dto) {
+        orderDubboApi.addOrder(mapperFacade.map(dto, OrderDubboDTO.class));
+        orderFeignApi.order(mapperFacade.map(dto, OrderFeignDTO.class));
+        System.out.println(1/0);
         return Result.success(name);
     }
 
