@@ -17,8 +17,8 @@ spring:
         password: 123456
   mqtt:
     publish:
-      hostAddress: tcp://10.66.70.118:1883
+      uris: tcp://10.66.70.118:1883
       userName: admin
       password: 123qwe$%^
-      defaultTopic: $queue/mqttTopic
+      defaultTopic: defaultTopic
       clientId: ${spring.application.name}-${server.port}

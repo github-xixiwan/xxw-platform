@@ -17,12 +17,12 @@ spring:
         password: 123456
   mqtt:
     subscribe:
-      hostAddress: tcp://10.66.70.118:1883
+      uris: tcp://10.66.70.118:1883
       userName: admin
       password: 123qwe$%^
       connectionTimeout: 30
       keepAliveInterval: 60
-      defaultTopic: $queue/mqttTopic
+      defaultTopic: defaultTopic
       clientId: ${spring.application.name}-${server.port}
       cleanSession: false
       automaticReconnect: true

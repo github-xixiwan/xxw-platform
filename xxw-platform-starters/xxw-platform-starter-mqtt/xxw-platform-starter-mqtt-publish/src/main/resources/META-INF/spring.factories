@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.xxw.platform.starter.mqtt.config.MqttConfig
+com.xxw.platform.starter.mqtt.config.MqttPublishConfig

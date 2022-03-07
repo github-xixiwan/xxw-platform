@@ -1,21 +1,21 @@
 package com.xxw.platform.starter.mqtt.publish;
 
-import com.xxw.platform.starter.mqtt.config.MqttConfig;
+import com.xxw.platform.starter.mqtt.config.MqttPublishConfig;
 import org.springframework.integration.annotation.MessagingGateway;
 import org.springframework.integration.mqtt.support.MqttHeaders;
 import org.springframework.messaging.handler.annotation.Header;
 import org.springframework.stereotype.Component;
 
 @Component
-@MessagingGateway(defaultRequestChannel = MqttConfig.CHANNEL_NAME_OUT)
+@MessagingGateway(defaultRequestChannel = MqttPublishConfig.MQTT_OUTBOUND_CHANNEL)
 public interface IMqttPublish {
 
     /**
      * 发送信息到MQTT服务器
      *
-     * @param data 发送的文本
+     * @param payload 消息主体
      */
-    void sendToMqtt(String data);
+    void sendToMqtt(String payload);
 
     /**
      * 发送信息到MQTT服务器
@@ -23,8 +23,7 @@ public interface IMqttPublish {
      * @param topic   主题
      * @param payload 消息主体
      */
-    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic,
-                    String payload);
+    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic, String payload);
 
     /**
      * 发送信息到MQTT服务器
@@ -36,7 +35,5 @@ public interface IMqttPublish {
      *                2 多了一次去重的动作，确保订阅者收到的消息有一次。
      * @param payload 消息主体
      */
-    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic,
-                    @Header(MqttHeaders.QOS) int qos,
-                    String payload);
+    void sendToMqtt(@Header(MqttHeaders.TOPIC) String topic, @Header(MqttHeaders.QOS) int qos, String payload);
 }

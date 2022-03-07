@@ -5,12 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 
 @Data
 @ConfigurationProperties(prefix = "spring.mqtt")
-public class MqttProperties {
-
-    /**
-     * 发布者
-     */
-    private Publish publish;
+public class MqttSubscribeProperties {
 
     /**
      * 订阅者
@@ -18,51 +13,12 @@ public class MqttProperties {
     private Subscribe subscribe;
 
     @Data
-    public static class Publish {
-
-        /**
-         * tcp://host:port 多个用,隔开
-         */
-        private String hostAddress;
-
-        /**
-         * 用户名
-         */
-        private String userName;
-
-        /**
-         * 密码
-         */
-        private String password;
-
-        /**
-         * 建立连接超时时间 默认30s
-         */
-        private int connectionTimeout = 30;
-
-        /**
-         * 心跳时间 默认60s
-         */
-        private int keepAliveInterval = 60;
-
-        /**
-         * 默认发送的主题
-         */
-        private String defaultTopic;
-
-        /**
-         * 客户端唯一ID
-         */
-        private String clientId;
-    }
-
-    @Data
     public static class Subscribe {
 
         /**
          * tcp://host:port 多个用,隔开
          */
-        private String hostAddress;
+        private String[] uris;
 
         /**
          * 用户名
@@ -110,5 +66,15 @@ public class MqttProperties {
          * 获取重新连接之间的最长等待时间（毫秒）
          */
         private int maxReconnectDelay = 128000;
+
+        /**
+         * 操作完成超时（毫秒）
+         */
+        private long completionTimeout = 30000;
+
+        /**
+         * 重新连接尝试之间的等待时间（毫秒）
+         */
+        private int recoveryInterval = 10000;
     }
 }
