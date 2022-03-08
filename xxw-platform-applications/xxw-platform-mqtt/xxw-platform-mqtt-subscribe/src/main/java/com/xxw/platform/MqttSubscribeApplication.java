@@ -21,7 +21,7 @@ public class MqttSubscribeApplication {
 
     @PostConstruct
     public void subscribe() {
-        mqttService.addTopic("defaultTopic1", 0);
+        mqttService.addTopic("$queue/defaultTopic2", 1);
     }
 
 }

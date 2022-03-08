@@ -9,13 +9,13 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.annotation.ServiceActivator;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
-import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.outbound.MqttPahoMessageHandler;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.util.Assert;
 
 import javax.annotation.Resource;
+import java.nio.charset.StandardCharsets;
 
 @Configuration
 @EnableConfigurationProperties(MqttPublishProperties.class)
@@ -38,6 +38,7 @@ public class MqttPublishConfig {
         Assert.state(ArrayUtils.isNotEmpty(mqttPublishProperties.getPublish().getUris()), "publish uris cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttPublishProperties.getPublish().getUserName()), "publish userName cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttPublishProperties.getPublish().getPassword()), "publish password cannot be empty");
+        Assert.state(StringUtils.isNotBlank(mqttPublishProperties.getPublish().getClientId()), "publish clientId cannot be empty");
         MqttConnectOptions options = new MqttConnectOptions();
         // 设置连接的用户
         options.setUserName(mqttPublishProperties.getPublish().getUserName());
@@ -52,14 +53,10 @@ public class MqttPublishConfig {
         options.setKeepAliveInterval(mqttPublishProperties.getPublish().getKeepAliveInterval());
         //每秒最大发送次数
         options.setMaxInflight(mqttPublishProperties.getPublish().getMaxInflight());
+        // 设置遗嘱消息,并保留
+        byte[] payload = ("[" + mqttPublishProperties.getPublish().getClientId() + "] 连接已断开...").getBytes(StandardCharsets.UTF_8);
+        options.setWill("willTopic", payload, 1, true);
         return options;
-    }
-
-    @Bean
-    public MqttPahoClientFactory PublishMqttPahoClientFactory() {
-        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
-        factory.setConnectionOptions(getPublishMqttConnectOptions());
-        return factory;
     }
 
     /**
@@ -69,9 +66,11 @@ public class MqttPublishConfig {
      */
     @Bean
     @ServiceActivator(inputChannel = MQTT_OUTBOUND_CHANNEL)
-    public MessageHandler mqttOutbound(MqttPahoClientFactory factory) {
+    public MessageHandler mqttOutbound() {
         Assert.state(StringUtils.isNotBlank(mqttPublishProperties.getPublish().getClientId()), "publish clientId cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttPublishProperties.getPublish().getDefaultTopic()), "publish defaultTopic cannot be empty");
+        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
+        factory.setConnectionOptions(getPublishMqttConnectOptions());
         MqttPahoMessageHandler messageHandler = new MqttPahoMessageHandler(mqttPublishProperties.getPublish().getClientId(), factory);
         messageHandler.setAsync(true);
         messageHandler.setDefaultTopic(mqttPublishProperties.getPublish().getDefaultTopic());

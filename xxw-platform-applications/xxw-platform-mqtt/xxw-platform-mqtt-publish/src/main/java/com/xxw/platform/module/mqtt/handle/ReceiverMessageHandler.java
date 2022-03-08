@@ -13,8 +13,8 @@ public class ReceiverMessageHandler {
     @ServiceActivator(inputChannel = "mqttInboundChannel")
     public MessageHandler handleMessage() {
         return message -> {
-            System.out.println("subscribe:" + message.getPayload());
-            System.out.println("aaaaaaaaaa"+ JsonUtil.toJson(message.getHeaders()));
+            System.out.println("publish:" + message.getPayload());
+            System.out.println("bbbbbbbbb" + JsonUtil.toJson(message.getHeaders()));
         };
     }
 }

@@ -26,12 +26,13 @@ public class MqttController {
         String topic = dto.getTopic();
         int qos = dto.getQos();
         String payload = dto.getPayload();
-        for (int i = 0; i < 1000; i++) {
-            try {
-                Thread.sleep(100L);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+        int size = dto.getSize();
+        for (int i = 0; i < size; i++) {
+//            try {
+//                Thread.sleep(100L);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
             mqttPublish.sendToMqtt(topic, qos, payload + i);
         }
         return Result.success();

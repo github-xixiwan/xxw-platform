@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.integration.channel.DirectChannel;
 import org.springframework.integration.core.MessageProducer;
 import org.springframework.integration.mqtt.core.DefaultMqttPahoClientFactory;
-import org.springframework.integration.mqtt.core.MqttPahoClientFactory;
 import org.springframework.integration.mqtt.inbound.MqttPahoMessageDrivenChannelAdapter;
 import org.springframework.messaging.MessageChannel;
 import org.springframework.util.Assert;
@@ -51,16 +50,11 @@ public class MqttSubscribeConfig {
     }
 
     @Bean
-    public MqttPahoClientFactory subscribeMqttPahoClientFactory() {
-        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
-        factory.setConnectionOptions(getSubscribeMqttConnectOptions());
-        return factory;
-    }
-
-    @Bean
-    public MqttPahoMessageDrivenChannelAdapter subscribeMqttPahoMessageDrivenChannelAdapter(MqttPahoClientFactory factory) {
+    public MqttPahoMessageDrivenChannelAdapter subscribeMqttPahoMessageDrivenChannelAdapter() {
         Assert.state(StringUtils.isNotBlank(mqttSubscribeProperties.getSubscribe().getClientId()), "subscribe clientId cannot be empty");
         Assert.state(StringUtils.isNotBlank(mqttSubscribeProperties.getSubscribe().getDefaultTopic()), "subscribe defaultTopic cannot be empty");
+        DefaultMqttPahoClientFactory factory = new DefaultMqttPahoClientFactory();
+        factory.setConnectionOptions(getSubscribeMqttConnectOptions());
         return new MqttPahoMessageDrivenChannelAdapter(mqttSubscribeProperties.getSubscribe().getClientId(), factory, mqttSubscribeProperties.getSubscribe().getDefaultTopic());
     }
 
