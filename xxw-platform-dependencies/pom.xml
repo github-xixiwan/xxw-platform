@@ -34,7 +34,7 @@
         <redisson.version>3.16.1</redisson.version>
         <elasticsearch.version>7.15.2</elasticsearch.version>
         <shardingsphere.version>5.0.0</shardingsphere.version>
-        <integration.version>5.5.9</integration.version>
+        <integration.version>5.5.10</integration.version>
         <userAgent.version>1.21</userAgent.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <hutool.version>5.7.16</hutool.version>

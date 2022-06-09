@@ -17,13 +17,13 @@ spring:
         password: 123456
   mqtt:
     publish:
-      uris: tcp://10.66.70.118:1883
+      uris: tcp://127.0.0.1:1883
       userName: admin
       password: 123qwe$%^
       defaultTopic: defaultTopic
       clientId: ${spring.application.name}-${server.port}-publish
     subscribe:
-      uris: tcp://10.66.70.118:1883
+      uris: tcp://127.0.0.1:1883
       userName: admin
       password: 123qwe$%^
       connectionTimeout: 30

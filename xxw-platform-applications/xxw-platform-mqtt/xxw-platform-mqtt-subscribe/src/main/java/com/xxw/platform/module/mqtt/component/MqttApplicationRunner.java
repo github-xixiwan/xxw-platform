@@ -23,8 +23,8 @@ public class MqttApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        mqttService.addTopic("$queue/defaultTopic2", 1);
-        String payload = "[" + clientId + "] 已连接...";
-        mqttPublish.sendToMqtt("onlineTopic", 1, payload);
+        mqttService.addTopic("test", 1);
+//        String payload = "[" + clientId + "] 已连接...";
+//        mqttPublish.sendToMqtt("onlineTopic", 1, payload);
     }
 }
