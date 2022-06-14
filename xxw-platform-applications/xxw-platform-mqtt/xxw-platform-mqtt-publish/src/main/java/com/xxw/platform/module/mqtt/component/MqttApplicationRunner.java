@@ -15,7 +15,7 @@ public class MqttApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        mqttService.addTopic("$queue/defaultTopic3", 0);
+        mqttService.addTopic("ruleEngine", 0);
 //        mqttService.addTopic("$queue/willTopic", 1);
 //        mqttService.addTopic("$queue/onlineTopic", 1);
     }
