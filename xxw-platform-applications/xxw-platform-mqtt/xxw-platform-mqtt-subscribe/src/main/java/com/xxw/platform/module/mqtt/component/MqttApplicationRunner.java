@@ -24,7 +24,11 @@ public class MqttApplicationRunner implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         mqttService.addTopic("test", 1);
-//        String payload = "[" + clientId + "] 已连接...";
-//        mqttPublish.sendToMqtt("onlineTopic", 1, payload);
+        String payload = "[" + clientId + "] 已连接...";
+        mqttPublish.sendToMqtt("onlineTopic", 1, payload);
+        //共享订阅
+        mqttService.addTopic("$queue/sharedSubscription", 1);
+        //共享群组订阅
+        mqttService.addTopic("$share/111/sharedGroupSubscription", 1);
     }
 }

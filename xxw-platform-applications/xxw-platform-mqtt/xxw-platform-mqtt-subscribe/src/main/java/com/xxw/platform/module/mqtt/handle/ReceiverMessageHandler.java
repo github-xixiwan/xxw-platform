@@ -14,7 +14,7 @@ public class ReceiverMessageHandler {
     public MessageHandler handleMessage() {
         return message -> {
             System.out.println("subscribe:" + message.getPayload());
-            System.out.println("aaaaaaaaaa"+ JsonUtil.toJson(message.getHeaders()));
+            System.out.println("headers"+ JsonUtil.toJson(message.getHeaders()));
         };
     }
 }

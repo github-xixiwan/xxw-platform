@@ -14,7 +14,7 @@ public class ReceiverMessageHandler {
     public MessageHandler handleMessage() {
         return message -> {
             System.out.println("publish:" + message.getPayload());
-            System.out.println("bbbbbbbbb" + JsonUtil.toJson(message.getHeaders()));
+            System.out.println("headers" + JsonUtil.toJson(message.getHeaders()));
         };
     }
 }
