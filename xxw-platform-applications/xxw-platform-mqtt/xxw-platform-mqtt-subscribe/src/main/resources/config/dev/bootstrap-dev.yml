@@ -19,13 +19,13 @@ spring:
     publish:
       uris: tcp://127.0.0.1:1883
       userName: admin
-      password: test
+      password: yunlu
       defaultTopic: defaultTopic
       clientId: ${spring.application.name}-${server.port}-publish
     subscribe:
       uris: tcp://127.0.0.1:1883
       userName: admin
-      password: test
+      password: yunlu
       connectionTimeout: 30
       keepAliveInterval: 60
       defaultTopic: defaultTopic

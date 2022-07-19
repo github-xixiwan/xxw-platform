@@ -8,10 +8,7 @@ import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -32,6 +29,12 @@ public class SingleController {
     @GetMapping("/hello")
     public Result<String> hello() {
         return Result.success(name);
+    }
+
+    @GetMapping("/buyOrder")
+    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+        String s = xxwOrderService.buyOrder(orderId);
+        return Result.success(s);
     }
 
     @PostMapping("upload")

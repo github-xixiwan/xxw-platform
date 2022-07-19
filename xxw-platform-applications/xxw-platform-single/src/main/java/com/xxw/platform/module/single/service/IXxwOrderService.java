@@ -13,4 +13,5 @@ import com.xxw.platform.module.single.model.entity.XxwOrder;
  */
 public interface IXxwOrderService extends IService<XxwOrder> {
 
+    String buyOrder(String orderId);
 }

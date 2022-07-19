@@ -29,6 +29,8 @@ public class MqttApplicationRunner implements ApplicationRunner {
         //共享订阅
         mqttService.addTopic("$queue/sharedSubscription", 1);
         //共享群组订阅
-        mqttService.addTopic("$share/111/sharedGroupSubscription", 1);
+        mqttService.addTopic("$share/222/sharedGroupSubscription", 1);
+
+        mqttService.addTopic("test21", 1);
     }
 }
