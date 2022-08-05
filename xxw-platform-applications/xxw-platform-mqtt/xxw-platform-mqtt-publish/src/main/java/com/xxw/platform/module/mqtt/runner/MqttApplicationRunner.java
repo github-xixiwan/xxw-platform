@@ -1,4 +1,4 @@
-package com.xxw.platform.module.mqtt.component;
+package com.xxw.platform.module.mqtt.runner;
 
 import com.xxw.platform.starter.mqtt.service.MqttService;
 import org.springframework.boot.ApplicationArguments;
