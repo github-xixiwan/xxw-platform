@@ -8,7 +8,7 @@ spring:
         file-extension: properties
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8888
+        dashboard: 127.0.0.1:8080
       scg:
         fallback:
           ## 两种模式，一种是response返回文字提示信息，
