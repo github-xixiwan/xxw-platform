@@ -9,21 +9,6 @@ spring:
     sentinel:
       transport:
         dashboard: 127.0.0.1:8888
-    stream:
-      rocketmq:
-        binder:
-          name-server: 106.14.132.211:9876
-      bindings:
-        addOrder-in-0:
-          destination: add-order
-          content-type: application/json
-          group: add-order-group
-        addOrders-in-0:
-          destination: add-orders
-          content-type: application/json
-          group: add-orders-group
-      function:
-        definition: addOrder;addOrders
   boot:
     admin:
       client:

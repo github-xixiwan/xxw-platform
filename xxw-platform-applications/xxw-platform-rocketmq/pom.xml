@@ -4,8 +4,8 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-single</artifactId>
-    <name>xxw-platform-single</name>
+    <artifactId>xxw-platform-rocketmq</artifactId>
+    <name>xxw-platform-rocketmq</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
@@ -24,8 +24,8 @@
             <artifactId>xxw-platform-module-nacos</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-mybatisplus</artifactId>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-stream-rocketmq</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,7 +65,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.SingleApplication</mainClass>
+                    <mainClass>com.xxw.platform.RocketmqApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>

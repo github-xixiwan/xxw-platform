@@ -1,7 +1,7 @@
-package com.xxw.platform.module.single.stream.consume;
+package com.xxw.platform.module.rocketmq.stream.consume;
 
-import com.xxw.platform.module.single.model.entity.XxwOrder;
-import com.xxw.platform.module.single.service.IXxwOrderService;
+import com.xxw.platform.module.rocketmq.service.IXxwOrderService;
+import com.xxw.platform.module.rocketmq.model.entity.XxwOrder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
