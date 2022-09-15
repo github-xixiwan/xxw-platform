@@ -26,8 +26,8 @@
 
         <!-- Maven modules Versions -->
         <mybatis.version>2.2.2</mybatis.version>
-        <mybatis-plus.version>3.5.2</mybatis-plus.version>
         <fluent-mybatis.version>1.9.8</fluent-mybatis.version>
+        <dynamic-datasource.version>3.5.2</dynamic-datasource.version>
         <guava.version>30.1.1-jre</guava.version>
         <knife4j.version>3.0.3</knife4j.version>
         <jsr311.version>1.1.1</jsr311.version>
@@ -35,7 +35,7 @@
         <orika.version>1.5.4</orika.version>
         <redisson.version>3.16.1</redisson.version>
         <elasticsearch.version>7.15.2</elasticsearch.version>
-        <shardingsphere.version>5.0.0</shardingsphere.version>
+        <shardingsphere.version>5.2.0</shardingsphere.version>
         <userAgent.version>1.21</userAgent.version>
         <easyexcel.version>3.0.5</easyexcel.version>
         <hutool.version>5.7.16</hutool.version>
@@ -94,22 +94,7 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-mybatisplus</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-module-fluentmybatis</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-dynamic</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-shardingsphere</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -162,18 +147,8 @@
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
-                <artifactId>mybatis-plus-generator</artifactId>
-                <version>${mybatis-plus.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.baomidou</groupId>
                 <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
-                <version>${mybatis-plus.version}</version>
+                <version>${dynamic-datasource.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>

@@ -1,6 +1,6 @@
 package com.xxw.platform.module.rocketmq.stream.consume;
 
-import com.xxw.platform.module.rocketmq.entity.XxwOrder;
+import com.xxw.platform.module.rocketmq.dto.RocketmqDTO;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
@@ -16,7 +16,7 @@ public class RocketmqReceive {
     private String name;
 
     @Bean
-    public Consumer<XxwOrder> addOrder() {
+    public Consumer<RocketmqDTO> addOrder() {
         return message -> {
             try {
                 System.out.println(name + "消费新增订单: " + message);
@@ -27,7 +27,7 @@ public class RocketmqReceive {
     }
 
     @Bean
-    public Consumer<XxwOrder> addOrders() {
+    public Consumer<RocketmqDTO> addOrders() {
         return message -> {
             try {
                 System.out.println(name + "消费新增订单s: " + message);

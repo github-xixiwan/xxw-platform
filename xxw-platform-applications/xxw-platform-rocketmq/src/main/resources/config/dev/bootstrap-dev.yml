@@ -14,10 +14,16 @@ spring:
         binder:
           name-server: 106.14.132.211:9876
       bindings:
+        addOrder-out-0:
+          destination: add-order
+          content-type: application/json
         addOrder-in-0:
           destination: add-order
           content-type: application/json
           group: add-order-group
+        addOrders-out-0:
+          destination: add-orders
+          content-type: application/json
         addOrders-in-0:
           destination: add-orders
           content-type: application/json

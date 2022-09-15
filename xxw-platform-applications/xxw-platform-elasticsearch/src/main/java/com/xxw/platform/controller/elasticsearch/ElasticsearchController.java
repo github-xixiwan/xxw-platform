@@ -1,8 +1,8 @@
 package com.xxw.platform.controller.elasticsearch;
 
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xxw.platform.module.elasticsearch.entity.XxwOrder;
-import com.xxw.platform.module.elasticsearch.service.OrderService;
+import cn.hutool.db.PageResult;
+import com.xxw.platform.module.elasticsearch.dto.ElasticsearchDTO;
+import com.xxw.platform.module.elasticsearch.service.ElasticsearchService;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -24,49 +24,49 @@ public class ElasticsearchController {
     private String name;
 
     @Resource
-    private OrderService orderService;
+    private ElasticsearchService elasticsearchService;
 
     @PostMapping("/insert")
-    public Result<String> insert(@RequestBody List<XxwOrder> list) {
-        orderService.insert("xxw-order", list);
+    public Result<String> insert(@RequestBody List<ElasticsearchDTO> list) {
+        elasticsearchService.insert("xxw-order", list);
         return Result.success(name);
     }
 
     @PostMapping("/update")
-    public Result<String> update(@RequestBody List<XxwOrder> list) {
-        orderService.update("xxw-order", list);
+    public Result<String> update(@RequestBody List<ElasticsearchDTO> list) {
+        elasticsearchService.update("xxw-order", list);
         return Result.success(name);
     }
 
     @GetMapping("/deleteIndex")
     public Result<String> deleteIndex() {
-        orderService.deleteIndex("xxw-order");
+        elasticsearchService.deleteIndex("xxw-order");
         return Result.success(name);
     }
 
     @GetMapping("/delete")
     public Result<String> delete(@RequestParam("orderSn") String orderSn) {
-        orderService.delete("xxw-order", orderSn);
+        elasticsearchService.delete("xxw-order", orderSn);
         return Result.success(name);
     }
 
     @GetMapping("/searchOne")
-    public Result<XxwOrder> searchOne(@RequestParam("orderSn") String orderSn) {
-        return Result.success(orderService.searchOne("xxw-order", orderSn));
+    public Result<ElasticsearchDTO> searchOne(@RequestParam("orderSn") String orderSn) {
+        return Result.success(elasticsearchService.searchOne("xxw-order", orderSn));
     }
 
     @GetMapping("/searchList")
-    public Result<List<XxwOrder>> searchList(@RequestParam("userId") Long userId) {
-        return Result.success(orderService.searchList("xxw-order", userId));
+    public Result<List<ElasticsearchDTO>> searchList(@RequestParam("userId") Long userId) {
+        return Result.success(elasticsearchService.searchList("xxw-order", userId));
     }
 
     @GetMapping("/fuzzyList")
-    public Result<List<XxwOrder>> fuzzyList(@RequestParam("consignee") String consignee) {
-        return Result.success(orderService.fuzzyList("xxw-order", consignee));
+    public Result<List<ElasticsearchDTO>> fuzzyList(@RequestParam("consignee") String consignee) {
+        return Result.success(elasticsearchService.fuzzyList("xxw-order", consignee));
     }
 
     @GetMapping("/page")
-    public Result<Page<XxwOrder>> page(@RequestParam("consignee") String consignee) {
-        return Result.success(orderService.page("xxw-order", consignee));
+    public Result<PageResult<ElasticsearchDTO>> page(@RequestParam("consignee") String consignee) {
+        return Result.success(elasticsearchService.page("xxw-order", consignee));
     }
 }

@@ -4,28 +4,20 @@
         xmlns="http://maven.apache.org/POM/4.0.0"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>xxw-platform-elasticsearch</artifactId>
-    <name>xxw-platform-elasticsearch</name>
+    <artifactId>xxw-platform-dynamic</artifactId>
+    <name>xxw-platform-dynamic</name>
 
     <parent>
         <groupId>com.xxw.platform</groupId>
-        <artifactId>xxw-platform-applications</artifactId>
+        <artifactId>xxw-platform-datasource</artifactId>
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-web-exception</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-nacos</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-starter-elasticsearch</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -65,7 +57,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.xxw.platform.ElasticsearchApplication</mainClass>
+                    <mainClass>com.xxw.platform.DynamicApplication</mainClass>
                     <fork>true</fork>
                 </configuration>
                 <executions>
