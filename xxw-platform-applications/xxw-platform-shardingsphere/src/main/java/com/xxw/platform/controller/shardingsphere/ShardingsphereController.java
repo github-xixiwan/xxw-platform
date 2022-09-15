@@ -1,6 +1,6 @@
 package com.xxw.platform.controller.shardingsphere;
 
-import com.xxw.platform.module.shardingsphere.model.entity.XxwOrder;
+import com.xxw.platform.module.shardingsphere.entity.XxwOrder;
 import com.xxw.platform.module.shardingsphere.service.IXxwOrderService;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;

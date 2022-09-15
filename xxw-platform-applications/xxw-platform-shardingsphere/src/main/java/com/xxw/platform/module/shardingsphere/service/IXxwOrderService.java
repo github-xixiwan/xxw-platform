@@ -1,7 +1,7 @@
 package com.xxw.platform.module.shardingsphere.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.module.shardingsphere.model.entity.XxwOrder;
+import com.xxw.platform.module.shardingsphere.entity.XxwOrder;
 
 /**
  * <p>

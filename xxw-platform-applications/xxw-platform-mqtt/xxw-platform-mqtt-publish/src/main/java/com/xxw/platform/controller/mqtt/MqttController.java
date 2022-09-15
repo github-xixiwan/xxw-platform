@@ -1,6 +1,6 @@
 package com.xxw.platform.controller.mqtt;
 
-import com.xxw.platform.module.mqtt.model.dto.MqttSendDTO;
+import com.xxw.platform.module.mqtt.dto.MqttSendDTO;
 import com.xxw.platform.module.util.rest.Result;
 import com.xxw.platform.starter.mqtt.publish.IMqttPublish;
 import com.xxw.platform.starter.mqtt.service.MqttService;

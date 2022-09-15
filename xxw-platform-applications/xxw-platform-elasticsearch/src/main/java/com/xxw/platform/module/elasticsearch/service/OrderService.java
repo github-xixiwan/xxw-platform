@@ -1,7 +1,7 @@
 package com.xxw.platform.module.elasticsearch.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
+import com.xxw.platform.module.elasticsearch.entity.XxwOrder;
 
 import java.util.List;
 

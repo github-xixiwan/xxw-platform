@@ -1,12 +1,12 @@
 package com.xxw.platform.controller.access;
 
 import com.xxw.platform.dubbo.api.order.OrderDubboApi;
-import com.xxw.platform.dubbo.api.order.model.dto.OrderDubboDTO;
-import com.xxw.platform.dubbo.api.order.model.vo.OrderDubboVO;
+import com.xxw.platform.dubbo.api.order.dto.OrderDubboDTO;
+import com.xxw.platform.dubbo.api.order.vo.OrderDubboVO;
 import com.xxw.platform.feign.api.order.OrderFeignApi;
-import com.xxw.platform.feign.api.order.model.dto.OrderFeignDTO;
-import com.xxw.platform.module.access.model.dto.OrderDTO;
-import com.xxw.platform.module.access.model.entity.XxwOrder;
+import com.xxw.platform.feign.api.order.dto.OrderFeignDTO;
+import com.xxw.platform.module.access.dto.OrderDTO;
+import com.xxw.platform.module.access.entity.XxwOrder;
 import com.xxw.platform.module.access.stream.produce.RocketmqSend;
 import com.xxw.platform.module.util.rest.Result;
 import io.seata.spring.annotation.GlobalTransactional;

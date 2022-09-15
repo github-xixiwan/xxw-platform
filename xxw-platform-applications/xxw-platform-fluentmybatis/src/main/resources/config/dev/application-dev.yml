@@ -1,0 +1,22 @@
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}
+        group: ${spring.cloud.nacos.config.group}
+    sentinel:
+      datasource:
+        ds:
+          nacos:
+            ### nacos连接地址
+            server-addr: ${spring.cloud.nacos.config.server-addr}
+            ## nacos连接的分组
+            group-id: ${spring.cloud.nacos.config.group}
+            ### 读取配置文件的 data-id
+            data-id: ${spring.application.name}-@profileActive@-sentinel
+            namespace: ${spring.cloud.nacos.config.namespace}
+            ###路由存储规则
+            rule-type: flow
+            ###  读取培训文件类型为json
+            data-type: json

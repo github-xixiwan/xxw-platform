@@ -26,7 +26,6 @@ spring:
       idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
       pool-name: DateSourceHikariCP # 连接池名字
       max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
-      connection-test-query: SELECT 1
     dynamic:
       primary: master #设置默认的数据源或者数据源组,默认值即为master
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.

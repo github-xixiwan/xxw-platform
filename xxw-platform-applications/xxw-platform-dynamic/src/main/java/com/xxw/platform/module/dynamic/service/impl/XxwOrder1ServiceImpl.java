@@ -3,7 +3,7 @@ package com.xxw.platform.module.dynamic.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxw.platform.module.dynamic.mapper.XxwOrderMapper;
-import com.xxw.platform.module.dynamic.model.entity.XxwOrder;
+import com.xxw.platform.module.dynamic.entity.XxwOrder;
 import com.xxw.platform.module.dynamic.service.IXxwOrder1Service;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,7 @@ package com.xxw.platform.controller.single;
 
 import com.alibaba.excel.EasyExcel;
 import com.xxw.platform.module.single.listener.DemoDataListener;
-import com.xxw.platform.module.single.model.entity.DemoData;
+import com.xxw.platform.module.single.entity.DemoData;
 import com.xxw.platform.module.single.service.IXxwOrderService;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;

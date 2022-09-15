@@ -1,7 +1,7 @@
 package com.xxw.platform.controller.feign;
 
-import com.xxw.platform.feign.api.order.model.dto.OrderFeignDTO;
-import com.xxw.platform.module.feign.model.entity.XxwOrder;
+import com.xxw.platform.feign.api.order.dto.OrderFeignDTO;
+import com.xxw.platform.module.feign.entity.XxwOrder;
 import com.xxw.platform.module.feign.service.IXxwOrder0Service;
 import com.xxw.platform.module.feign.service.IXxwOrder1Service;
 import com.xxw.platform.module.util.rest.Result;

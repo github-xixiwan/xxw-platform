@@ -3,7 +3,7 @@ package com.xxw.platform.module.elasticsearch.service.impl;
 import cn.hutool.core.bean.BeanUtil;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.google.common.collect.Lists;
-import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
+import com.xxw.platform.module.elasticsearch.entity.XxwOrder;
 import com.xxw.platform.module.elasticsearch.service.OrderService;
 import com.xxw.platform.starter.elasticsearch.service.BaseElasticsearchService;
 import org.apache.lucene.search.TotalHits;

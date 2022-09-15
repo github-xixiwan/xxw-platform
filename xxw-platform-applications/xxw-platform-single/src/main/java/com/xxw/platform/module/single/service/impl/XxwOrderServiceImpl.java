@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxw.platform.module.single.event.MsgDataEvent;
 import com.xxw.platform.module.single.event.OrderDataEvent;
 import com.xxw.platform.module.single.mapper.XxwOrderMapper;
-import com.xxw.platform.module.single.model.entity.XxwOrder;
+import com.xxw.platform.module.single.entity.XxwOrder;
 import com.xxw.platform.module.single.service.IXxwOrderService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;

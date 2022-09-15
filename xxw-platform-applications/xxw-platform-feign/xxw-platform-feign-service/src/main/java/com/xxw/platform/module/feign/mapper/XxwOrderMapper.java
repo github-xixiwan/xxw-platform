@@ -1,7 +1,7 @@
 package com.xxw.platform.module.feign.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.module.feign.model.entity.XxwOrder;
+import com.xxw.platform.module.feign.entity.XxwOrder;
 
 /**
  * <p>

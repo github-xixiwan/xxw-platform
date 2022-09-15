@@ -1,7 +1,7 @@
 package com.xxw.platform.module.dubbo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.module.dubbo.model.entity.XxwOrder;
+import com.xxw.platform.module.dubbo.entity.XxwOrder;
 
 /**
  * <p>

@@ -1,7 +1,7 @@
 package com.xxw.platform.module.shardingsphere.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.module.shardingsphere.model.entity.XxwOrder;
+import com.xxw.platform.module.shardingsphere.entity.XxwOrder;
 
 /**
  * <p>

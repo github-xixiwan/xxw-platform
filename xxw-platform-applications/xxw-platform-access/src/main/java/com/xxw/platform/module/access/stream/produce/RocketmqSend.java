@@ -1,6 +1,6 @@
 package com.xxw.platform.module.access.stream.produce;
 
-import com.xxw.platform.module.access.model.entity.XxwOrder;
+import com.xxw.platform.module.access.entity.XxwOrder;
 import org.springframework.cloud.stream.function.StreamBridge;
 import org.springframework.stereotype.Service;
 

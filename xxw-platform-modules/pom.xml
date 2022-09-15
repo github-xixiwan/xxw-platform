@@ -18,6 +18,7 @@
         <module>xxw-platform-module-web</module>
         <module>xxw-platform-module-web-exception</module>
         <module>xxw-platform-module-nacos</module>
+        <module>xxw-platform-module-fluentmybatis</module>
         <module>xxw-platform-module-mybatisplus</module>
         <module>xxw-platform-module-dynamic</module>
         <module>xxw-platform-module-shardingsphere</module>

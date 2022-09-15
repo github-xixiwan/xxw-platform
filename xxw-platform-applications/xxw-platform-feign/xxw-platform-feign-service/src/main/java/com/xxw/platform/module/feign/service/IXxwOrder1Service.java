@@ -1,7 +1,7 @@
 package com.xxw.platform.module.feign.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.module.feign.model.entity.XxwOrder;
+import com.xxw.platform.module.feign.entity.XxwOrder;
 
 /**
  * <p>

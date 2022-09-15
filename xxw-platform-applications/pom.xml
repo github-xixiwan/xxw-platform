@@ -17,6 +17,7 @@
         <module>xxw-platform-admin</module>
         <module>xxw-platform-gateway</module>
         <module>xxw-platform-access</module>
+        <module>xxw-platform-fluentmybatis</module>
         <module>xxw-platform-single</module>
         <module>xxw-platform-dynamic</module>
         <module>xxw-platform-dubbo</module>

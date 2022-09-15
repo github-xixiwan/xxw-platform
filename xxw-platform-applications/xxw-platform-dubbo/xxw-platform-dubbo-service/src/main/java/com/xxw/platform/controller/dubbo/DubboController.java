@@ -1,6 +1,6 @@
 package com.xxw.platform.controller.dubbo;
 
-import com.xxw.platform.module.dubbo.model.entity.XxwOrder;
+import com.xxw.platform.module.dubbo.entity.XxwOrder;
 import com.xxw.platform.module.dubbo.service.IXxwOrder0Service;
 import com.xxw.platform.module.dubbo.service.IXxwOrder1Service;
 import com.xxw.platform.module.util.rest.Result;

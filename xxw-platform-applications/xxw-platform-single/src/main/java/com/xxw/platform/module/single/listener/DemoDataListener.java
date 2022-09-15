@@ -4,7 +4,7 @@ import com.alibaba.excel.context.AnalysisContext;
 import com.alibaba.excel.read.listener.ReadListener;
 import com.alibaba.excel.util.ListUtils;
 import com.alibaba.fastjson.JSON;
-import com.xxw.platform.module.single.model.entity.DemoData;
+import com.xxw.platform.module.single.entity.DemoData;
 import lombok.extern.slf4j.Slf4j;
 
 import java.io.BufferedWriter;

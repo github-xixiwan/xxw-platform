@@ -25,7 +25,9 @@
         <spring-boot-admin.version>2.4.2</spring-boot-admin.version>
 
         <!-- Maven modules Versions -->
-        <mybatis-plus.version>3.4.1</mybatis-plus.version>
+        <mybatis.version>2.2.2</mybatis.version>
+        <mybatis-plus.version>3.5.2</mybatis-plus.version>
+        <fluent-mybatis.version>1.9.8</fluent-mybatis.version>
         <guava.version>30.1.1-jre</guava.version>
         <knife4j.version>3.0.3</knife4j.version>
         <jsr311.version>1.1.1</jsr311.version>
@@ -97,6 +99,11 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
+                <artifactId>xxw-platform-module-fluentmybatis</artifactId>
+                <version>${revision}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.xxw.platform</groupId>
                 <artifactId>xxw-platform-module-dynamic</artifactId>
                 <version>${revision}</version>
             </dependency>
@@ -138,6 +145,21 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.atool</groupId>
+                <artifactId>fluent-mybatis</artifactId>
+                <version>${fluent-mybatis.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.atool</groupId>
+                <artifactId>fluent-mybatis-processor</artifactId>
+                <version>${fluent-mybatis.version}</version>
+            </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>

@@ -3,7 +3,7 @@ package com.xxw.platform.module.feign.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.xxw.platform.module.feign.mapper.XxwOrderMapper;
-import com.xxw.platform.module.feign.model.entity.XxwOrder;
+import com.xxw.platform.module.feign.entity.XxwOrder;
 import com.xxw.platform.module.feign.service.IXxwOrder1Service;
 import org.springframework.stereotype.Service;
 

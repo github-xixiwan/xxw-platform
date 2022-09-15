@@ -1,7 +1,7 @@
 package com.xxw.platform.module.dynamic.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.module.dynamic.model.entity.XxwOrder;
+import com.xxw.platform.module.dynamic.entity.XxwOrder;
 
 /**
  * <p>

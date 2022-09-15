@@ -1,7 +1,7 @@
 package com.xxw.platform.module.single.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.xxw.platform.module.single.model.entity.XxwOrder;
+import com.xxw.platform.module.single.entity.XxwOrder;
 
 /**
  * <p>

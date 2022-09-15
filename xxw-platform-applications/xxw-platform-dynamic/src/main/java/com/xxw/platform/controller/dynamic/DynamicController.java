@@ -1,6 +1,6 @@
 package com.xxw.platform.controller.dynamic;
 
-import com.xxw.platform.module.dynamic.model.entity.XxwOrder;
+import com.xxw.platform.module.dynamic.entity.XxwOrder;
 import com.xxw.platform.module.dynamic.service.IXxwOrder0Service;
 import com.xxw.platform.module.dynamic.service.IXxwOrder1Service;
 import com.xxw.platform.module.util.rest.Result;

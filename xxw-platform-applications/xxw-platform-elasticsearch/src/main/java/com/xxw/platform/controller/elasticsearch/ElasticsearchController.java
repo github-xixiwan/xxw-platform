@@ -1,7 +1,7 @@
 package com.xxw.platform.controller.elasticsearch;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.xxw.platform.module.elasticsearch.model.entity.XxwOrder;
+import com.xxw.platform.module.elasticsearch.entity.XxwOrder;
 import com.xxw.platform.module.elasticsearch.service.OrderService;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
