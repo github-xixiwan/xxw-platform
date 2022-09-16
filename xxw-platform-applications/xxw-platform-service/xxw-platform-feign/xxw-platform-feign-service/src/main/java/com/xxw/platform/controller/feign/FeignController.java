@@ -1,17 +1,15 @@
 package com.xxw.platform.controller.feign;
 
-import com.xxw.platform.feign.api.order.dto.OrderFeignDTO;
-import com.xxw.platform.module.feign.entity.XxwOrder;
-import com.xxw.platform.module.feign.service.IXxwOrder0Service;
-import com.xxw.platform.module.feign.service.IXxwOrder1Service;
+import com.xxw.platform.module.feign.dao.intf.XxwOrderDao;
+import com.xxw.platform.module.feign.entity.XxwOrderEntity;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
-import ma.glasnost.orika.MapperFacade;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -26,20 +24,25 @@ public class FeignController {
     private String name;
 
     @Resource
-    private MapperFacade mapperFacade;
+    @Qualifier("xxwOrder0DaoImpl")
+    private XxwOrderDao xxwOrderDao0;
 
     @Resource
-    private IXxwOrder0Service xxwOrder0Service;
+    @Qualifier("xxwOrder1DaoImpl")
+    private XxwOrderDao xxwOrderDao1;
 
-    @Resource
-    private IXxwOrder1Service xxwOrder1Service;
+    @GetMapping("/hello")
+    public Result<String> hello() {
+        return Result.success(name);
+    }
 
-    @PostMapping("/order")
-    public Result<String> order(@RequestBody OrderFeignDTO dto) {
-        XxwOrder order = mapperFacade.map(dto, XxwOrder.class);
-        order.setOrderSn(order.getOrderSn() + "1");
-        xxwOrder0Service.save(order);
-//        System.out.println(1 / 0);
+    @GetMapping("/buyOrder")
+    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+        XxwOrderEntity entity = new XxwOrderEntity();
+        entity.setId(Integer.parseInt(orderId));
+        entity.setOrderSn(orderId);
+        xxwOrderDao0.save(entity);
+        xxwOrderDao1.save(entity);
         return Result.success(name);
     }
 }

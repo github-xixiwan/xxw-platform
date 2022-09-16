@@ -13,4 +13,11 @@
         <version>${revision}</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.xxw.platform</groupId>
+            <artifactId>xxw-platform-module-util</artifactId>
+        </dependency>
+    </dependencies>
 </project>

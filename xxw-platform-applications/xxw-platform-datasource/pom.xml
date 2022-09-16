@@ -17,19 +17,4 @@
         <module>xxw-platform-dynamic</module>
         <module>xxw-platform-shardingsphere</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-web-exception</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-nacos</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-fluentmybatis</artifactId>
-        </dependency>
-    </dependencies>
 </project>

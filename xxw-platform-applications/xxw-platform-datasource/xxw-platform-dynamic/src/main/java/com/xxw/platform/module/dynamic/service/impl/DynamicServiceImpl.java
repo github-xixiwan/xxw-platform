@@ -1,29 +1,26 @@
-package com.xxw.platform.module.dubbo.service;
+package com.xxw.platform.module.dynamic.service.impl;
 
-import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.google.common.collect.Lists;
-import com.xxw.platform.dubbo.api.order.OrderDubboApi;
-import com.xxw.platform.dubbo.api.order.dto.OrderDubboDTO;
-import com.xxw.platform.dubbo.api.order.vo.OrderDubboVO;
-import com.xxw.platform.module.dubbo.entity.XxwOrder;
+import com.xxw.platform.module.dynamic.dao.intf.XxwOrderDao;
+import com.xxw.platform.module.dynamic.entity.XxwOrderEntity;
+import com.xxw.platform.module.dynamic.service.DynamicService;
+import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.json.JsonUtil;
 import com.xxw.platform.module.util.rest.Result;
 import com.xxw.platform.starter.redisson.cache.IGlobalRedisCache;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.dubbo.config.annotation.DubboService;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.util.CollectionUtils;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-@DubboService
-public class OrderDubboService implements OrderDubboApi {
+@Service
+public class DynamicServiceImpl implements DynamicService {
 
     @Resource
     private MapperFacade mapperFacade;
@@ -35,16 +32,16 @@ public class OrderDubboService implements OrderDubboApi {
     private RedissonClient redissonClient;
 
     @Resource
-    private IXxwOrder0Service xxwOrder0Service;
+    @Qualifier("xxwOrder0DaoImpl")
+    private XxwOrderDao xxwOrderDao0;
+
+    @Resource
+    @Qualifier("xxwOrder1DaoImpl")
+    private XxwOrderDao xxwOrderDao1;
 
     @Override
-    public Result<Void> addOrder(OrderDubboDTO dto) {
-        xxwOrder0Service.save(mapperFacade.map(dto, XxwOrder.class));
-        return Result.success();
-    }
-
-    @Override
-    public Result<List<OrderDubboVO>> getOrder(OrderDubboDTO dto) {
+    public Result<DynamicVO> getOrder(Integer id) {
+        DynamicVO vo = null;
         String index = "order";
         String name = "getOrder";
         long waitTime = 5;
@@ -54,23 +51,22 @@ public class OrderDubboService implements OrderDubboApi {
             boolean res = rLock.tryLock(waitTime, unit);
             if (res) {
                 System.out.println("获取锁成功");
-                String key = "getOrder_" + dto.getOrderSn();
+                String key = "getOrder_" + id;
                 Object o = globalRedisCache.get(key);
                 if (o == null) {
                     //缓存不存在查数据库
-                    LambdaQueryWrapper<XxwOrder> wrapper = new LambdaQueryWrapper<XxwOrder>().eq(XxwOrder::getOrderSn, dto.getOrderSn());
-                    List<XxwOrder> list = xxwOrder0Service.list(wrapper);
-                    if (!CollectionUtils.isEmpty(list)) {
+                    XxwOrderEntity xxwOrderEntity = xxwOrderDao0.selectById(id);
+                    if (xxwOrderEntity != null) {
+                        vo = mapperFacade.map(xxwOrderEntity, DynamicVO.class);
                         //放入redis
-                        globalRedisCache.set(key, JsonUtil.toJson(list), 60);
-                        return Result.success(mapperFacade.mapAsList(list, OrderDubboVO.class));
+                        globalRedisCache.set(key, JsonUtil.toJson(vo), 60);
+                        return Result.success(vo);
                     }
                 }
-                return Result.success(JsonUtil.fromJsonAsArray(String.valueOf(o), OrderDubboVO.class));
+                return Result.success(JsonUtil.fromJson(String.valueOf(o), DynamicVO.class));
             } else {
                 System.out.println("获取锁失败");
             }
-            return Result.success(Lists.newArrayList());
         } catch (Exception e) {
             log.error("getOrder name:{} waitTime:{} unit:{} 错误:{}", name, waitTime, unit, ExceptionUtils.getStackTrace(e));
         } finally {
@@ -81,6 +77,6 @@ public class OrderDubboService implements OrderDubboApi {
                 }
             }
         }
-        return Result.success(Lists.newArrayList());
+        return Result.success(vo);
     }
 }

@@ -18,39 +18,43 @@ spring:
         instance:
           service-base-url: http://127.0.0.1:9999
   datasource: # 数据源的相关配置
-    type: com.zaxxer.hikari.HikariDataSource
-    driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.14.132.211:3307/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
-    username: order-0
-    password: order-0
-    # Hikari 连接池配置
-    # 最小空闲连接数量
-    hikari:
-      minimum-idle: 5
-      # 空闲连接存活最大时间，默认600000（10分钟）
-      idle-timeout: 180000
-      # 连接池最大连接数，默认是10
-      maximum-pool-size: 10
-      # 此属性控制从池返回的连接的默认自动提交行为,默认值：true
-      auto-commit: true
-      # 连接池名称
-      pool-name: DateSourceHikariCP
-      # 此属性控制池中连接的最长生命周期，值0表示无限生命周期，默认1800000即30分钟
-      max-lifetime: 1800000
-      # 数据库连接超时时间,默认30秒，即30000
-      connection-timeout: 30000
-  redis:
-    database: 0
-    host: 106.14.132.211
-    port: 6379
-    password: xxw
-    timeout: 1000
-    jedis:
-      pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 8
-        min-idle: 0
+    dynamic:
+      hikari: # 全局连接池配置
+        connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
+        minimum-idle: 20 # 最小连接数
+        maximum-pool-size: 80 # 最大连接数
+        is-auto-commit: true # 自动提交
+        idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+        max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://106.14.132.211:3307/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+          username: order-0
+          password: order-0
+          hikari: # master连接池配置
+            connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
+            minimum-idle: 20 # 最小连接数
+            maximum-pool-size: 80 # 最大连接数
+            is-auto-commit: true # 自动提交
+            idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+            max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
+        slave:
+          type: com.zaxxer.hikari.HikariDataSource # 数据源类型：HikariCP
+          driver-class-name: com.mysql.cj.jdbc.Driver
+          url: jdbc:mysql://106.14.132.211:3307/xxw-order-1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+          username: order-1
+          password: order-1
+          hikari: # slave连接池配置
+            connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
+            minimum-idle: 20 # 最小连接数
+            maximum-pool-size: 80 # 最大连接数
+            is-auto-commit: true # 自动提交
+            idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+            max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
 seata:
   application-id: ${spring.application.name}  # seata 应用编号，默认为 ${spring.application.name}
   tx-service-group: xxw # seata 事务组编号，用于 TC 集群名

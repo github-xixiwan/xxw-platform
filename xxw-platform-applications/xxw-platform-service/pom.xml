@@ -17,11 +17,4 @@
         <module>xxw-platform-dubbo</module>
         <module>xxw-platform-feign</module>
     </modules>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-module-util</artifactId>
-        </dependency>
-    </dependencies>
 </project>

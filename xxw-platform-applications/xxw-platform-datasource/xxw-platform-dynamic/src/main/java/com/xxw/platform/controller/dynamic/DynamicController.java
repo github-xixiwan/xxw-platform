@@ -2,6 +2,8 @@ package com.xxw.platform.controller.dynamic;
 
 import com.xxw.platform.module.dynamic.dao.intf.XxwOrderDao;
 import com.xxw.platform.module.dynamic.entity.XxwOrderEntity;
+import com.xxw.platform.module.dynamic.service.DynamicService;
+import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -24,6 +26,9 @@ public class DynamicController {
     private String name;
 
     @Resource
+    private DynamicService dynamicService;
+
+    @Resource
     @Qualifier("xxwOrder0DaoImpl")
     private XxwOrderDao xxwOrderDao0;
 
@@ -34,6 +39,11 @@ public class DynamicController {
     @GetMapping("/hello")
     public Result<String> hello() {
         return Result.success(name);
+    }
+
+    @GetMapping("/getOrder")
+    Result<DynamicVO> getOrder(@RequestParam("id") Integer id) {
+        return dynamicService.getOrder(id);
     }
 
     @GetMapping("/buyOrder")

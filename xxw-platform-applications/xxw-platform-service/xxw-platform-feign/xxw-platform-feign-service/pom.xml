@@ -25,11 +25,21 @@
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-feign-api</artifactId>
+            <artifactId>xxw-platform-module-fluentmybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.zaxxer</groupId>
+                    <artifactId>HikariCP-java7</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-starter-redisson</artifactId>
+            <artifactId>xxw-platform-feign-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

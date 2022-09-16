@@ -10,10 +10,12 @@ import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "XxwOrderDTO", description = "")
+@ApiModel(value = "ElasticsearchDTO", description = "")
 public class ElasticsearchDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    private Integer id;
 
     private String orderSn;
 

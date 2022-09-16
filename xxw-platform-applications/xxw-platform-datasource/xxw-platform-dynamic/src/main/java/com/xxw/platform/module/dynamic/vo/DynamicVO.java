@@ -1,7 +1,6 @@
-package com.xxw.platform.module.dubbo.entity;
+package com.xxw.platform.module.dynamic.vo;
 
 import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,18 +8,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-/**
- * <p>
- *
- * </p>
- *
- * @author xxw
- * @since 2021-09-06
- */
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "XxwOrder对象", description = "")
-public class XxwOrder implements Serializable {
+@ApiModel(value = "DynamicVO", description = "")
+public class DynamicVO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -60,17 +51,14 @@ public class XxwOrder implements Serializable {
 
     private BigDecimal shippingFee;
 
-    @ApiModelProperty(value = "实际需要支付的金额")
     private BigDecimal actualPrice;
 
     private Integer integral;
 
     private BigDecimal integralMoney;
 
-    @ApiModelProperty(value = "订单总价")
     private BigDecimal orderPrice;
 
-    @ApiModelProperty(value = "商品总价")
     private BigDecimal goodsPrice;
 
     private LocalDateTime addTime;
@@ -79,10 +67,8 @@ public class XxwOrder implements Serializable {
 
     private LocalDateTime payTime;
 
-    @ApiModelProperty(value = "配送费用")
     private Integer freightPrice;
 
-    @ApiModelProperty(value = "使用的优惠券id")
     private Integer couponId;
 
     private Integer parentId;

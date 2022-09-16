@@ -1,14 +1,14 @@
 package com.xxw.platform.controller.shardingsphere;
 
-import com.xxw.platform.module.shardingsphere.entity.XxwOrder;
-import com.xxw.platform.module.shardingsphere.service.IXxwOrderService;
+import com.xxw.platform.module.shardingsphere.dao.intf.XxwOrderDao;
+import com.xxw.platform.module.shardingsphere.entity.XxwOrderEntity;
 import com.xxw.platform.module.util.rest.Result;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -23,11 +23,19 @@ public class ShardingsphereController {
     private String name;
 
     @Resource
-    private IXxwOrderService xxwOrderService;
+    private XxwOrderDao xxwOrderDao;
 
-    @PostMapping("/order")
-    public Result<String> order(@RequestBody XxwOrder order) {
-        xxwOrderService.save(order);
+    @GetMapping("/hello")
+    public Result<String> hello() {
+        return Result.success(name);
+    }
+
+    @GetMapping("/buyOrder")
+    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+        XxwOrderEntity entity = new XxwOrderEntity();
+        entity.setId(Integer.parseInt(orderId));
+        entity.setOrderSn(orderId);
+        xxwOrderDao.save(entity);
         return Result.success(name);
     }
 }

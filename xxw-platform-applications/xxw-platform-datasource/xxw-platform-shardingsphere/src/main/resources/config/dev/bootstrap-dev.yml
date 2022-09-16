@@ -39,18 +39,18 @@ spring:
             actual-data-nodes: ds$->{0..1}.xxw_order_$->{0..3}
             database-strategy:
               standard:
-                sharding-column: user_id
+                sharding-column: id
                 sharding-algorithm-name: database-inline-order
             table-strategy:
               standard:
-                sharding-column: user_id
+                sharding-column: id
                 sharding-algorithm-name: table-inline-order
         sharding-algorithms:
           database-inline-order:
             type: INLINE
             props:
-              algorithm-expression: ds$->{user_id % 2}
+              algorithm-expression: ds$->{id % 2}
           table-inline-order:
             type: INLINE
             props:
-              algorithm-expression: xxw_order_$->{user_id % 4}
+              algorithm-expression: xxw_order_$->{id % 4}
