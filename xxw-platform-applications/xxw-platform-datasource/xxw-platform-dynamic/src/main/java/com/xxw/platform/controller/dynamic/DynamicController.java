@@ -1,7 +1,10 @@
 package com.xxw.platform.controller.dynamic;
 
+import com.alibaba.excel.EasyExcel;
 import com.xxw.platform.module.dynamic.dao.intf.XxwOrderDao;
+import com.xxw.platform.module.dynamic.dto.DemoDataDTO;
 import com.xxw.platform.module.dynamic.entity.XxwOrderEntity;
+import com.xxw.platform.module.dynamic.listener.DemoDataListener;
 import com.xxw.platform.module.dynamic.service.DynamicService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.rest.Result;
@@ -9,12 +12,11 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
+import java.io.IOException;
 
 @Api(tags = "dynamic")
 @RequestMapping("/dynamic")
@@ -47,12 +49,20 @@ public class DynamicController {
     }
 
     @GetMapping("/buyOrder")
-    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+    public Result<String> buyOrder(@RequestParam("id") Integer id) {
+        dynamicService.buyOrder(id);
+
         XxwOrderEntity entity = new XxwOrderEntity();
-        entity.setId(Integer.parseInt(orderId));
-        entity.setOrderSn(orderId);
+        entity.setId(id);
+        entity.setOrderSn(String.valueOf(id));
         xxwOrderDao0.save(entity);
         xxwOrderDao1.save(entity);
         return Result.success(name);
+    }
+
+    @PostMapping("upload")
+    public String upload(MultipartFile file) throws IOException {
+        EasyExcel.read(file.getInputStream(), DemoDataDTO.class, new DemoDataListener()).sheet().doRead();
+        return "success";
     }
 }

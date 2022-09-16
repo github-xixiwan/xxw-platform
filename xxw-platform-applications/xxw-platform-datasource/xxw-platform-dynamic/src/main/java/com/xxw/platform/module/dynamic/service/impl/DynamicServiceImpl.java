@@ -2,6 +2,8 @@ package com.xxw.platform.module.dynamic.service.impl;
 
 import com.xxw.platform.module.dynamic.dao.intf.XxwOrderDao;
 import com.xxw.platform.module.dynamic.entity.XxwOrderEntity;
+import com.xxw.platform.module.dynamic.event.MsgDataEvent;
+import com.xxw.platform.module.dynamic.event.OrderDataEvent;
 import com.xxw.platform.module.dynamic.service.DynamicService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.json.JsonUtil;
@@ -13,6 +15,7 @@ import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -32,12 +35,22 @@ public class DynamicServiceImpl implements DynamicService {
     private RedissonClient redissonClient;
 
     @Resource
+    private ApplicationContext applicationContext;
+
+    @Resource
     @Qualifier("xxwOrder0DaoImpl")
     private XxwOrderDao xxwOrderDao0;
 
     @Resource
     @Qualifier("xxwOrder1DaoImpl")
     private XxwOrderDao xxwOrderDao1;
+
+    @Override
+    public Result<String> buyOrder(Integer id) {
+        applicationContext.publishEvent(new OrderDataEvent(id));
+        applicationContext.publishEvent(new MsgDataEvent("订单ID：" + id));
+        return Result.success();
+    }
 
     @Override
     public Result<DynamicVO> getOrder(Integer id) {
