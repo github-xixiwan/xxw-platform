@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "feign-service", path = "/feign")
 public interface OrderFeignApi {
 
-    @PostMapping("/order")
-    Result<String> order(@RequestBody OrderFeignDTO dto);
+    @PostMapping("/buyOrder")
+    Result<String> buyOrder(@RequestBody OrderFeignDTO dto);
 
 }

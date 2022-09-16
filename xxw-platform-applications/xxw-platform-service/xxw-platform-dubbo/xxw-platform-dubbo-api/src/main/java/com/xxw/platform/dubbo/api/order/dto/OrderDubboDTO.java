@@ -19,7 +19,5 @@ public class OrderDubboDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private String orderSn;
-
-    private Long userId;
+    private Integer id;
 }
