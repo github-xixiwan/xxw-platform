@@ -37,10 +37,10 @@ public class DubboController {
     }
 
     @GetMapping("/buyOrder")
-    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+    public Result<String> buyOrder(@RequestParam("id") Integer id) {
         XxwOrderEntity entity = new XxwOrderEntity();
-        entity.setId(Integer.parseInt(orderId));
-        entity.setOrderSn(orderId);
+        entity.setId(id);
+        entity.setOrderSn(String.valueOf(id));
         xxwOrderDao0.save(entity);
         xxwOrderDao1.save(entity);
         return Result.success(name);

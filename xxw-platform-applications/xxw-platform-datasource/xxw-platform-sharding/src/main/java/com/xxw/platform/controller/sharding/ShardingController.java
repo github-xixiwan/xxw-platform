@@ -31,10 +31,10 @@ public class ShardingController {
     }
 
     @GetMapping("/buyOrder")
-    public Result<String> buyOrder(@RequestParam("orderId") String orderId) {
+    public Result<String> buyOrder(@RequestParam("id") Integer id) {
         XxwOrderEntity entity = new XxwOrderEntity();
-        entity.setId(Integer.parseInt(orderId));
-        entity.setOrderSn(orderId);
+        entity.setId(id);
+        entity.setOrderSn(String.valueOf(id));
         xxwOrderDao.save(entity);
         return Result.success(name);
     }

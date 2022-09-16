@@ -29,8 +29,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @FluentMybatis(
-    table = "xxw_order",
-    schema = "xxw-order-0"
+    table = "xxw_order"
 )
 public class XxwOrderEntity extends RichEntity {
   private static final long serialVersionUID = 1L;
