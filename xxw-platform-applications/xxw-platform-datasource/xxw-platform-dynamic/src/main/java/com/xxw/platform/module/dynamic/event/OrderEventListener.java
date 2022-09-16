@@ -10,7 +10,7 @@ public class OrderEventListener {
 
     @EventListener(OrderDataEvent.class)
     public void order(OrderDataEvent event) {
-        String orderId = event.getOrderId();
-        log.info("下单------> {}", orderId);
+        Integer id = event.getId();
+        log.info("下单------> {}", id);
     }
 }

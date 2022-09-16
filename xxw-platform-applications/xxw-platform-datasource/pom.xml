@@ -15,6 +15,6 @@
 
     <modules>
         <module>xxw-platform-dynamic</module>
-        <module>xxw-platform-shardingsphere</module>
+        <module>xxw-platform-sharding</module>
     </modules>
 </project>

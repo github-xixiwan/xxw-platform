@@ -1,34 +1,27 @@
 # xxw-platform
 
 #### 项目介绍
-个人开源项目（spring-cloud全家桶+spring-cloud-alibaba全家桶）
+>个人开源项目（spring-cloud全家桶+spring-cloud-alibaba全家桶）
 
 #### 软件架构
-nacos:注册与配置中心
-dubbo:RPC接口服务调用
-stream-rocketmq:消息队列
-sentinel:熔断限流降级
-seata:分布式事务
-spring-boot-admin:监控平台
-mybatis-plus:mybatis增强工具
-dynamic-datasource:多数据源
-knife4j:Swagger Api文档
+> 1. spring-boot
+> 2. spring-cloud
+> 3. spring-cloud-alibaba
 
 #### 软件组件
-spring-boot
-spring-cloud
-spring-cloud-alibaba
-spring-cloud-starter-alibaba-nacos-discovery
-spring-cloud-starter-alibaba-nacos-config
-spring-cloud-starter-dubbo
-sentinel-datasource-nacos
-spring-cloud-starter-alibaba-sentinel
-spring-cloud-starter-alibaba-seata
-spring-cloud-starter-stream-rocketmq
-spring-boot-admin-starter-client
-mybatis-plus-boot-starter
-dynamic-datasource-spring-boot-starter
-knife4j-spring-boot-starter
+> 1. nacos:注册与配置中心
+> 2. dubbo/feign:RPC接口服务调用
+> 3. stream-rocketmq:消息队列
+> 4. sentinel:熔断限流降级
+> 5. seata:分布式事务
+> 6. spring-boot-admin:监控平台
+> 7. elasticsearch:搜索引擎
+> 8. redisson:redis与分布式锁
+> 9. mqtt:物联网消息通讯
+> 10. fluent-mybatis:mybatis增强工具
+> 11. dynamic-datasource:多数据源
+> 12. shardingsphere:分库分表
+> 13. knife4j:Swagger Api文档
 
 #### 安装教程
 
