@@ -1,7 +1,7 @@
 package com.xxw.platform.module.waybill.dao.impl;
 
 import com.baomidou.dynamic.datasource.annotation.DS;
-import com.xxw.platform.module.order.dao.base.XxwOrderBaseDao;
+import com.xxw.platform.module.waybill.dao.base.XxwOrderBaseDao;
 import com.xxw.platform.module.waybill.dao.intf.XxwOrderDao;
 import org.springframework.stereotype.Repository;
 
