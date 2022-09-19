@@ -1,6 +1,5 @@
 package com.xxw.platform.module.rocketmq.dto;
 
-import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "RocketmqDTO", description = "")
 public class RocketmqDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

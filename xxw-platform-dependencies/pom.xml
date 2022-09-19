@@ -19,26 +19,24 @@
         <project.reporting.outputEncoding>${encoding.version}</project.reporting.outputEncoding>
 
         <!-- Maven Spring Versions -->
-        <spring-boot.version>2.4.2</spring-boot.version>
-        <spring-cloud.version>2020.0.1</spring-cloud.version>
-        <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <spring-boot-admin.version>2.4.2</spring-boot-admin.version>
+        <spring-boot.version>2.6.11</spring-boot.version>
+        <spring-cloud.version>2021.0.4</spring-cloud.version>
+        <spring-cloud-alibaba.version>2021.0.4.0</spring-cloud-alibaba.version>
+        <spring-boot-admin.version>2.6.9</spring-boot-admin.version>
 
         <!-- Maven modules Versions -->
         <mybatis.version>2.2.2</mybatis.version>
         <fluent-mybatis.version>1.9.8</fluent-mybatis.version>
         <dynamic-datasource.version>3.5.2</dynamic-datasource.version>
-        <guava.version>30.1.1-jre</guava.version>
-        <knife4j.version>3.0.3</knife4j.version>
-        <jsr311.version>1.1.1</jsr311.version>
+        <guava.version>31.1-jre</guava.version>
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
-        <redisson.version>3.16.1</redisson.version>
+        <redisson.version>3.17.6</redisson.version>
         <elasticsearch.version>7.15.2</elasticsearch.version>
         <shardingsphere.version>5.2.0</shardingsphere.version>
         <userAgent.version>1.21</userAgent.version>
-        <easyexcel.version>3.0.5</easyexcel.version>
-        <hutool.version>5.7.16</hutool.version>
+        <easyexcel.version>3.1.1</easyexcel.version>
+        <hutool.version>5.8.7</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -100,12 +98,7 @@
 
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-dubbo-api</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-feign-api</artifactId>
+                <artifactId>xxw-platform-api</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -154,16 +147,6 @@
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
                 <version>${guava.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.xiaoymin</groupId>
-                <artifactId>knife4j-spring-boot-starter</artifactId>
-                <version>${knife4j.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>javax.ws.rs</groupId>
-                <artifactId>jsr311-api</artifactId>
-                <version>${jsr311.version}</version>
             </dependency>
             <dependency>
                 <groupId>commons-io</groupId>

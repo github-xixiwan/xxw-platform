@@ -3,7 +3,6 @@ package com.xxw.platform.controller.sharding;
 import com.xxw.platform.module.sharding.dao.intf.XxwOrderDao;
 import com.xxw.platform.module.sharding.entity.XxwOrderEntity;
 import com.xxw.platform.module.util.rest.Result;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 
-@Api(tags = "分库分表")
 @RequestMapping("/sharding")
 @RefreshScope
 @RestController

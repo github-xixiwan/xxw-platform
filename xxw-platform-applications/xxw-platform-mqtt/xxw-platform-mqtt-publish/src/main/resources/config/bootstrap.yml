@@ -1,5 +1,0 @@
-spring:
-  application:
-    name: mqtt-publish
-  profiles:
-    active: @profileActive@

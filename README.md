@@ -10,7 +10,7 @@
 
 #### 软件组件
 > 1. nacos:注册与配置中心
-> 2. dubbo/feign:RPC接口服务调用
+> 2. feign:RPC接口服务调用
 > 3. stream-rocketmq:消息队列
 > 4. sentinel:熔断限流降级
 > 5. seata:分布式事务
@@ -21,7 +21,6 @@
 > 10. fluent-mybatis:mybatis增强工具
 > 11. dynamic-datasource:多数据源
 > 12. shardingsphere:分库分表
-> 13. knife4j:Swagger Api文档
 
 #### 安装教程
 

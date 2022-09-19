@@ -1,6 +1,5 @@
 package com.xxw.platform.module.elasticsearch.dto;
 
-import io.swagger.annotations.ApiModel;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
-@ApiModel(value = "ElasticsearchDTO", description = "")
 public class ElasticsearchDTO implements Serializable {
 
     private static final long serialVersionUID = 1L;

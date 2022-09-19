@@ -4,8 +4,6 @@ import cn.hutool.db.PageResult;
 import com.xxw.platform.module.elasticsearch.dto.ElasticsearchDTO;
 import com.xxw.platform.module.elasticsearch.service.ElasticsearchService;
 import com.xxw.platform.module.util.rest.Result;
-import io.swagger.annotations.Api;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
@@ -13,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import java.util.List;
 
-@Slf4j
-@Api(tags = "elasticsearch")
 @RequestMapping("/elasticsearch")
 @RestController
 @RefreshScope

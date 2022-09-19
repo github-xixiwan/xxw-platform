@@ -25,11 +25,7 @@
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-dubbo-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-feign-api</artifactId>
+            <artifactId>xxw-platform-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.alibaba.cloud</groupId>

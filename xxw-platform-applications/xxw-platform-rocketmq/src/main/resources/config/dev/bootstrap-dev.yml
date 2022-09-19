@@ -10,9 +10,15 @@ spring:
       transport:
         dashboard: 127.0.0.1:8080
     stream:
+      default:
+        producer:
+          use-native-encoding: true
+        consumer:
+          use-native-encoding: true
       rocketmq:
         binder:
           name-server: 106.14.132.211:9876
+          group: default-group
       bindings:
         addOrder-out-0:
           destination: add-order

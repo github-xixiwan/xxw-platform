@@ -14,7 +14,15 @@
     </parent>
 
     <modules>
-        <module>xxw-platform-dubbo</module>
-        <module>xxw-platform-feign</module>
+        <module>xxw-platform-api</module>
+        <module>xxw-platform-order</module>
+        <module>xxw-platform-waybill</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+    </dependencies>
 </project>
