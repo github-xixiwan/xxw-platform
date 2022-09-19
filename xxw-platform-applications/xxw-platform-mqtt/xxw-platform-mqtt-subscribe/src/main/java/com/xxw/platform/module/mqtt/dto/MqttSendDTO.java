@@ -25,6 +25,4 @@ public class MqttSendDTO implements Serializable {
 
     @ApiModelProperty(value = "消息主体")
     private String payload;
-
-    private int size;
 }

@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 
 @Slf4j
 @Api(tags = "mqtt相关业务")
-@RequestMapping("/mqtt")
+@RequestMapping("/mqtt-publish")
 @RestController
 public class MqttController {
 
@@ -49,16 +49,7 @@ public class MqttController {
         String topic = dto.getTopic();
         int qos = dto.getQos();
         String payload = dto.getPayload();
-        int size = dto.getSize();
-        for (int i = 0; i < size; i++) {
-//            try {
-//                Thread.sleep(100L);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
-            mqttPublish.sendToMqtt(topic, qos, payload);
-            String json = "";
-        }
+        mqttPublish.sendToMqtt(topic, qos, payload);
         return Result.success();
     }
 }
