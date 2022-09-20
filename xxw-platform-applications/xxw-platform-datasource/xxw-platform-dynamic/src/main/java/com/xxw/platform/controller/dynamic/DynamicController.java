@@ -8,7 +8,6 @@ import com.xxw.platform.module.dynamic.listener.DemoDataListener;
 import com.xxw.platform.module.dynamic.service.DynamicService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.rest.Result;
-import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -18,7 +17,6 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.annotation.Resource;
 import java.io.IOException;
 
-@Api(tags = "dynamic")
 @RequestMapping("/dynamic")
 @RefreshScope
 @RestController
