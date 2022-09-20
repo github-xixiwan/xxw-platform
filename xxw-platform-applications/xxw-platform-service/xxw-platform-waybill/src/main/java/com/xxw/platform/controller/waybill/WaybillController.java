@@ -1,6 +1,7 @@
 package com.xxw.platform.controller.waybill;
 
 import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.waybill.api.WaybillApi;
 import com.xxw.platform.module.waybill.dto.WaybillDTO;
 import com.xxw.platform.module.waybill.service.WaybillService;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
 @RequestMapping("/waybill")
 @RefreshScope
 @RestController
-public class WaybillController {
+public class WaybillController implements WaybillApi {
 
     @Value("${name:word}")
     private String name;
@@ -25,6 +26,7 @@ public class WaybillController {
         return Result.success(name);
     }
 
+    @Override
     @PostMapping("/buyOrder")
     public Result<String> buyOrder(@RequestBody WaybillDTO dto) {
         waybillService.buyOrder(dto);

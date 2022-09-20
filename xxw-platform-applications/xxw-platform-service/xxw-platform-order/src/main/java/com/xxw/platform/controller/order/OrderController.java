@@ -1,5 +1,6 @@
 package com.xxw.platform.controller.order;
 
+import com.xxw.platform.module.order.api.OrderApi;
 import com.xxw.platform.module.order.dto.OrderDTO;
 import com.xxw.platform.module.order.service.OrderService;
 import com.xxw.platform.module.util.rest.Result;
@@ -12,7 +13,7 @@ import javax.annotation.Resource;
 @RequestMapping("/order")
 @RefreshScope
 @RestController
-public class OrderController {
+public class OrderController implements OrderApi {
 
     @Value("${name:word}")
     private String name;
@@ -25,6 +26,7 @@ public class OrderController {
         return Result.success(name);
     }
 
+    @Override
     @PostMapping("/buyOrder")
     public Result<String> buyOrder(@RequestBody OrderDTO dto) {
         orderService.buyOrder(dto);
