@@ -27,9 +27,16 @@ public class WaybillController implements WaybillApi {
     }
 
     @Override
-    @PostMapping("/buyOrder")
-    public Result<String> buyOrder(@RequestBody WaybillDTO dto) {
-        waybillService.buyOrder(dto);
+    @PostMapping("/buyOrder0")
+    public Result<String> buyOrder0(@RequestBody WaybillDTO dto) {
+        waybillService.buyOrder0(dto);
+        return Result.success(name);
+    }
+
+    @Override
+    @PostMapping("/buyOrder1")
+    public Result<String> buyOrder1(@RequestBody WaybillDTO dto) {
+        waybillService.buyOrder1(dto);
         return Result.success(name);
     }
 }

@@ -27,9 +27,16 @@ public class OrderController implements OrderApi {
     }
 
     @Override
-    @PostMapping("/buyOrder")
-    public Result<String> buyOrder(@RequestBody OrderDTO dto) {
-        orderService.buyOrder(dto);
+    @PostMapping("/buyOrder0")
+    public Result<String> buyOrder0(@RequestBody OrderDTO dto) {
+        orderService.buyOrder0(dto);
+        return Result.success(name);
+    }
+
+    @Override
+    @PostMapping("/buyOrder1")
+    public Result<String> buyOrder1(@RequestBody OrderDTO dto) {
+        orderService.buyOrder1(dto);
         return Result.success(name);
     }
 }

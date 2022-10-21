@@ -19,6 +19,7 @@ spring:
           service-base-url: http://127.0.0.1:9999
   datasource: # 数据源的相关配置
     dynamic:
+      seata: true
       hikari: # 全局连接池配置
         connection-timeout: 30000 # 等待连接池分配连接的最大时长（毫秒），超过这个时长还没可用的连接则发生SQ
         minimum-idle: 20 # 最小连接数
@@ -56,21 +57,26 @@ spring:
             idle-timeout: 600000 # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
             max-lifetime: 1800000 # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟
 seata:
+  enable-auto-data-source-proxy: false
   application-id: ${spring.application.name}  # seata 应用编号，默认为 ${spring.application.name}
-  tx-service-group: xxw # seata 事务组编号，用于 TC 集群名
+  tx-service-group: default_tx_group # seata 事务组编号，用于 TC 集群名
   # seata 服务配置项，对应 ServiceProperties 类
   service:
     grouplist:
-      seata-server: 106.14.132.211:8091
+      seata-server: 127.0.0.1:8091
     # 虚拟组和分组的映射, key一定要与 tx-service-group一致
     vgroupMapping:
-      xxw: default
+      default_tx_group: default
   # seata 注册中心配置项，对应 RegistryProperties 类
   registry:
     type: nacos # 注册中心类型，默认为 file
     nacos:
       server-addr: 106.14.132.211:8848 # Nacos 服务地址
+      namespace: seata
+      group: SEATA_GROUP
   config:
     type: nacos # 注册中心类型，默认为 file
     nacos:
       server-addr: 106.14.132.211:8848 # Nacos 服务地址
+      namespace: seata
+      group: SEATA_GROUP

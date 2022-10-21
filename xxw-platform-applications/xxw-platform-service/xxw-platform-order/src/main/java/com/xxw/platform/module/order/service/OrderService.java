@@ -5,5 +5,7 @@ import com.xxw.platform.module.util.rest.Result;
 
 public interface OrderService {
 
-    Result<String> buyOrder(OrderDTO dto);
+    Result<String> buyOrder0(OrderDTO dto);
+
+    Result<String> buyOrder1(OrderDTO dto);
 }

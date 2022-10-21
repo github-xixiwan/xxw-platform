@@ -1,10 +1,12 @@
 package com.xxw.platform.controller.access;
 
+import com.xxw.platform.module.access.dto.SeataDTO;
 import com.xxw.platform.module.order.api.OrderApi;
 import com.xxw.platform.module.order.dto.OrderDTO;
 import com.xxw.platform.module.util.rest.Result;
 import com.xxw.platform.module.waybill.api.WaybillApi;
 import com.xxw.platform.module.waybill.dto.WaybillDTO;
+import io.seata.spring.annotation.GlobalTransactional;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
 import org.springframework.beans.factory.annotation.Value;
@@ -36,13 +38,30 @@ public class AccessController {
 
     @PostMapping("/order")
     public Result<String> order(@RequestBody OrderDTO dto) {
-        orderApi.buyOrder(dto);
+        orderApi.buyOrder0(dto);
+        orderApi.buyOrder1(dto);
         return Result.success(name);
     }
 
     @PostMapping("/waybill")
     public Result<String> waybill(@RequestBody WaybillDTO dto) {
-        waybillApi.buyOrder(dto);
+        waybillApi.buyOrder0(dto);
+        waybillApi.buyOrder1(dto);
+        return Result.success(name);
+    }
+
+    @PostMapping("/seata")
+    @GlobalTransactional(rollbackFor = Exception.class)
+    public Result<String> seata(@RequestBody SeataDTO dto) {
+        OrderDTO orderDto = new OrderDTO();
+        orderDto.setId(dto.getId());
+        orderApi.buyOrder0(orderDto);
+
+        WaybillDTO waybillDto = new WaybillDTO();
+        waybillDto.setId(dto.getId());
+        waybillApi.buyOrder1(waybillDto);
+
+        System.out.println(1/0);
         return Result.success(name);
     }
 }
