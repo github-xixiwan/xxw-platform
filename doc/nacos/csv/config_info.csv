@@ -1,0 +1,220 @@
+523,access-dev.properties,xxw-platform,name = access,846a3d6ea2b83877fe68a283509f8d74,2021-12-10 09:26:40,2021-12-10 09:26:40,,58.34.161.10,xxw-platform-access,dev,"",,,properties,,""
+524,access-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/access/order"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",a2c05eb6b9bc9a911c530d1fa76a9e99,2021-12-10 09:26:40,2021-12-10 09:26:40,,58.34.161.10,xxw-platform-access,dev,"",,,json,,""
+527,dynamic-dev.properties,xxw-platform,name = dynamic,fe8fe698ab95cee40d18e678964baa92,2021-12-10 09:26:40,2021-12-10 09:26:40,,58.34.161.10,xxw-platform-dynamic,dev,"",,,properties,,""
+528,dynamic-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/dynamic/order"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",71a2dd178f116c470e61bd201e7c9124,2021-12-10 09:26:40,2021-12-10 09:26:40,,58.34.161.10,xxw-platform-dynamic,dev,"",,,json,,""
+531,elasticsearch-dev.properties,xxw-platform,name = elasticsearch,928ddcf5a80efe583a5aa75786c63376,2021-12-10 09:26:40,2021-12-10 09:26:40,,58.34.161.10,xxw-platform-elasticsearch,dev,"",,,properties,,""
+532,elasticsearch-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/elasticsearch/page"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",d7707cacdd132fe8d42e50a8595c4add,2021-12-10 09:26:40,2021-12-28 03:33:03,nacos,222.71.40.154,xxw-platform-elasticsearch,dev,"","","",json,"",""
+538,gateway-dev.properties,xxw-platform,"whiteList = /single/hello,/order/hello",bfb572ea40be2f9ede51dc05d5313f3a,2021-12-28 09:16:43,2022-09-21 06:49:49,nacos,222.71.40.154,xxw-platform-gateway,dev,"","","",properties,"",""
+558,gateway-dev-sentinel-gw-flow,xxw-platform,"[{
+  ""resource"": ""order"",
+  ""resourceMode"": 1,
+  ""grade"": 1,
+  ""count"": 1.0,
+  ""interval"": 1,
+  ""intervalUnit"": 0,
+  ""controlBehavior"": 0,
+  ""burst"": 0,
+  ""maxQueueingTimeoutMs"": 500,
+  ""paramItem"": null
+}]",404b077b7e899f218d9f98a2256045d0,2021-12-29 03:36:42,2022-09-21 06:53:52,nacos,222.71.40.154,xxw-platform-gateway,dev,"","","",json,"",""
+560,gateway-dev-sentinel-gw-api-group,xxw-platform,"[{
+  ""apiName"": ""order"",
+  ""predicateItems"": [{
+    ""pattern"": ""/order/**"",
+    ""matchStrategy"": 1
+  }]
+}]",61b706ef11a3ffed50e0626be32098e4,2021-12-29 03:37:27,2022-09-21 06:53:33,nacos,222.71.40.154,xxw-platform-gateway,dev,"","","",json,"",""
+581,rocketmq-dev.properties,xxw-platform,name = rocketmq,205d706fc80d11dca7b8e02e34a95e6d,2022-09-06 09:04:22,2022-09-06 09:04:58,nacos,222.71.40.154,xxw-platform-rocketmq,dev,"","","",properties,"",""
+582,rocketmq-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/rocketmq/hello"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",43d8f20a72d214b6412367567454517f,2022-09-06 09:04:22,2022-09-06 09:05:19,nacos,222.71.40.154,xxw-platform-rocketmq,dev,"","","",json,"",""
+590,sharding-dev.properties,xxw-platform,name = sharding,ead69ff6d07cdee8320a2ad75cbc44a8,2022-09-16 07:04:33,2022-09-16 07:05:00,nacos,222.71.40.154,xxw-platform-sharding,dev,"","","",properties,"",""
+591,sharding-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/sharding/order"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",54dad3c4408a0feaaf55c6e802356640,2022-09-16 07:04:33,2022-09-16 07:04:48,nacos,222.71.40.154,xxw-platform-sharding,dev,"","","",json,"",""
+594,order-dev.properties,xxw-platform,name = order,6cdcd9af069e8477cbbaeedec3a680b6,2022-09-19 07:05:42,2022-09-19 07:06:07,nacos,222.71.40.154,xxw-platform-order,dev,"","","",properties,"",""
+595,order-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/order/hello1"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",87f392b377588aeab6571f22726d94d2,2022-09-19 07:05:42,2022-09-21 06:51:20,nacos,222.71.40.154,xxw-platform-order,dev,"","","",json,"",""
+598,waybill-dev.properties,xxw-platform,name = waybill,f8ca88418cdd3ce7cdc00aa3e53c9684,2022-09-19 07:06:56,2022-09-19 07:07:11,nacos,222.71.40.154,xxw-platform-waybill,dev,"","","",properties,"",""
+599,waybill-dev-sentinel,xxw-platform,"[
+    {
+		""resource"": ""/waybill/hello"",
+		""limitApp"": ""default"",
+		""grade"": 1,
+		""count"": 1,
+		""strategy"": 0,
+		""controlBehavior"": 0,
+		""clusterMode"": false
+    }
+]",dc717e331d1ce3e04a3dbe794bdb2cdc,2022-09-19 07:06:56,2022-09-19 07:07:33,nacos,222.71.40.154,xxw-platform-waybill,dev,"","","",json,"",""
+609,seata-server.yml,SEATA_GROUP,"service:
+  vgroupMapping:
+    netty-seata-test-group: default
+    netty-system-platform-group: default
+    netty-mybatis-plus-test-group: default
+  default:
+    grouplist: '106.14.132.211:8091'
+  enableDegrade: false
+  disableGlobalTransaction: false
+client:
+  rm:
+    asyncCommitBufferLimit: 10000
+    lock:
+      retryInterval: 10
+      retryTimes: 30
+      retryPolicyBranchRollbackOnConflict: true
+    reportRetryCount: 5
+    tableMetaCheckEnable: true
+    tableMetaCheckerInterval: 60000
+    sqlParserType: druid
+    reportSuccessEnable: false
+    sagaBranchRegisterEnable: false
+    sagaJsonParser: fastjson
+    tccActionInterceptorOrder: -2147482648
+  tm:
+    commitRetryCount: 5
+    rollbackRetryCount: 5
+    defaultGlobalTransactionTimeout: 60000
+    degradeCheck: false
+    degradeCheckAllowTimes: 10
+    degradeCheckPeriod: 2000
+    interceptorOrder: -2147482648
+  undo:
+    dataValidation: true
+    logSerialization: jackson
+    onlyCareUpdateColumns: true
+    logTable: undo_log
+    compress:
+      enable: true
+      type: zip
+      threshold: 64k
+server:
+  undo:
+    logSaveDays: 7
+    logDeletePeriod: 86400000
+  recovery:
+    committingRetryPeriod: 1000
+    asynCommittingRetryPeriod: 1000
+    rollbackingRetryPeriod: 1000
+    timeoutRetryPeriod: 1000
+  maxCommitRetryTimeout: -1
+  maxRollbackRetryTimeout: -1
+  rollbackRetryTimeoutUnlockEnable: false
+  distributedLockExpireTime: 10000
+  xaerNotaRetryTimeout: 60000
+  session:
+    branchAsyncQueueSize: 5000
+    enableBranchAsyncRemove: false
+  enableParallelRequestHandle: false
+tcc:
+  fence:
+    logTableName: tcc_fence_log
+    cleanPeriod: 1h
+log:
+  exceptionRate: 100
+store:
+  mode: db
+  lock:
+    mode: db
+  session:
+    mode: db
+  db:
+    datasource: druid
+    dbType: mysql
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://106.14.132.211:3307/seata?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    user: seata
+    password: seata
+    minConn: 5
+    maxConn: 30
+    globalTable: global_table
+    branchTable: branch_table
+    distributedLockTable: distributed_lock
+    queryLimit: 100
+    lockTable: lock_table
+    maxWait: 5000
+metrics:
+  enabled: false
+  registryType: compact
+  exporterList: prometheus
+  exporterPrometheusPort: 9898
+transport:
+  type: TCP
+  server: NIO
+  heartbeat: true
+  enableTmClientBatchSendRequest: false
+  enableRmClientBatchSendRequest: true
+  enableTcServerBatchSendResponse: false
+  rpcRmRequestTimeout: 30000
+  rpcTmRequestTimeout: 30000
+  rpcTcRequestTimeout: 30000
+  threadFactory:
+    bossThreadPrefix: NettyBoss
+    workerThreadPrefix: NettyServerNIOWorker
+    serverExecutorThreadPrefix: NettyServerBizHandler
+    shareBossWorker: false
+    clientSelectorThreadPrefix: NettyClientSelector
+    clientSelectorThreadSize: 1
+    clientWorkerThreadPrefix: NettyClientWorkerThread
+    bossThreadSize: 1
+    workerThreadSize: default
+  shutdown:
+    wait: 3
+  serialization: seata
+  compressor: none",858dadfb3a24ecde95dbc11acd7fa2b4,2022-09-20 07:08:36,2022-10-20 09:52:34,nacos,222.71.40.154,"",seata,"","","",yaml,"",""
+622,service.vgroupMapping.default_tx_group,SEATA_GROUP,default,c21f969b5f03d33d43e04f8f136e7682,2022-10-20 10:18:49,2022-10-20 10:18:49,nacos,222.71.40.154,"",seata,,,,text,,""
