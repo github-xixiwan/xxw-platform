@@ -102,7 +102,7 @@ public class GateLog {
             ip = request.getRemoteAddr();
         }
         String comma = ",";
-        String localhost = "127.0.0.1";
+        String localhost = "10.66.70.183";
         if (ip.contains(comma)) {
             ip = ip.split(",")[0];
         }

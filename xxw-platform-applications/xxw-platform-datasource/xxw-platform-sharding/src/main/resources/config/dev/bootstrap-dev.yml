@@ -2,21 +2,21 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 106.14.132.211:8848
+        server-addr: 10.66.70.183:8848
         namespace: dev
         group: xxw-platform
         file-extension: properties
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        dashboard: 10.66.70.183:8080
   boot:
     admin:
       client:
-        url: http://127.0.0.1:9999
+        url: http://10.66.70.183:9999
         username: admin
         password: 123456
         instance:
-          service-base-url: http://127.0.0.1:9999
+          service-base-url: http://10.66.70.183:9999
   shardingsphere:
     props:
       sql-show: true
@@ -25,13 +25,13 @@ spring:
       ds0:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://106.14.132.211:3307/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://10.66.70.183:3306/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: order-0
         password: order-0
       ds1:
         type: com.zaxxer.hikari.HikariDataSource
         driver-class-name: com.mysql.cj.jdbc.Driver
-        url: jdbc:mysql://106.14.132.211:3307/xxw-order-1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+        url: jdbc:mysql://10.66.70.183:3306/xxw-order-1?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
         username: order-1
         password: order-1
     rules:

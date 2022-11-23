@@ -2,21 +2,21 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 106.14.132.211:8848
+        server-addr: 10.66.70.183:8848
         namespace: dev
         group: xxw-platform
         file-extension: properties
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        dashboard: 10.66.70.183:8080
   boot:
     admin:
       client:
-        url: http://127.0.0.1:9999
+        url: http://10.66.70.183:9999
         username: admin
         password: 123456
         instance:
-          service-base-url: http://127.0.0.1:9999
+          service-base-url: http://10.66.70.183:9999
 seata:
   enable-auto-data-source-proxy: false
   application-id: ${spring.application.name}  # seata 应用编号，默认为 ${spring.application.name}
@@ -24,7 +24,7 @@ seata:
   # seata 服务配置项，对应 ServiceProperties 类
   service:
     grouplist:
-      seata-server: 127.0.0.1:8091
+      seata-server: 10.66.70.183:8091
     # 虚拟组和分组的映射, key一定要与 tx-service-group一致
     vgroupMapping:
       default_tx_group: default
@@ -32,12 +32,12 @@ seata:
   registry:
     type: nacos # 注册中心类型，默认为 file
     nacos:
-      server-addr: 106.14.132.211:8848 # Nacos 服务地址
+      server-addr: 10.66.70.183:8848 # Nacos 服务地址
       namespace: seata
       group: SEATA_GROUP
   config:
     type: nacos # 注册中心类型，默认为 file
     nacos:
-      server-addr: 106.14.132.211:8848 # Nacos 服务地址
+      server-addr: 10.66.70.183:8848 # Nacos 服务地址
       namespace: seata
       group: SEATA_GROUP

@@ -2,7 +2,7 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 106.14.132.211:8848
+        server-addr: 10.66.70.183:8848
         namespace: dev
         group: xxw-platform
   security:

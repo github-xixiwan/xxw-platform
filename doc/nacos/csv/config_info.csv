@@ -108,7 +108,7 @@
     netty-system-platform-group: default
     netty-mybatis-plus-test-group: default
   default:
-    grouplist: '106.14.132.211:8091'
+    grouplist: '10.66.70.183:8091'
   enableDegrade: false
   disableGlobalTransaction: false
 client:
@@ -177,7 +177,7 @@ store:
     datasource: druid
     dbType: mysql
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://106.14.132.211:3307/seata?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    url: jdbc:mysql://10.66.70.183:3306/seata?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
     user: seata
     password: seata
     minConn: 5

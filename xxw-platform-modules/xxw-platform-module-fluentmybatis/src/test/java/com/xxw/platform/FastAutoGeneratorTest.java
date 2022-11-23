@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 public class FastAutoGeneratorTest {
 
     // 数据源 url
-    static final String url = "jdbc:mysql://106.14.132.211:3307/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai";
+    static final String url = "jdbc:mysql://10.66.70.183:3306/xxw-order-0?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai";
     // 数据库用户名
     static final String username = "order-0";
     // 数据库密码

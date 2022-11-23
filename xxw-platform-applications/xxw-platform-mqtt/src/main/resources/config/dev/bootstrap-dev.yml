@@ -2,28 +2,28 @@ spring:
   cloud:
     nacos:
       config:
-        server-addr: 106.14.132.211:8848
+        server-addr: 10.66.70.183:8848
         namespace: dev
         group: xxw-platform
         file-extension: properties
     sentinel:
       transport:
-        dashboard: 127.0.0.1:8080
+        dashboard: 10.66.70.183:8080
   boot:
     admin:
       client:
-        url: http://127.0.0.1:9999
+        url: http://10.66.70.183:9999
         username: admin
         password: 123456
   mqtt:
     publish:
-      uris: tcp://127.0.0.1:1883
+      uris: tcp://10.66.70.183:1883
       userName: admin
       password: yunlu
       defaultTopic: defaultTopic
       clientId: ${spring.application.name}-${server.port}-publish
     subscribe:
-      uris: tcp://127.0.0.1:1883
+      uris: tcp://10.66.70.183:1883
       userName: admin
       password: yunlu
       connectionTimeout: 30
