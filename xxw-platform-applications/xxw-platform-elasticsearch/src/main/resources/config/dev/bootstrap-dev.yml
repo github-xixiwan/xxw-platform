@@ -14,7 +14,7 @@ spring:
       client:
         url: http://10.66.70.183:9999
         username: admin
-        password: 123456
+        password: 13875470948
         instance:
           service-base-url: http://10.66.70.183:9999
   elasticsearch:
