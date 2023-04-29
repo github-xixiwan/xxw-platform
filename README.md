@@ -18,7 +18,7 @@
 > 7. elasticsearch:搜索引擎
 > 8. redisson:redis与分布式锁
 > 9. mqtt:物联网消息通讯
-> 10. fluent-mybatis:mybatis增强工具
+> 10. mybatis-plus:mybatis增强工具
 > 11. dynamic-datasource:多数据源
 > 12. shardingsphere:分库分表
 

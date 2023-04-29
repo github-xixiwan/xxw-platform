@@ -25,9 +25,8 @@
         <spring-boot-admin.version>2.6.9</spring-boot-admin.version>
 
         <!-- Maven modules Versions -->
-        <mybatis.version>2.2.2</mybatis.version>
-        <fluent-mybatis.version>1.9.8</fluent-mybatis.version>
-        <dynamic-datasource.version>3.5.2</dynamic-datasource.version>
+        <mybatis-plus.version>3.5.3.1</mybatis-plus.version>
+        <dynamic-datasource.version>3.6.1</dynamic-datasource.version>
         <guava.version>31.1-jre</guava.version>
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
@@ -92,7 +91,7 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-fluentmybatis</artifactId>
+                <artifactId>xxw-platform-module-mybatis</artifactId>
                 <version>${revision}</version>
             </dependency>
 
@@ -124,19 +123,14 @@
             </dependency>
 
             <dependency>
-                <groupId>org.mybatis.spring.boot</groupId>
-                <artifactId>mybatis-spring-boot-starter</artifactId>
-                <version>${mybatis.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.github.atool</groupId>
-                <artifactId>fluent-mybatis</artifactId>
-                <version>${fluent-mybatis.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.github.atool</groupId>
-                <artifactId>fluent-mybatis-processor</artifactId>
-                <version>${fluent-mybatis.version}</version>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-generator</artifactId>
+                <version>${mybatis-plus.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.baomidou</groupId>

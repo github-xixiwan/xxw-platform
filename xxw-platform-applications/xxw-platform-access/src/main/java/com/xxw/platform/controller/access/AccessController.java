@@ -38,15 +38,13 @@ public class AccessController {
 
     @PostMapping("/order")
     public Result<String> order(@RequestBody OrderDTO dto) {
-        orderApi.buyOrder0(dto);
-        orderApi.buyOrder1(dto);
+        orderApi.buyOrder(dto);
         return Result.success(name);
     }
 
     @PostMapping("/waybill")
     public Result<String> waybill(@RequestBody WaybillDTO dto) {
-        waybillApi.buyOrder0(dto);
-        waybillApi.buyOrder1(dto);
+        waybillApi.buyWaybill(dto);
         return Result.success(name);
     }
 
@@ -55,13 +53,13 @@ public class AccessController {
     public Result<String> seata(@RequestBody SeataDTO dto) {
         OrderDTO orderDto = new OrderDTO();
         orderDto.setId(dto.getId());
-        orderApi.buyOrder0(orderDto);
+        orderApi.buyOrder(orderDto);
 
         WaybillDTO waybillDto = new WaybillDTO();
         waybillDto.setId(dto.getId());
-        waybillApi.buyOrder1(waybillDto);
+        waybillApi.buyWaybill(waybillDto);
 
-        System.out.println(1/0);
+        System.out.println(1 / 0);
         return Result.success(name);
     }
 }

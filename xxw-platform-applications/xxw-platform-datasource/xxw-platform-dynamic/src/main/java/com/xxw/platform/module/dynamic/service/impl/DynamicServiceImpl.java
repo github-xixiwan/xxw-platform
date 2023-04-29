@@ -1,10 +1,12 @@
 package com.xxw.platform.module.dynamic.service.impl;
 
-import com.xxw.platform.module.dynamic.dao.intf.XxwOrderDao;
-import com.xxw.platform.module.dynamic.entity.XxwOrderEntity;
+import com.xxw.platform.module.dynamic.entity.XxwOrder;
+import com.xxw.platform.module.dynamic.entity.XxwWaybill;
 import com.xxw.platform.module.dynamic.event.MsgDataEvent;
 import com.xxw.platform.module.dynamic.event.OrderDataEvent;
 import com.xxw.platform.module.dynamic.service.DynamicService;
+import com.xxw.platform.module.dynamic.service.IXxwOrderService;
+import com.xxw.platform.module.dynamic.service.IXxwWaybillService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
 import com.xxw.platform.module.util.json.JsonUtil;
 import com.xxw.platform.module.util.rest.Result;
@@ -14,7 +16,6 @@ import ma.glasnost.orika.MapperFacade;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
@@ -38,17 +39,23 @@ public class DynamicServiceImpl implements DynamicService {
     private ApplicationContext applicationContext;
 
     @Resource
-    @Qualifier("xxwOrder0DaoImpl")
-    private XxwOrderDao xxwOrderDao0;
+    private IXxwOrderService xxwOrderService;
 
     @Resource
-    @Qualifier("xxwOrder1DaoImpl")
-    private XxwOrderDao xxwOrderDao1;
+    private IXxwWaybillService xxwWaybillService;
 
     @Override
     public Result<String> buyOrder(Integer id) {
         applicationContext.publishEvent(new OrderDataEvent(id));
         applicationContext.publishEvent(new MsgDataEvent("订单ID：" + id));
+
+        XxwOrder xxwOrder = new XxwOrder();
+        xxwOrder.setOrderSn(String.valueOf(id));
+        xxwOrderService.save(xxwOrder);
+
+        XxwWaybill xxwWaybill = new XxwWaybill();
+        xxwWaybill.setOrderSn(String.valueOf(id));
+        xxwWaybillService.save(xxwWaybill);
         return Result.success();
     }
 
@@ -68,9 +75,9 @@ public class DynamicServiceImpl implements DynamicService {
                 Object o = globalRedisCache.get(key);
                 if (o == null) {
                     //缓存不存在查数据库
-                    XxwOrderEntity xxwOrderEntity = xxwOrderDao0.selectById(id);
-                    if (xxwOrderEntity != null) {
-                        vo = mapperFacade.map(xxwOrderEntity, DynamicVO.class);
+                    XxwOrder xxwOrder = xxwOrderService.getById(id);
+                    if (xxwOrder != null) {
+                        vo = mapperFacade.map(xxwOrder, DynamicVO.class);
                         //放入redis
                         globalRedisCache.set(key, JsonUtil.toJson(vo), 60);
                         return Result.success(vo);

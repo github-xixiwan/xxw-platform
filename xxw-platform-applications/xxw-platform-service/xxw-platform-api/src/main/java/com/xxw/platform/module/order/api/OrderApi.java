@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "order", path = "/order")
 public interface OrderApi {
 
-    @PostMapping("/buyOrder0")
-    Result<String> buyOrder0(@RequestBody OrderDTO dto);
-
-    @PostMapping("/buyOrder1")
-    Result<String> buyOrder1(@RequestBody OrderDTO dto);
+    @PostMapping("/buyOrder")
+    Result<String> buyOrder(@RequestBody OrderDTO dto);
 
 }

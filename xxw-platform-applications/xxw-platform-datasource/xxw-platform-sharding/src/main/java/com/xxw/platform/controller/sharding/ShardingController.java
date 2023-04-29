@@ -1,7 +1,8 @@
 package com.xxw.platform.controller.sharding;
 
-import com.xxw.platform.module.sharding.dao.intf.XxwOrderDao;
-import com.xxw.platform.module.sharding.entity.XxwOrderEntity;
+import com.xxw.platform.module.sharding.dto.OrderDTO;
+import com.xxw.platform.module.sharding.entity.XxwOrder;
+import com.xxw.platform.module.sharding.service.IXxwOrderService;
 import com.xxw.platform.module.util.rest.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -22,7 +23,7 @@ public class ShardingController {
     private String name;
 
     @Resource
-    private XxwOrderDao xxwOrderDao;
+    private IXxwOrderService xxwOrderService;
 
     @GetMapping("/hello")
     public Result<String> hello() {
@@ -31,15 +32,14 @@ public class ShardingController {
 
     @GetMapping("/buyOrder")
     public Result<String> buyOrder(@RequestParam("id") Integer id) {
-        XxwOrderEntity entity = new XxwOrderEntity();
-        entity.setId(id);
-        entity.setOrderSn(String.valueOf(id));
-        xxwOrderDao.save(entity);
+        OrderDTO orderDto = new OrderDTO();
+        orderDto.setId(id);
+        xxwOrderService.buyOrder(orderDto);
         return Result.success(name);
     }
 
     @GetMapping("/listOrder")
-    public Result<List<XxwOrderEntity>> listOrder() {
-        return xxwOrderDao.listOrder();
+    public Result<List<XxwOrder>> listOrder() {
+        return Result.success(xxwOrderService.list());
     }
 }

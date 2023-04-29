@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 @FeignClient(name = "waybill", path = "/waybill")
 public interface WaybillApi {
 
-    @PostMapping("/buyOrder0")
-    Result<String> buyOrder0(@RequestBody WaybillDTO dto);
-
-    @PostMapping("/buyOrder1")
-    Result<String> buyOrder1(@RequestBody WaybillDTO dto);
+    @PostMapping("/buyWaybill")
+    Result<String> buyWaybill(@RequestBody WaybillDTO dto);
 
 }
