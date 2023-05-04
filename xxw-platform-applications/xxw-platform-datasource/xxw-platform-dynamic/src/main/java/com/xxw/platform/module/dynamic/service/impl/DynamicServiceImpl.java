@@ -66,7 +66,7 @@ public class DynamicServiceImpl implements DynamicService {
         String name = "getOrder";
         long waitTime = 5;
         TimeUnit unit = TimeUnit.SECONDS;
-        RLock rLock = redissonClient.getLock(name);
+        RLock rLock = redissonClient.getLock(index + "-" + name);
         try {
             boolean res = rLock.tryLock(waitTime, unit);
             if (res) {

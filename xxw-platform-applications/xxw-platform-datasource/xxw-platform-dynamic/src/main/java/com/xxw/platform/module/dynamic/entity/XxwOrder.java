@@ -29,9 +29,9 @@ public class XxwOrder implements Serializable {
 
     private Integer orderStatus;
 
-    private Byte shippingStatus;
+    private Integer shippingStatus;
 
-    private Byte payStatus;
+    private Integer payStatus;
 
     private String consignee;
 
@@ -49,7 +49,7 @@ public class XxwOrder implements Serializable {
 
     private String postscript;
 
-    private Byte shippingId;
+    private Integer shippingId;
 
     private String shippingName;
 
@@ -138,19 +138,19 @@ public class XxwOrder implements Serializable {
         this.orderStatus = orderStatus;
     }
 
-    public Byte getShippingStatus() {
+    public Integer getShippingStatus() {
         return shippingStatus;
     }
 
-    public void setShippingStatus(Byte shippingStatus) {
+    public void setShippingStatus(Integer shippingStatus) {
         this.shippingStatus = shippingStatus;
     }
 
-    public Byte getPayStatus() {
+    public Integer getPayStatus() {
         return payStatus;
     }
 
-    public void setPayStatus(Byte payStatus) {
+    public void setPayStatus(Integer payStatus) {
         this.payStatus = payStatus;
     }
 
@@ -218,11 +218,11 @@ public class XxwOrder implements Serializable {
         this.postscript = postscript;
     }
 
-    public Byte getShippingId() {
+    public Integer getShippingId() {
         return shippingId;
     }
 
-    public void setShippingId(Byte shippingId) {
+    public void setShippingId(Integer shippingId) {
         this.shippingId = shippingId;
     }
 
