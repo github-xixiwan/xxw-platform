@@ -20,22 +20,22 @@ spring:
           name-server: 10.66.70.183:9876
           group: default-group
       bindings:
-        addOrder-out-0:
-          destination: add-order
+        normalMessage-out-0:
+          destination: normal-message
           content-type: application/json
-        addOrder-in-0:
-          destination: add-order
+        normalMessage-in-0:
+          destination: normal-message
           content-type: application/json
-          group: add-order-group
-        addOrders-out-0:
-          destination: add-orders
+          group: normal-message-group
+        delayMessage-out-0:
+          destination: delay-message
           content-type: application/json
-        addOrders-in-0:
-          destination: add-orders
+        delayMessage-in-0:
+          destination: delay-message
           content-type: application/json
-          group: add-orders-group
+          group: delay-message-group
       function:
-        definition: addOrder;addOrders
+        definition: normalMessage;delayMessage
   boot:
     admin:
       client:

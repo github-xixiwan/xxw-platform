@@ -1,6 +1,7 @@
 package com.xxw.platform.module.rocketmq.stream.consume;
 
 import com.xxw.platform.module.rocketmq.dto.RocketmqDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.function.Consumer;
 
+@Slf4j
 @Service
 @RefreshScope
 public class RocketmqReceive {
@@ -16,10 +18,10 @@ public class RocketmqReceive {
     private String name;
 
     @Bean
-    public Consumer<RocketmqDTO> addOrder() {
+    public Consumer<RocketmqDTO> normalMessage() {
         return message -> {
             try {
-                System.out.println(name + "消费新增订单: " + message);
+                log.info("消费普通消息：{}", message);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -27,10 +29,10 @@ public class RocketmqReceive {
     }
 
     @Bean
-    public Consumer<RocketmqDTO> addOrders() {
+    public Consumer<RocketmqDTO> delayMessage() {
         return message -> {
             try {
-                System.out.println(name + "消费新增订单s: " + message);
+                log.info("消费延时消息：{}", message);
             } catch (Exception e) {
                 e.printStackTrace();
             }

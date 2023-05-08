@@ -25,9 +25,15 @@ public class RocketmqController {
         return Result.success(name);
     }
 
-    @PostMapping("/orderMq")
-    public Result<String> orderMq(@RequestBody RocketmqDTO dto) {
-        rocketmqSend.sendOrder(dto);
+    @PostMapping("/normalMessage")
+    public Result<String> normalMessage(@RequestBody RocketmqDTO dto) {
+        rocketmqSend.normalMessage(dto);
+        return Result.success(name);
+    }
+
+    @PostMapping("/delayMessage")
+    public Result<String> delayMessage(@RequestBody RocketmqDTO dto) {
+        rocketmqSend.delayMessage(dto);
         return Result.success(name);
     }
 }
