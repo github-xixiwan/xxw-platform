@@ -25,12 +25,12 @@
         <guava.version>31.1-jre</guava.version>
         <io.version>2.11.0</io.version>
         <orika.version>1.5.4</orika.version>
-        <redisson.version>3.17.6</redisson.version>
+        <redisson.version>3.21.0</redisson.version>
         <elasticsearch.version>7.15.2</elasticsearch.version>
-        <shardingsphere.version>5.2.0</shardingsphere.version>
+        <shardingsphere.version>5.2.1</shardingsphere.version>
         <userAgent.version>1.21</userAgent.version>
-        <easyexcel.version>3.1.1</easyexcel.version>
-        <hutool.version>5.8.7</hutool.version>
+        <easyexcel.version>3.3.1</easyexcel.version>
+        <hutool.version>5.8.18</hutool.version>
     </properties>
 
     <dependencyManagement>
