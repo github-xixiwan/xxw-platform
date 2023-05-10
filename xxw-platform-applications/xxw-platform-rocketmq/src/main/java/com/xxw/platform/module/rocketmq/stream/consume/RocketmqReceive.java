@@ -38,4 +38,15 @@ public class RocketmqReceive {
             }
         };
     }
+
+    @Bean
+    public Consumer<RocketmqDTO> filterMessage() {
+        return message -> {
+            try {
+                log.info("消费过滤消息：{}", message);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        };
+    }
 }

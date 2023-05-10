@@ -36,4 +36,10 @@ public class RocketmqController {
         rocketmqSend.delayMessage(dto);
         return Result.success(name);
     }
+
+    @PostMapping("/filterMessage")
+    public Result<String> fifoMessage(@RequestBody RocketmqDTO dto) {
+        rocketmqSend.filterMessage(dto);
+        return Result.success(name);
+    }
 }

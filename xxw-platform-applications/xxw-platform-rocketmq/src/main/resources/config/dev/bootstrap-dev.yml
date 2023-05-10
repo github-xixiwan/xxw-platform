@@ -19,6 +19,10 @@ spring:
         binder:
           name-server: 10.66.70.183:9876
           group: default-group
+        bindings:
+          filterMessage-in-0:
+            consumer:
+              subscription: 1
       bindings:
         normalMessage-out-0:
           destination: normal-message
@@ -34,8 +38,15 @@ spring:
           destination: delay-message
           content-type: application/json
           group: delay-message-group
+        filterMessage-out-0:
+          destination: filter-message
+          content-type: application/json
+        filterMessage-in-0:
+          destination: filter-message
+          content-type: application/json
+          group: filter-message-group
       function:
-        definition: normalMessage;delayMessage
+        definition: normalMessage;delayMessage;filterMessage
   boot:
     admin:
       client:
