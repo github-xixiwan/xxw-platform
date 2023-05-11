@@ -20,6 +20,10 @@ spring:
           name-server: 10.66.70.183:9876
           group: default-group
         bindings:
+          normalMessage-in-0:
+            consumer:
+              push:
+                delayLevelWhenNextConsume: -1
           filterMessage-in-0:
             consumer:
               subscription: 1
@@ -31,6 +35,8 @@ spring:
           destination: normal-message
           content-type: application/json
           group: normal-message-group
+          consumer:
+            max-attempts: 1
         delayMessage-out-0:
           destination: delay-message
           content-type: application/json

@@ -20,11 +20,12 @@ public class RocketmqReceive {
     @Bean
     public Consumer<RocketmqDTO> normalMessage() {
         return message -> {
-            try {
+//            try {
                 log.info("消费普通消息：{}", message);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//                System.out.println(1/0);
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         };
     }
 
