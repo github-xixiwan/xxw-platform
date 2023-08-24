@@ -51,8 +51,8 @@ spring:
           destination: filter-message
           content-type: application/json
           group: filter-message-group
-      function:
-        definition: normalMessage;delayMessage;filterMessage
+    function:
+      definition: normalMessage;delayMessage;filterMessage
   boot:
     admin:
       client:

@@ -20,12 +20,22 @@ public class RocketmqReceive {
     @Bean
     public Consumer<RocketmqDTO> normalMessage() {
         return message -> {
-//            try {
+            //普通消息（相同组默认顺序消息）
+            //5s 10s 30s 1m 2m 3m 4m 5m 6m 7m 8m 9m 10m 20m 30m 1h 2h
+            //最大重试 默认3次（若重试次数超过16次，后面每次重试间隔都为2小时）
+            //消息保留天数 3天
+            try {
+                Long userId = message.getUserId();
+                if (userId.equals(2L)) {
+                    log.info("1111111：睡眠前");
+                    Thread.sleep(10000);
+                    log.info("2222222：睡眠后");
+                }
                 log.info("消费普通消息：{}", message);
 //                System.out.println(1/0);
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         };
     }
 

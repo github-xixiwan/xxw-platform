@@ -38,7 +38,7 @@ public class RocketmqController {
     }
 
     @PostMapping("/filterMessage")
-    public Result<String> fifoMessage(@RequestBody RocketmqDTO dto) {
+    public Result<String> filterMessage(@RequestBody RocketmqDTO dto) {
         rocketmqSend.filterMessage(dto);
         return Result.success(name);
     }
