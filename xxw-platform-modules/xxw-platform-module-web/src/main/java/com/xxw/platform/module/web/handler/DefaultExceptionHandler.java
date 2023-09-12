@@ -1,10 +1,14 @@
 package com.xxw.platform.module.web.handler;
 
+import cn.hutool.core.util.StrUtil;
 import com.xxw.platform.module.common.exception.BusinessException;
 import com.xxw.platform.module.common.exception.ElasticsearchException;
 import com.xxw.platform.module.common.exception.SystemException;
 import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.module.web.constant.CustomBusinessError;
+import io.seata.core.context.RootContext;
+import io.seata.core.exception.TransactionException;
+import io.seata.tm.api.GlobalTransactionContext;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.core.annotation.Order;
@@ -49,6 +53,13 @@ public class DefaultExceptionHandler {
 
     private Result<Void> handelException(Exception ex) {
         log.error("Exception:{}", ExceptionUtils.getStackTrace(ex));
+        if (StrUtil.isNotBlank(RootContext.getXID())) {
+            try {
+                GlobalTransactionContext.reload(RootContext.getXID()).rollback();
+            } catch (TransactionException e) {
+                throw new RuntimeException(e);
+            }
+        }
         return Result.failure(CustomBusinessError.UNKNOWN_EXCEPTION);
     }
 
