@@ -1,7 +1,7 @@
 package com.xxw.platform.filter;
 
-import com.xxw.platform.module.util.json.JsonUtil;
-import com.xxw.platform.module.util.rest.Result;
+import cn.hutool.json.JSONUtil;
+import com.xxw.platform.module.common.rest.Result;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -47,7 +47,7 @@ public class AuthGlobalFilter implements GlobalFilter {
         if (!flag) {
             ServerHttpResponse response = exchange.getResponse();
             Result<Object> failure = Result.failure(0, "需要鉴权");
-            byte[] bytes = JsonUtil.toJson(failure).getBytes(StandardCharsets.UTF_8);
+            byte[] bytes = JSONUtil.toJsonStr(failure).getBytes(StandardCharsets.UTF_8);
             DataBuffer buffer = response.bufferFactory().wrap(bytes);
             // 指定编码，否则在浏览器中会中文乱码
             response.getHeaders().add("Content-Type", "application/json;charset=UTF-8");

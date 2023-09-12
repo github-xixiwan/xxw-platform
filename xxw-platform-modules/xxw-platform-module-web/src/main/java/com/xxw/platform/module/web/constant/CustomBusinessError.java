@@ -1,6 +1,6 @@
 package com.xxw.platform.module.web.constant;
 
-import com.xxw.platform.module.util.exception.ErrorEnumInterface;
+import com.xxw.platform.module.common.exception.ErrorEnumInterface;
 
 /**
  * 自定义级抛错

@@ -37,7 +37,7 @@
         <dependencies>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-module-util</artifactId>
+                <artifactId>xxw-platform-module-common</artifactId>
                 <version>${revision}</version>
             </dependency>
             <dependency>
@@ -79,12 +79,7 @@
             </dependency>
             <dependency>
                 <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-starter-mqtt-publish</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xxw.platform</groupId>
-                <artifactId>xxw-platform-starter-mqtt-subscribe</artifactId>
+                <artifactId>xxw-platform-starter-mqtt</artifactId>
                 <version>${revision}</version>
             </dependency>
 

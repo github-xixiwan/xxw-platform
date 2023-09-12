@@ -1,5 +1,6 @@
 package com.xxw.platform.module.dynamic.service.impl;
 
+import cn.hutool.json.JSONUtil;
 import com.xxw.platform.module.dynamic.entity.XxwOrder;
 import com.xxw.platform.module.dynamic.entity.XxwWaybill;
 import com.xxw.platform.module.dynamic.event.MsgDataEvent;
@@ -8,8 +9,7 @@ import com.xxw.platform.module.dynamic.service.DynamicService;
 import com.xxw.platform.module.dynamic.service.IXxwOrderService;
 import com.xxw.platform.module.dynamic.service.IXxwWaybillService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
-import com.xxw.platform.module.util.json.JsonUtil;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.starter.redisson.cache.IGlobalRedisCache;
 import lombok.extern.slf4j.Slf4j;
 import ma.glasnost.orika.MapperFacade;
@@ -79,11 +79,11 @@ public class DynamicServiceImpl implements DynamicService {
                     if (xxwOrder != null) {
                         vo = mapperFacade.map(xxwOrder, DynamicVO.class);
                         //放入redis
-                        globalRedisCache.set(key, JsonUtil.toJson(vo), 60);
+                        globalRedisCache.set(key, JSONUtil.toJsonStr(vo), 60);
                         return Result.success(vo);
                     }
                 }
-                return Result.success(JsonUtil.fromJson(String.valueOf(o), DynamicVO.class));
+                return Result.success(JSONUtil.toBean(String.valueOf(o), DynamicVO.class));
             } else {
                 System.out.println("获取锁失败");
             }

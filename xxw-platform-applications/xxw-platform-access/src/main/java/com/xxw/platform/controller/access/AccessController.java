@@ -3,7 +3,7 @@ package com.xxw.platform.controller.access;
 import com.xxw.platform.module.access.dto.SeataDTO;
 import com.xxw.platform.module.order.api.OrderApi;
 import com.xxw.platform.module.order.dto.OrderDTO;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.module.waybill.api.WaybillApi;
 import com.xxw.platform.module.waybill.dto.WaybillDTO;
 import io.seata.spring.annotation.GlobalTransactional;

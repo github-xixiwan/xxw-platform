@@ -1,7 +1,7 @@
 package com.xxw.platform.module.web.aspectj;
 
+import cn.hutool.json.JSONUtil;
 import com.google.common.collect.Maps;
-import com.xxw.platform.module.util.json.JsonUtil;
 import eu.bitwalker.useragentutils.UserAgent;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,7 +56,7 @@ public class GateLog {
         String header = request.getHeader("User-Agent");
         UserAgent userAgent = UserAgent.parseUserAgentString(header);
         final Log l = Log.builder().threadId(Long.toString(Thread.currentThread().getId())).threadName(Thread.currentThread().getName()).ip(getIp(request)).url(request.getRequestURL().toString()).classMethod(String.format("%s.%s", point.getSignature().getDeclaringTypeName(), point.getSignature().getName())).httpMethod(request.getMethod()).requestParams(getNameAndValue(point)).result(result).timeCost(System.currentTimeMillis() - startTime).userAgent(header).browser(userAgent.getBrowser().toString()).os(userAgent.getOperatingSystem().toString()).build();
-        log.info("request_and_response:{}", JsonUtil.toJson(l));
+        log.info("request_and_response:{}", JSONUtil.toJsonStr(l));
         return result;
     }
 

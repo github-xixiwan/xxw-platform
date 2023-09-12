@@ -1,6 +1,6 @@
 package com.xxw.platform.module.dynamic.constant;
 
-import com.xxw.platform.module.util.exception.ErrorEnumInterface;
+import com.xxw.platform.module.common.exception.ErrorEnumInterface;
 
 /**
  * 订单业务级抛错

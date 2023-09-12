@@ -14,7 +14,7 @@
     </parent>
 
     <modules>
-        <module>xxw-platform-module-util</module>
+        <module>xxw-platform-module-common</module>
         <module>xxw-platform-module-web</module>
         <module>xxw-platform-module-web-exception</module>
         <module>xxw-platform-module-nacos</module>

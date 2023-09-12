@@ -5,7 +5,7 @@ import com.xxw.platform.module.dynamic.dto.DemoDataDTO;
 import com.xxw.platform.module.dynamic.listener.DemoDataListener;
 import com.xxw.platform.module.dynamic.service.DynamicService;
 import com.xxw.platform.module.dynamic.vo.DynamicVO;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;

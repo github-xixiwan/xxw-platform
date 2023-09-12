@@ -3,7 +3,7 @@ package com.xxw.platform.module.sharding.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.xxw.platform.module.sharding.dto.OrderDTO;
 import com.xxw.platform.module.sharding.entity.XxwOrder;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 
 /**
  * <p>

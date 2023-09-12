@@ -1,6 +1,6 @@
 package com.xxw.platform.module.waybill.api;
 
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.module.waybill.dto.WaybillDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

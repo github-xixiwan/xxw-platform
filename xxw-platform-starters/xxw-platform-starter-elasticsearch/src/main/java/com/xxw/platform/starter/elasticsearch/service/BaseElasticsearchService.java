@@ -1,7 +1,7 @@
 package com.xxw.platform.starter.elasticsearch.service;
 
 import cn.hutool.core.bean.BeanUtil;
-import com.xxw.platform.module.util.exception.ElasticsearchException;
+import com.xxw.platform.module.common.exception.ElasticsearchException;
 import com.xxw.platform.starter.elasticsearch.config.ElasticsearchProperties;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.lucene.search.join.ScoreMode;

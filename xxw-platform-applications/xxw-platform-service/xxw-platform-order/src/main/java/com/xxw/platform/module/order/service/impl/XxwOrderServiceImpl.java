@@ -6,7 +6,7 @@ import com.xxw.platform.module.order.dto.OrderDTO;
 import com.xxw.platform.module.order.entity.XxwOrder;
 import com.xxw.platform.module.order.mapper.XxwOrderMapper;
 import com.xxw.platform.module.order.service.IXxwOrderService;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -5,7 +5,7 @@ import com.xxw.platform.module.sharding.dto.OrderDTO;
 import com.xxw.platform.module.sharding.entity.XxwOrder;
 import com.xxw.platform.module.sharding.mapper.XxwOrderMapper;
 import com.xxw.platform.module.sharding.service.IXxwOrderService;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

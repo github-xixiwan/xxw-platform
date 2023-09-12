@@ -2,7 +2,7 @@ package com.xxw.platform.controller.rocketmq;
 
 import com.xxw.platform.module.rocketmq.dto.RocketmqDTO;
 import com.xxw.platform.module.rocketmq.stream.produce.RocketmqSend;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;

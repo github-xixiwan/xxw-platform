@@ -25,11 +25,7 @@
         </dependency>
         <dependency>
             <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-starter-mqtt-publish</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.xxw.platform</groupId>
-            <artifactId>xxw-platform-starter-mqtt-subscribe</artifactId>
+            <artifactId>xxw-platform-starter-mqtt</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

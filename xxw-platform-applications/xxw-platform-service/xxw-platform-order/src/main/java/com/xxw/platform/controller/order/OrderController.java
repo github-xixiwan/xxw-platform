@@ -3,7 +3,7 @@ package com.xxw.platform.controller.order;
 import com.xxw.platform.module.order.api.OrderApi;
 import com.xxw.platform.module.order.dto.OrderDTO;
 import com.xxw.platform.module.order.service.IXxwOrderService;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;

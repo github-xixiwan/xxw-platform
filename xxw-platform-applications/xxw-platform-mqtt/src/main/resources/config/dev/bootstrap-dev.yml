@@ -16,20 +16,13 @@ spring:
         username: admin
         password: 13875470948
   mqtt:
-    publish:
-      uris: tcp://10.66.70.183:1883
-      userName: admin
-      password: yunlu
-      defaultTopic: defaultTopic
-      clientId: ${spring.application.name}-${server.port}-publish
-    subscribe:
-      uris: tcp://10.66.70.183:1883
-      userName: admin
-      password: yunlu
-      connectionTimeout: 30
-      keepAliveInterval: 60
-      defaultTopic: defaultTopic
-      clientId: ${spring.application.name}-${server.port}-subscribe
-      cleanSession: false
-      automaticReconnect: true
-      maxReconnectDelay: 10000
+    uris: tcp://10.66.70.183:1883
+    userName: admin
+    password: yunlu
+    defaultTopic: defaultTopic
+    clientId: ${spring.application.name}-${server.port}
+    connectionTimeout: 30
+    keepAliveInterval: 60
+    cleanSession: false
+    automaticReconnect: true
+    maxReconnectDelay: 10000

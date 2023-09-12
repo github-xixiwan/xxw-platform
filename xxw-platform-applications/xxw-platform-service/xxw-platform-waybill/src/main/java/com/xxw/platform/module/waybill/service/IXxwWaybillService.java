@@ -1,7 +1,7 @@
 package com.xxw.platform.module.waybill.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.module.waybill.dto.WaybillDTO;
 import com.xxw.platform.module.waybill.entity.XxwWaybill;
 

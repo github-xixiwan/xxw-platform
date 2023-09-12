@@ -1,9 +1,9 @@
 package com.xxw.platform.module.web.handler;
 
-import com.xxw.platform.module.util.exception.BusinessException;
-import com.xxw.platform.module.util.exception.ElasticsearchException;
-import com.xxw.platform.module.util.exception.SystemException;
-import com.xxw.platform.module.util.rest.Result;
+import com.xxw.platform.module.common.exception.BusinessException;
+import com.xxw.platform.module.common.exception.ElasticsearchException;
+import com.xxw.platform.module.common.exception.SystemException;
+import com.xxw.platform.module.common.rest.Result;
 import com.xxw.platform.module.web.constant.CustomBusinessError;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.exception.ExceptionUtils;
