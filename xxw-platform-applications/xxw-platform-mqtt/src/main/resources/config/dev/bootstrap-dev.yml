@@ -16,9 +16,9 @@ spring:
         username: admin
         password: 13875470948
   mqtt:
-    uris: tcp://10.66.70.183:1883
+    uris: tcp://10.33.103.51:1883,tcp://10.33.103.52:1883,tcp://10.33.103.53:1883
     userName: admin
-    password: yunlu
+    password: iidv2IXmf0SKgH7E
     defaultTopic: defaultTopic
     clientId: ${spring.application.name}-${server.port}
     connectionTimeout: 30
@@ -26,3 +26,27 @@ spring:
     cleanSession: false
     automaticReconnect: true
     maxReconnectDelay: 10000
+seata:
+  enable-auto-data-source-proxy: false
+  application-id: ${spring.application.name}  # seata 应用编号，默认为 ${spring.application.name}
+  tx-service-group: default_tx_group # seata 事务组编号，用于 TC 集群名
+  # seata 服务配置项，对应 ServiceProperties 类
+  service:
+    grouplist:
+      seata-server: 10.66.70.183:8091
+    # 虚拟组和分组的映射, key一定要与 tx-service-group一致
+    vgroupMapping:
+      default_tx_group: default
+  # seata 注册中心配置项，对应 RegistryProperties 类
+  registry:
+    type: nacos # 注册中心类型，默认为 file
+    nacos:
+      server-addr: 10.66.70.183:8848 # Nacos 服务地址
+      namespace: seata
+      group: SEATA_GROUP
+  config:
+    type: nacos # 注册中心类型，默认为 file
+    nacos:
+      server-addr: 10.66.70.183:8848 # Nacos 服务地址
+      namespace: seata
+      group: SEATA_GROUP
